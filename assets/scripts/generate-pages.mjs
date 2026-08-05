@@ -5,11 +5,20 @@ import { fileURLToPath } from "url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, "..", "..");
 
+/** Public site origin on GitHub Pages (no trailing slash). */
+const SITE_URL = "https://midnajt.github.io/DentalPassion";
+
 const fonts = `  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,450;9..144,550;9..144,650&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">`;
 
-function head({ title, description, active, heroHeader = false }) {
+function head({ title, description, active = "", heroHeader = false, pagePath = "" }) {
+  const file = pagePath || active || "index.html";
+  const pageUrl =
+    file === "index.html" ? SITE_URL : `${SITE_URL}/${file}`;
+  const ogImage = `${SITE_URL}/assets/images/og-image.png`;
+  const favicon = `${SITE_URL}/assets/images/favicon.png`;
+
   return `<!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -17,12 +26,27 @@ function head({ title, description, active, heroHeader = false }) {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${title}</title>
   <meta name="description" content="${description}">
+  <link rel="canonical" href="${pageUrl}">
   <meta property="og:title" content="${title}">
   <meta property="og:description" content="${description}">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pl_PL">
-  <meta property="og:image" content="assets/images/feathers.png">
-  <link rel="icon" href="assets/images/feathers.png" type="image/png">
+  <meta property="og:url" content="${pageUrl}">
+  <meta property="og:site_name" content="dentalpassion">
+  <meta property="og:image" content="${ogImage}">
+  <meta property="og:image:secure_url" content="${ogImage}">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="dentalpassion — gabinet stomatologii">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${title}">
+  <meta name="twitter:description" content="${description}">
+  <meta name="twitter:image" content="${ogImage}">
+  <link rel="icon" href="assets/images/favicon.png" type="image/png" sizes="512x512">
+  <link rel="icon" href="assets/images/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/images/favicon.png">
+  <link rel="shortcut icon" href="${favicon}">
 ${fonts}
   <link rel="stylesheet" href="assets/css/tokens.css">
   <link rel="stylesheet" href="assets/css/base.css">
@@ -653,7 +677,7 @@ const rodo =
   head({
     title: "RODO — dentalpassion",
     description: "Informacja o ochronie danych osobowych (RODO) w gabinecie dentalpassion Marcin Mazik.",
-    active: "",
+    pagePath: "rodo.html",
   }) +
   `
   <main id="main">
@@ -717,7 +741,7 @@ const prawa =
   head({
     title: "Prawa pacjenta — dentalpassion",
     description: "Informacje o prawach pacjenta w gabinecie dentalpassion.",
-    active: "",
+    pagePath: "prawa-pacjenta.html",
   }) +
   `
   <main id="main">
@@ -741,7 +765,7 @@ const polityka =
     title: "Polityka prywatności — dentalpassion",
     description:
       "Polityka prywatności serwisu dentalpassion.waw.pl — dane osobowe i pliki cookies.",
-    active: "",
+    pagePath: "polityka-prywatnosci.html",
   }) +
   `
   <main id="main">
