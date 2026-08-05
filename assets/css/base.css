@@ -127,7 +127,7 @@ ul {
   content: "";
   width: 1.15rem;
   height: 1.15rem;
-  background: url("../assets/images/feathers.png") center / contain no-repeat;
+  background: url("../images/feathers.png") center / contain no-repeat;
   flex-shrink: 0;
 }
 

@@ -3,7 +3,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const root = path.join(__dirname, "..");
+const root = path.join(__dirname, "..", "..");
 
 const fonts = `  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,10 +24,10 @@ function head({ title, description, active, heroHeader = false }) {
   <meta property="og:image" content="assets/images/feathers.png">
   <link rel="icon" href="assets/images/feathers.png" type="image/png">
 ${fonts}
-  <link rel="stylesheet" href="css/tokens.css">
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Przejdź do treści</a>
@@ -96,7 +96,7 @@ function footer() {
       <span>Warszawa · stomatologia</span>
     </div>
   </footer>
-  <script src="js/main.js"></script>
+  <script src="assets/js/main.js"></script>
 </body>
 </html>`;
 }
@@ -643,8 +643,8 @@ const rodo =
 ` +
   footer();
 
-const prawaRaw = fs.readFileSync(path.join(root, "content-export", "prawa-pacjenta.html"), "utf8");
-const politRaw = fs.readFileSync(path.join(root, "content-export", "polityka-prywatnosci.html"), "utf8");
+const prawaRaw = fs.readFileSync(path.join(root, "docs", "content-export", "prawa-pacjenta.html"), "utf8");
+const politRaw = fs.readFileSync(path.join(root, "docs", "content-export", "polityka-prywatnosci.html"), "utf8");
 
 let prawaBody = cleanLegal(prawaRaw);
 if (prawaBody.length < 500) {

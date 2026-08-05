@@ -181,7 +181,7 @@
   padding: var(--space-xl) var(--space-lg);
   background:
     linear-gradient(120deg, rgba(86, 44, 101, 0.94), rgba(142, 35, 144, 0.88)),
-    url("../assets/images/clinic.jpg") center / cover;
+    url("../images/clinic.jpg") center / cover;
   color: var(--color-white);
   display: flex;
   flex-wrap: wrap;
