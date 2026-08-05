@@ -182,6 +182,13 @@ const team = [
     spec: "endodoncja, stomatologia zachowawcza",
     photo: "assets/images/team-placeholder-f.svg",
   },
+  {
+    id: "anna-karwacka-oneczka",
+    name: "Anna Karwacka Oneczka",
+    role: "Lekarz dentysta",
+    spec: "",
+    photo: "assets/images/ania.jpg",
+  },
 ];
 
 function teamGrid(linkPrefix = "zespol.html#") {
@@ -193,7 +200,7 @@ ${team
         <img class="team-member__photo" src="${m.photo}" alt="" width="320" height="400">
         <p class="team-member__role">${m.role}</p>
         <h3 class="team-member__name">${m.name}</h3>
-        <p class="team-member__spec">${m.spec}</p>
+        ${m.spec ? `<p class="team-member__spec">${m.spec}</p>` : ""}
       </a>
     </li>`
   )
@@ -552,7 +559,7 @@ const zespol =
             <div>
               <p class="team-member__role">${m.role}</p>
               <h2>${m.name}</h2>
-              <p>${m.spec}</p>
+              ${m.spec ? `<p>${m.spec}</p>` : ""}
             </div>
           </div>
         </article>`
