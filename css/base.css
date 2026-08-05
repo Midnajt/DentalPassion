@@ -15,9 +15,9 @@ body {
   line-height: 1.65;
   color: var(--color-text);
   background:
-    radial-gradient(1200px 600px at 90% -10%, rgba(142, 35, 144, 0.12), transparent 55%),
-    radial-gradient(900px 500px at -10% 20%, rgba(109, 155, 150, 0.18), transparent 50%),
-    linear-gradient(180deg, var(--color-cream) 0%, var(--color-white) 40%, var(--color-surface) 100%);
+    radial-gradient(1000px 520px at 95% -5%, rgba(126, 200, 184, 0.22), transparent 55%),
+    radial-gradient(900px 500px at -8% 18%, rgba(142, 35, 144, 0.1), transparent 50%),
+    linear-gradient(180deg, var(--color-cream) 0%, var(--color-white) 42%, var(--color-surface) 100%);
   background-attachment: fixed;
   min-height: 100vh;
 }
@@ -52,7 +52,7 @@ h4 {
   font-family: var(--font-display);
   font-weight: 550;
   line-height: 1.15;
-  color: var(--color-accent-dark);
+  color: var(--color-accent-mid);
   margin: 0 0 var(--space-md);
   letter-spacing: -0.02em;
 }
@@ -112,13 +112,23 @@ ul {
 }
 
 .section__eyebrow {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--color-mint);
+  color: var(--color-mint-deep);
   margin-bottom: var(--space-sm);
+}
+
+.section__eyebrow::before {
+  content: "";
+  width: 1.15rem;
+  height: 1.15rem;
+  background: url("../assets/images/feathers.png") center / contain no-repeat;
+  flex-shrink: 0;
 }
 
 .section__lead {

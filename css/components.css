@@ -1,4 +1,4 @@
-/* Header */
+/* Header — dark so white logo stays visible */
 .site-header {
   position: fixed;
   inset: 0 0 auto;
@@ -6,13 +6,14 @@
   height: var(--header-h);
   display: flex;
   align-items: center;
-  transition: background var(--duration) var(--ease), box-shadow var(--duration) var(--ease), backdrop-filter var(--duration) var(--ease);
+  background: rgba(26, 20, 28, 0.72);
+  backdrop-filter: blur(14px);
+  transition: background var(--duration) var(--ease), box-shadow var(--duration) var(--ease);
 }
 
 .site-header.is-scrolled {
-  background: rgba(247, 250, 248, 0.88);
-  backdrop-filter: blur(14px);
-  box-shadow: 0 1px 0 var(--color-border);
+  background: rgba(20, 16, 24, 0.94);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.28);
 }
 
 .site-header__inner {
@@ -32,8 +33,10 @@
 }
 
 .logo img {
-  height: 2.4rem;
+  height: 2.65rem;
   width: auto;
+  max-width: min(240px, 52vw);
+  object-fit: contain;
 }
 
 .nav {
@@ -53,7 +56,7 @@
 
 .nav__list a {
   position: relative;
-  color: var(--color-accent-dark);
+  color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
   font-weight: 500;
   font-size: 0.95rem;
@@ -67,7 +70,7 @@
   bottom: 0;
   width: 100%;
   height: 2px;
-  background: var(--color-accent);
+  background: linear-gradient(90deg, var(--color-mint), var(--color-accent-soft));
   transform: scaleX(0);
   transform-origin: left;
   transition: transform var(--duration) var(--ease);
@@ -75,7 +78,7 @@
 
 .nav__list a:hover,
 .nav__list a[aria-current="page"] {
-  color: var(--color-accent);
+  color: var(--color-mint);
 }
 
 .nav__list a:hover::after,
@@ -87,9 +90,9 @@
   display: none;
   width: 2.75rem;
   height: 2.75rem;
-  border: 1px solid var(--color-border);
+  border: 1px solid rgba(255, 255, 255, 0.28);
   border-radius: var(--radius-sm);
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.08);
   cursor: pointer;
   padding: 0;
   align-items: center;
@@ -102,7 +105,7 @@
   display: block;
   width: 1.15rem;
   height: 2px;
-  background: var(--color-accent-dark);
+  background: var(--color-white);
   transition: transform var(--duration) var(--ease), opacity var(--duration) var(--ease);
 }
 
@@ -142,34 +145,45 @@
 }
 
 .btn--primary {
-  background: var(--color-accent);
+  background: linear-gradient(135deg, var(--color-accent) 0%, #6b1d7a 55%, var(--color-mint-deep) 160%);
   color: var(--color-white);
+  box-shadow: 0 10px 24px rgba(142, 35, 144, 0.28);
 }
 
 .btn--primary:hover {
-  background: var(--color-accent-soft);
+  background: linear-gradient(135deg, var(--color-accent-soft) 0%, var(--color-accent) 60%, var(--color-mint) 140%);
   color: var(--color-white);
 }
 
 .btn--ghost {
   background: transparent;
-  color: var(--color-accent-dark);
+  color: var(--color-accent-mid);
   border: 1px solid rgba(86, 44, 101, 0.25);
 }
 
 .btn--ghost:hover {
-  border-color: var(--color-accent);
-  color: var(--color-accent);
+  border-color: var(--color-mint-deep);
+  color: var(--color-mint-deep);
 }
 
 .btn--light {
   background: var(--color-white);
-  color: var(--color-accent-dark);
+  color: var(--color-accent-mid);
 }
 
 .btn--light:hover {
-  background: var(--color-surface);
+  background: var(--color-mint-soft);
   color: var(--color-accent);
+}
+
+.site-header .btn--primary {
+  background: var(--color-mint-deep);
+  box-shadow: none;
+}
+
+.site-header .btn--primary:hover {
+  background: var(--color-mint);
+  color: var(--color-ink);
 }
 
 /* Team */
@@ -195,6 +209,7 @@
 .team-member__photo {
   aspect-ratio: 4 / 5;
   object-fit: cover;
+  object-position: top center;
   width: 100%;
   border-radius: var(--radius-md);
   background: var(--color-surface);
@@ -211,14 +226,14 @@
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--color-mint);
+  color: var(--color-mint-deep);
   margin-bottom: 0.35rem;
 }
 
 .team-member__name {
   font-family: var(--font-display);
   font-size: 1.35rem;
-  color: var(--color-accent-dark);
+  color: var(--color-accent-mid);
   margin: 0 0 0.35rem;
 }
 
@@ -268,7 +283,7 @@
 
 .price-list__price {
   font-weight: 600;
-  color: var(--color-accent-dark);
+  color: var(--color-accent-mid);
   white-space: nowrap;
   font-variant-numeric: tabular-nums;
 }
@@ -324,7 +339,9 @@
 
 /* Footer */
 .site-footer {
-  background: linear-gradient(160deg, var(--color-accent-dark) 0%, #3d1f48 100%);
+  background:
+    radial-gradient(600px 280px at 90% 10%, rgba(126, 200, 184, 0.16), transparent 60%),
+    linear-gradient(160deg, var(--color-ink) 0%, #3d1f48 70%, #2a3d3a 100%);
   color: rgba(255, 255, 255, 0.88);
   padding: var(--space-2xl) 0 var(--space-lg);
   margin-top: var(--space-2xl);
@@ -336,7 +353,7 @@
 }
 
 .site-footer a:hover {
-  color: #f0c6ea;
+  color: var(--color-mint);
 }
 
 .footer-grid {
@@ -347,10 +364,11 @@
 }
 
 .footer-brand img {
-  height: 2.5rem;
+  height: 2.85rem;
   width: auto;
+  max-width: 260px;
   margin-bottom: var(--space-md);
-  filter: brightness(0) invert(1);
+  object-fit: contain;
 }
 
 .footer-brand p {
@@ -397,10 +415,10 @@
   .nav {
     position: fixed;
     inset: var(--header-h) 0 auto;
-    background: rgba(247, 250, 248, 0.97);
+    background: rgba(20, 16, 24, 0.97);
     backdrop-filter: blur(12px);
     padding: var(--space-lg);
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     flex-direction: column;
     align-items: stretch;
     gap: var(--space-md);
