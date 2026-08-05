@@ -184,8 +184,8 @@ const team = [
   },
   {
     id: "anna-karwacka-oneczka",
-    name: "Anna Karwacka Oneczka",
-    role: "Lekarz dentysta",
+    name: "mgr Anna Karwacka",
+    role: "Higienistka stomatologiczna",
     spec: "",
     photo: "assets/images/ania.jpg",
   },
