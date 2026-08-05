@@ -47,36 +47,61 @@
         <p class="section__eyebrow">Cennik</p>
         <h1>Przejrzyste ceny usług</h1>
         <p>Orientacyjne ceny zabiegów. Ostateczna wycena ustalana jest indywidualnie podczas konsultacji.</p>
+        <div class="price-toolbar">
+          <div class="price-search">
+            <label class="visually-hidden" for="price-search">Szukaj w cenniku</label>
+            <input
+              id="price-search"
+              class="price-search__input"
+              type="search"
+              name="q"
+              placeholder="Szukaj zabiegu, np. implant, scaling…"
+              autocomplete="off"
+              enterkeyhint="search"
+            >
+          </div>
+          <div class="price-sort">
+            <label class="price-sort__label" for="price-sort">Sortuj</label>
+            <select id="price-sort" class="price-sort__select">
+              <option value="default">Domyślnie (kategorie)</option>
+              <option value="name-asc">Usługa A–Z</option>
+              <option value="name-desc">Usługa Z–A</option>
+              <option value="price-asc">Cena: rosnąco</option>
+              <option value="price-desc">Cena: malejąco</option>
+            </select>
+          </div>
+          <p class="price-search__status" data-price-search-status aria-live="polite"></p>
+        </div>
       </div>
     </section>
     <section class="section" style="padding-top:0">
-      <div class="container price-groups">
+      <div class="container price-groups" data-price-catalog>
         
         <section class="price-group reveal">
           <h3>Konsultacje i znieczulenie</h3>
           <ul class="price-list">
             
-            <li>
+            <li data-name="Badanie stomatologiczne" data-price="120">
               <span class="price-list__name">Badanie stomatologiczne</span>
               <span class="price-list__price">120–150 zł</span>
               
             </li>
-            <li>
+            <li data-name="Konsultacja" data-price="300">
               <span class="price-list__name">Konsultacja</span>
               <span class="price-list__price">300–350 zł</span>
               
             </li>
-            <li>
+            <li data-name="Konsultacja chirurgiczna" data-price="300">
               <span class="price-list__name">Konsultacja chirurgiczna</span>
               <span class="price-list__price">300 zł</span>
               
             </li>
-            <li>
+            <li data-name="Znieczulenie nasiękowe" data-price="50">
               <span class="price-list__name">Znieczulenie nasiękowe</span>
               <span class="price-list__price">50 zł</span>
               
             </li>
-            <li>
+            <li data-name="Znieczulenie przewodowe" data-price="60">
               <span class="price-list__name">Znieczulenie przewodowe</span>
               <span class="price-list__price">60 zł</span>
               
@@ -87,32 +112,32 @@
           <h3>Higiena i profilaktyka</h3>
           <ul class="price-list">
             
-            <li>
+            <li data-name="Scaling + polerowanie" data-price="230">
               <span class="price-list__name">Scaling + polerowanie</span>
               <span class="price-list__price">230 zł</span>
               
             </li>
-            <li>
+            <li data-name="Piaskowanie" data-price="200">
               <span class="price-list__name">Piaskowanie</span>
               <span class="price-list__price">200 zł</span>
               
             </li>
-            <li>
+            <li data-name="Fluoryzacja za łuk" data-price="100">
               <span class="price-list__name">Fluoryzacja za łuk</span>
               <span class="price-list__price">100 zł</span>
               
             </li>
-            <li>
+            <li data-name="Scaling + piaskowanie + polerowanie" data-price="300">
               <span class="price-list__name">Scaling + piaskowanie + polerowanie</span>
               <span class="price-list__price">300 zł</span>
               
             </li>
-            <li>
+            <li data-name="Scaling + piaskowanie + polerowanie + fluoryzacja" data-price="310">
               <span class="price-list__name">Scaling + piaskowanie + polerowanie + fluoryzacja</span>
               <span class="price-list__price">310–350 zł</span>
               
             </li>
-            <li>
+            <li data-name="Czyszczenie + fluoryzacja u dziecka" data-price="250">
               <span class="price-list__name">Czyszczenie + fluoryzacja u dziecka</span>
               <span class="price-list__price">250 zł</span>
               
@@ -123,57 +148,57 @@
           <h3>Stomatologia zachowawcza i estetyczna</h3>
           <ul class="price-list">
             
-            <li>
+            <li data-name="Wypełnienie jednopowierzchniowe" data-price="250">
               <span class="price-list__name">Wypełnienie jednopowierzchniowe</span>
               <span class="price-list__price">250–350 zł</span>
               <span class="price-list__note">Małe, średnie lub duże</span>
             </li>
-            <li>
+            <li data-name="Wypełnienie dwupowierzchniowe" data-price="300">
               <span class="price-list__name">Wypełnienie dwupowierzchniowe</span>
               <span class="price-list__price">300–400 zł</span>
               
             </li>
-            <li>
+            <li data-name="Wypełnienie wielopowierzchniowe" data-price="350">
               <span class="price-list__name">Wypełnienie wielopowierzchniowe</span>
               <span class="price-list__price">350–800 zł</span>
               <span class="price-list__note">Przedtrzonowiec, trzonowiec</span>
             </li>
-            <li>
+            <li data-name="Wypełnienie wielopowierzchniowe wzmocnione włóknem szklanym" data-price="500">
               <span class="price-list__name">Wypełnienie wielopowierzchniowe wzmocnione włóknem szklanym</span>
               <span class="price-list__price">500–1000 zł</span>
               
             </li>
-            <li>
+            <li data-name="Wypełnienie w zębie mlecznym" data-price="300">
               <span class="price-list__name">Wypełnienie w zębie mlecznym</span>
               <span class="price-list__price">300 zł</span>
               
             </li>
-            <li>
+            <li data-name="Opatrunek" data-price="150">
               <span class="price-list__name">Opatrunek</span>
               <span class="price-list__price">150 zł</span>
               
             </li>
-            <li>
+            <li data-name="Opatrunek ZNO" data-price="250">
               <span class="price-list__name">Opatrunek ZNO</span>
               <span class="price-list__price">250 zł</span>
               
             </li>
-            <li>
+            <li data-name="Opatrunek Fuji" data-price="300">
               <span class="price-list__name">Opatrunek Fuji</span>
               <span class="price-list__price">300 zł</span>
               
             </li>
-            <li>
+            <li data-name="Zmiana kształtu zęba / zamykanie diastemy" data-price="350">
               <span class="price-list__name">Zmiana kształtu zęba / zamykanie diastemy</span>
               <span class="price-list__price">350–1000 zł</span>
               
             </li>
-            <li>
+            <li data-name="Licówka kompozytowa" data-price="1000">
               <span class="price-list__name">Licówka kompozytowa</span>
               <span class="price-list__price">1000–1500 zł</span>
               
             </li>
-            <li>
+            <li data-name="Leczenie w koferdamie" data-price="30">
               <span class="price-list__name">Leczenie w koferdamie</span>
               <span class="price-list__price">+ 30 zł</span>
               
@@ -184,77 +209,77 @@
           <h3>Endodoncja</h3>
           <ul class="price-list">
             
-            <li>
+            <li data-name="Płukanie kieszeni + Alveogyl" data-price="120">
               <span class="price-list__name">Płukanie kieszeni + Alveogyl</span>
               <span class="price-list__price">120 zł</span>
               
             </li>
-            <li>
+            <li data-name="Pierwsza pomoc endodontyczna" data-price="150">
               <span class="price-list__name">Pierwsza pomoc endodontyczna</span>
               <span class="price-list__price">150 zł</span>
               
             </li>
-            <li>
+            <li data-name="Odbudowa pod koferdam" data-price="300">
               <span class="price-list__name">Odbudowa pod koferdam</span>
               <span class="price-list__price">300 zł</span>
               
             </li>
-            <li>
+            <li data-name="Trepanacja przez koronę" data-price="150">
               <span class="price-list__name">Trepanacja przez koronę</span>
               <span class="price-list__price">150–200 zł</span>
               
             </li>
-            <li>
+            <li data-name="Usunięcie narzędzia / wkładu z kanału" data-price="600">
               <span class="price-list__name">Usunięcie narzędzia / wkładu z kanału</span>
               <span class="price-list__price">600 zł</span>
               
             </li>
-            <li>
+            <li data-name="Usunięcie zębiniaka" data-price="400">
               <span class="price-list__name">Usunięcie zębiniaka</span>
               <span class="price-list__price">400 zł</span>
               
             </li>
-            <li>
+            <li data-name="MTA" data-price="300">
               <span class="price-list__name">MTA</span>
               <span class="price-list__price">300–500 zł</span>
               
             </li>
-            <li>
+            <li data-name="Dewitalizacja z opatrunkiem" data-price="450">
               <span class="price-list__name">Dewitalizacja z opatrunkiem</span>
               <span class="price-list__price">450 zł</span>
               <span class="price-list__note">Cena zawiera znieczulenie</span>
             </li>
-            <li>
+            <li data-name="Leczenie kanałowe — 1 kanał" data-price="800">
               <span class="price-list__name">Leczenie kanałowe — 1 kanał</span>
               <span class="price-list__price">800–1000 zł</span>
               
             </li>
-            <li>
+            <li data-name="Leczenie kanałowe — 2 kanały" data-price="1000">
               <span class="price-list__name">Leczenie kanałowe — 2 kanały</span>
               <span class="price-list__price">1000–1600 zł</span>
               
             </li>
-            <li>
+            <li data-name="Leczenie kanałowe — 3 kanały" data-price="1600">
               <span class="price-list__name">Leczenie kanałowe — 3 kanały</span>
               <span class="price-list__price">1600–2000 zł</span>
               
             </li>
-            <li>
+            <li data-name="Leczenie kanałowe — każdy dodatkowy kanał" data-price="200">
               <span class="price-list__name">Leczenie kanałowe — każdy dodatkowy kanał</span>
               <span class="price-list__price">200 zł</span>
               
             </li>
-            <li>
+            <li data-name="Powtórne leczenie kanałowe — 1 kanał" data-price="1000">
               <span class="price-list__name">Powtórne leczenie kanałowe — 1 kanał</span>
               <span class="price-list__price">od 1000 zł</span>
               
             </li>
-            <li>
+            <li data-name="Powtórne leczenie kanałowe — 2 kanały" data-price="1600">
               <span class="price-list__name">Powtórne leczenie kanałowe — 2 kanały</span>
               <span class="price-list__price">od 1600 zł</span>
               
             </li>
-            <li>
+            <li data-name="Powtórne leczenie kanałowe — 3 kanały" data-price="2000">
               <span class="price-list__name">Powtórne leczenie kanałowe — 3 kanały</span>
               <span class="price-list__price">od 2000 zł</span>
               
@@ -265,117 +290,117 @@
           <h3>Protetyka</h3>
           <ul class="price-list">
             
-            <li>
+            <li data-name="Korona porcelanowa na stopie Cr-Co" data-price="1800">
               <span class="price-list__name">Korona porcelanowa na stopie Cr-Co</span>
               <span class="price-list__price">1800 zł</span>
               
             </li>
-            <li>
+            <li data-name="Korona porcelanowa na złocie" data-price="1800">
               <span class="price-list__name">Korona porcelanowa na złocie</span>
               <span class="price-list__price">1800 zł + koszt złota</span>
               
             </li>
-            <li>
+            <li data-name="Korona pełnoceramiczna" data-price="2500">
               <span class="price-list__name">Korona pełnoceramiczna</span>
               <span class="price-list__price">2500–3500 zł</span>
               
             </li>
-            <li>
+            <li data-name="Korona pełnoceramiczna na podbudowie cyrkonowej" data-price="2500">
               <span class="price-list__name">Korona pełnoceramiczna na podbudowie cyrkonowej</span>
               <span class="price-list__price">2500–3500 zł</span>
               
             </li>
-            <li>
+            <li data-name="Licówka" data-price="2500">
               <span class="price-list__name">Licówka</span>
               <span class="price-list__price">2500–4500 zł</span>
               
             </li>
-            <li>
+            <li data-name="Inlay / onlay kompozytowy" data-price="1500">
               <span class="price-list__name">Inlay / onlay kompozytowy</span>
               <span class="price-list__price">od 1500 zł</span>
               
             </li>
-            <li>
+            <li data-name="Inlay / onlay pełnoceramiczny" data-price="2500">
               <span class="price-list__name">Inlay / onlay pełnoceramiczny</span>
               <span class="price-list__price">2500 zł</span>
               
             </li>
-            <li>
+            <li data-name="Wkład z włókna szklanego — 1 kanał" data-price="1000">
               <span class="price-list__name">Wkład z włókna szklanego — 1 kanał</span>
               <span class="price-list__price">1000 zł</span>
               
             </li>
-            <li>
+            <li data-name="Wkład z włókna szklanego — każdy kolejny kanał" data-price="350">
               <span class="price-list__name">Wkład z włókna szklanego — każdy kolejny kanał</span>
               <span class="price-list__price">350 zł</span>
               
             </li>
-            <li>
+            <li data-name="Wkład koronowo-korzeniowy metalowy" data-price="1000">
               <span class="price-list__name">Wkład koronowo-korzeniowy metalowy</span>
               <span class="price-list__price">1000 zł</span>
               
             </li>
-            <li>
+            <li data-name="Proteza częściowa (za punkt)" data-price="250">
               <span class="price-list__name">Proteza częściowa (za punkt)</span>
               <span class="price-list__price">250 zł</span>
               
             </li>
-            <li>
+            <li data-name="Proteza całkowita" data-price="3500">
               <span class="price-list__name">Proteza całkowita</span>
               <span class="price-list__price">3500 zł</span>
               
             </li>
-            <li>
+            <li data-name="Proteza szkieletowa" data-price="3500">
               <span class="price-list__name">Proteza szkieletowa</span>
               <span class="price-list__price">od 3500 zł</span>
               <span class="price-list__note">Szczegółowa wycena pracy protetycznej na wizycie konsultacyjnej</span>
             </li>
-            <li>
+            <li data-name="Osadzenie korony wykonanej w innym gabinecie" data-price="350">
               <span class="price-list__name">Osadzenie korony wykonanej w innym gabinecie</span>
               <span class="price-list__price">350 zł</span>
               <span class="price-list__note">za punkt</span>
             </li>
-            <li>
+            <li data-name="Model orientacyjny" data-price="150">
               <span class="price-list__name">Model orientacyjny</span>
               <span class="price-list__price">150 zł</span>
               
             </li>
-            <li>
+            <li data-name="Korona tymczasowa" data-price="250">
               <span class="price-list__name">Korona tymczasowa</span>
               <span class="price-list__price">250–300 zł</span>
               
             </li>
-            <li>
+            <li data-name="Szynowanie — włókno szklane" data-price="200">
               <span class="price-list__name">Szynowanie — włókno szklane</span>
               <span class="price-list__price">200 zł</span>
               <span class="price-list__note">za ząb</span>
             </li>
-            <li>
+            <li data-name="Szyna relaksacyjna" data-price="1200">
               <span class="price-list__name">Szyna relaksacyjna</span>
               <span class="price-list__price">1200–1500 zł</span>
               
             </li>
-            <li>
+            <li data-name="Planowanie leczenia protetycznego" data-price="2000">
               <span class="price-list__name">Planowanie leczenia protetycznego</span>
               <span class="price-list__price">2000 zł</span>
               
             </li>
-            <li>
+            <li data-name="Podnoszenie zwarcia metodą tłoczenia kompozytu" data-price="1000">
               <span class="price-list__name">Podnoszenie zwarcia metodą tłoczenia kompozytu</span>
               <span class="price-list__price">1000–1400 zł</span>
               <span class="price-list__note">za punkt</span>
             </li>
-            <li>
+            <li data-name="Wybielanie nakładkowe" data-price="1400">
               <span class="price-list__name">Wybielanie nakładkowe</span>
               <span class="price-list__price">1400 zł</span>
               
             </li>
-            <li>
+            <li data-name="Wybielanie martwego zęba — pierwsza wizyta" data-price="400">
               <span class="price-list__name">Wybielanie martwego zęba — pierwsza wizyta</span>
               <span class="price-list__price">400 zł</span>
               
             </li>
-            <li>
+            <li data-name="Wybielanie martwego zęba — kolejna wizyta" data-price="200">
               <span class="price-list__name">Wybielanie martwego zęba — kolejna wizyta</span>
               <span class="price-list__price">200 zł</span>
               
@@ -386,57 +411,57 @@
           <h3>Chirurgia i implantologia</h3>
           <ul class="price-list">
             
-            <li>
+            <li data-name="Usunięcie zęba rozchwianego / mlecznego" data-price="120">
               <span class="price-list__name">Usunięcie zęba rozchwianego / mlecznego</span>
               <span class="price-list__price">120–150 zł</span>
               
             </li>
-            <li>
+            <li data-name="Usunięcie zęba stałego" data-price="300">
               <span class="price-list__name">Usunięcie zęba stałego</span>
               <span class="price-list__price">od 300 zł</span>
               
             </li>
-            <li>
+            <li data-name="Operacyjne usunięcie zęba" data-price="500">
               <span class="price-list__name">Operacyjne usunięcie zęba</span>
               <span class="price-list__price">od 500 zł</span>
               
             </li>
-            <li>
+            <li data-name="Resekcja" data-price="1000">
               <span class="price-list__name">Resekcja</span>
               <span class="price-list__price">1000 zł</span>
               
             </li>
-            <li>
+            <li data-name="Szycie chirurgiczne" data-price="150">
               <span class="price-list__name">Szycie chirurgiczne</span>
               <span class="price-list__price">150 zł</span>
               
             </li>
-            <li>
+            <li data-name="Opatrunek chirurgiczny" data-price="100">
               <span class="price-list__name">Opatrunek chirurgiczny</span>
               <span class="price-list__price">100 zł</span>
               
             </li>
-            <li>
+            <li data-name="Kiretaż zamknięty" data-price="150">
               <span class="price-list__name">Kiretaż zamknięty</span>
               <span class="price-list__price">od 150 zł</span>
               <span class="price-list__note">za ząb — w zależności od stanu przyzębia i liczby zębów objętych zabiegiem</span>
             </li>
-            <li>
+            <li data-name="Plastyka wędzidełka" data-price="400">
               <span class="price-list__name">Plastyka wędzidełka</span>
               <span class="price-list__price">od 400 zł</span>
               
             </li>
-            <li>
+            <li data-name="Wszczepienie implantu" data-price="3500">
               <span class="price-list__name">Wszczepienie implantu</span>
               <span class="price-list__price">3500 zł</span>
               
             </li>
-            <li>
+            <li data-name="Podniesienie dna zatoki" data-price="3800">
               <span class="price-list__name">Podniesienie dna zatoki</span>
               <span class="price-list__price">3800–6000 zł</span>
               
             </li>
-            <li>
+            <li data-name="Korona na implancie" data-price="3500">
               <span class="price-list__name">Korona na implancie</span>
               <span class="price-list__price">3500 zł</span>
               
@@ -447,7 +472,7 @@
           <h3>Diagnostyka</h3>
           <ul class="price-list">
             
-            <li>
+            <li data-name="RTG punktowe" data-price="40">
               <span class="price-list__name">RTG punktowe</span>
               <span class="price-list__price">40 zł</span>
               
@@ -455,6 +480,7 @@
           </ul>
         </section>
         <p class="price-note reveal">Podane ceny mają charakter orientacyjny. Szczegółowa wycena pracy protetycznej oraz planu leczenia następuje na wizycie konsultacyjnej.</p>
+        <p class="price-search__empty" data-price-search-empty hidden>Brak pozycji pasujących do wyszukiwania.</p>
       </div>
     </section>
   </main>

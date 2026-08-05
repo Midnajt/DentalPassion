@@ -268,6 +268,11 @@ const priceGroups = [
   },
 ];
 
+function priceSortValue(price) {
+  const match = String(price).replace(/\s/g, "").match(/(\d+(?:[.,]\d+)?)/);
+  return match ? Number(match[1].replace(",", ".")) : Number.POSITIVE_INFINITY;
+}
+
 function renderPrices() {
   return priceGroups
     .map(
@@ -276,14 +281,15 @@ function renderPrices() {
           <h3>${g.title}</h3>
           <ul class="price-list">
             ${g.items
-              .map(
-                ([name, price, note]) => `
-            <li>
+              .map(([name, price, note]) => {
+                const sortPrice = priceSortValue(price);
+                return `
+            <li data-name="${name.replace(/"/g, "&quot;")}" data-price="${sortPrice}">
               <span class="price-list__name">${name}</span>
               <span class="price-list__price">${price}</span>
               ${note ? `<span class="price-list__note">${note}</span>` : ""}
-            </li>`
-              )
+            </li>`;
+              })
               .join("")}
           </ul>
         </section>`
@@ -527,12 +533,38 @@ const cennik =
         <p class="section__eyebrow">Cennik</p>
         <h1>Przejrzyste ceny usług</h1>
         <p>Orientacyjne ceny zabiegów. Ostateczna wycena ustalana jest indywidualnie podczas konsultacji.</p>
+        <div class="price-toolbar">
+          <div class="price-search">
+            <label class="visually-hidden" for="price-search">Szukaj w cenniku</label>
+            <input
+              id="price-search"
+              class="price-search__input"
+              type="search"
+              name="q"
+              placeholder="Szukaj zabiegu, np. implant, scaling…"
+              autocomplete="off"
+              enterkeyhint="search"
+            >
+          </div>
+          <div class="price-sort">
+            <label class="price-sort__label" for="price-sort">Sortuj</label>
+            <select id="price-sort" class="price-sort__select">
+              <option value="default">Domyślnie (kategorie)</option>
+              <option value="name-asc">Usługa A–Z</option>
+              <option value="name-desc">Usługa Z–A</option>
+              <option value="price-asc">Cena: rosnąco</option>
+              <option value="price-desc">Cena: malejąco</option>
+            </select>
+          </div>
+          <p class="price-search__status" data-price-search-status aria-live="polite"></p>
+        </div>
       </div>
     </section>
     <section class="section" style="padding-top:0">
-      <div class="container price-groups">
+      <div class="container price-groups" data-price-catalog>
         ${renderPrices()}
         <p class="price-note reveal">Podane ceny mają charakter orientacyjny. Szczegółowa wycena pracy protetycznej oraz planu leczenia następuje na wizycie konsultacyjnej.</p>
+        <p class="price-search__empty" data-price-search-empty hidden>Brak pozycji pasujących do wyszukiwania.</p>
       </div>
     </section>
   </main>
