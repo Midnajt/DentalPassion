@@ -8,6 +8,49 @@
     yearEl.textContent = String(new Date().getFullYear());
   }
 
+  const consentBanner = document.querySelector("[data-consent-banner]");
+  const consentCheckbox = document.querySelector("[data-consent-checkbox]");
+  const consentAccept = document.querySelector("[data-consent-accept]");
+  const consentKey = "dentalpassion-consent-v1";
+
+  if (consentBanner && consentCheckbox && consentAccept) {
+    const stored = (() => {
+      try {
+        return localStorage.getItem(consentKey);
+      } catch {
+        return null;
+      }
+    })();
+
+    if (stored === "accepted") {
+      consentBanner.hidden = true;
+    } else {
+      consentBanner.hidden = false;
+      requestAnimationFrame(() => {
+        consentBanner.classList.add("is-visible");
+        document.body.classList.add("has-consent-banner");
+      });
+
+      consentCheckbox.addEventListener("change", () => {
+        consentAccept.disabled = !consentCheckbox.checked;
+      });
+
+      consentAccept.addEventListener("click", () => {
+        if (!consentCheckbox.checked) return;
+        try {
+          localStorage.setItem(consentKey, "accepted");
+        } catch {
+          /* ignore storage errors */
+        }
+        consentBanner.classList.remove("is-visible");
+        document.body.classList.remove("has-consent-banner");
+        window.setTimeout(() => {
+          consentBanner.hidden = true;
+        }, 400);
+      });
+    }
+  }
+
   const onScroll = () => {
     if (!header) return;
     header.classList.toggle("is-scrolled", window.scrollY > 24);

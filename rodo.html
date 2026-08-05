@@ -111,10 +111,31 @@
       </div>
     </div>
     <div class="container footer-bottom">
-      <span>&copy; <span data-year></span> dentalpassion Marcin Mazik</span>
-      <span>Warszawa · stomatologia</span>
+      <div class="footer-bottom__meta">
+        <span>&copy; <span data-year></span> dentalpassion Marcin Mazik</span>
+        <span>Warszawa · stomatologia</span>
+      </div>
+      <div class="footer-credits">
+        <p>Strona stworzona przez AddPattern Marcin Krzysztoszek — <a href="mailto:midnajt0@gmail.com">kontakt</a></p>
+        <p>Część zdjęć z oferty pochodzi z stocku <a href="https://pixabay.com/" rel="noopener noreferrer" target="_blank">pixabay.com</a></p>
+      </div>
     </div>
   </footer>
+  <div class="consent-banner" data-consent-banner hidden role="dialog" aria-modal="false" aria-labelledby="consent-title" aria-describedby="consent-desc">
+    <div class="consent-banner__inner">
+      <div class="consent-banner__text">
+        <p id="consent-title" class="consent-banner__title">Zgoda na pliki cookies i przetwarzanie danych</p>
+        <p id="consent-desc">Korzystamy z plików cookies oraz przetwarzamy dane zgodnie z <a href="rodo.html">informacją RODO</a> i <a href="polityka-prywatnosci.html">polityką prywatności</a>. Aby kontynuować, potwierdź zgodę poniżej.</p>
+        <label class="consent-banner__check">
+          <input type="checkbox" id="consent-checkbox" data-consent-checkbox>
+          <span>Wyrażam zgodę na wykorzystywanie plików cookies oraz przetwarzanie danych osobowych w celach opisanych w dokumentach RODO i polityki prywatności.</span>
+        </label>
+      </div>
+      <div class="consent-banner__actions">
+        <button type="button" class="btn btn--primary" data-consent-accept disabled>Akceptuję</button>
+      </div>
+    </div>
+  </div>
   <script src="assets/js/main.js"></script>
 </body>
 </html>
