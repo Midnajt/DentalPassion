@@ -6,14 +6,14 @@
   height: var(--header-h);
   display: flex;
   align-items: center;
-  background: rgba(26, 20, 28, 0.72);
+  background: rgba(58, 48, 68, 0.68);
   backdrop-filter: blur(14px);
   transition: background var(--duration) var(--ease), box-shadow var(--duration) var(--ease);
 }
 
 .site-header.is-scrolled {
-  background: rgba(20, 16, 24, 0.94);
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.28);
+  background: rgba(78, 64, 90, 0.88);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
 }
 
 .site-header__inner {
