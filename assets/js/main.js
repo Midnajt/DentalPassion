@@ -178,4 +178,120 @@
     priceSearch?.addEventListener("input", applyCatalog);
     priceSort?.addEventListener("change", applyCatalog);
   }
+
+  const gallery = document.querySelector("[data-lightbox-gallery]");
+  if (gallery) {
+    const triggers = [...gallery.querySelectorAll(".blog-gallery__trigger")];
+    const items = triggers.map((trigger) => {
+      const img = trigger.querySelector("img");
+      return {
+        src: img?.currentSrc || img?.src || "",
+        alt: img?.alt || "",
+      };
+    }).filter((item) => item.src);
+
+    if (items.length) {
+      const dialog = document.createElement("div");
+      dialog.className = "lightbox";
+      dialog.hidden = true;
+      dialog.setAttribute("role", "dialog");
+      dialog.setAttribute("aria-modal", "true");
+      dialog.setAttribute("aria-label", "Podgląd zdjęcia");
+      dialog.innerHTML = `
+        <div class="lightbox__backdrop" data-lightbox-close></div>
+        <div class="lightbox__panel">
+          <button type="button" class="lightbox__close" data-lightbox-close aria-label="Zamknij podgląd">×</button>
+          <button type="button" class="lightbox__nav lightbox__nav--prev" data-lightbox-prev aria-label="Poprzednie zdjęcie">‹</button>
+          <figure class="lightbox__figure">
+            <img class="lightbox__image" alt="">
+            <figcaption class="lightbox__caption"></figcaption>
+          </figure>
+          <button type="button" class="lightbox__nav lightbox__nav--next" data-lightbox-next aria-label="Następne zdjęcie">›</button>
+          <p class="lightbox__counter" aria-live="polite"></p>
+        </div>
+      `;
+      document.body.appendChild(dialog);
+
+      const imageEl = dialog.querySelector(".lightbox__image");
+      const captionEl = dialog.querySelector(".lightbox__caption");
+      const counterEl = dialog.querySelector(".lightbox__counter");
+      const prevBtn = dialog.querySelector("[data-lightbox-prev]");
+      const nextBtn = dialog.querySelector("[data-lightbox-next]");
+      let index = 0;
+      let lastFocus = null;
+
+      const render = () => {
+        const item = items[index];
+        if (!item || !imageEl || !captionEl || !counterEl) return;
+        imageEl.src = item.src;
+        imageEl.alt = item.alt;
+        captionEl.textContent = item.alt;
+        counterEl.textContent = `${index + 1} / ${items.length}`;
+        if (prevBtn) prevBtn.hidden = items.length < 2;
+        if (nextBtn) nextBtn.hidden = items.length < 2;
+      };
+
+      const open = (startIndex) => {
+        index = startIndex;
+        lastFocus = document.activeElement;
+        render();
+        dialog.hidden = false;
+        document.body.classList.add("has-lightbox");
+        requestAnimationFrame(() => {
+          dialog.classList.add("is-open");
+          dialog.querySelector(".lightbox__close")?.focus();
+        });
+      };
+
+      const close = () => {
+        dialog.classList.remove("is-open");
+        document.body.classList.remove("has-lightbox");
+        window.setTimeout(() => {
+          dialog.hidden = true;
+          imageEl?.removeAttribute("src");
+        }, 200);
+        if (lastFocus && typeof lastFocus.focus === "function") lastFocus.focus();
+      };
+
+      const step = (delta) => {
+        index = (index + delta + items.length) % items.length;
+        render();
+      };
+
+      triggers.forEach((trigger, triggerIndex) => {
+        trigger.addEventListener("click", () => open(triggerIndex));
+      });
+
+      dialog.querySelectorAll("[data-lightbox-close]").forEach((el) => {
+        el.addEventListener("click", close);
+      });
+      prevBtn?.addEventListener("click", () => step(-1));
+      nextBtn?.addEventListener("click", () => step(1));
+
+      document.addEventListener("keydown", (event) => {
+        if (dialog.hidden) return;
+        if (event.key === "Escape") close();
+        if (event.key === "ArrowLeft") step(-1);
+        if (event.key === "ArrowRight") step(1);
+      });
+
+      let touchStartX = 0;
+      dialog.addEventListener(
+        "touchstart",
+        (event) => {
+          touchStartX = event.changedTouches[0]?.clientX || 0;
+        },
+        { passive: true }
+      );
+      dialog.addEventListener(
+        "touchend",
+        (event) => {
+          const deltaX = (event.changedTouches[0]?.clientX || 0) - touchStartX;
+          if (Math.abs(deltaX) < 48) return;
+          step(deltaX > 0 ? -1 : 1);
+        },
+        { passive: true }
+      );
+    }
+  }
 })();

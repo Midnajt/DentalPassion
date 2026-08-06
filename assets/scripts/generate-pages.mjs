@@ -69,6 +69,7 @@ ${fonts}
           ${navItem("o-nas.html", "O nas", active)}
           ${navItem("zespol.html", "Zespół", active)}
           ${navItem("cennik.html", "Cennik", active)}
+          ${navItem("blog.html", "Blog", active)}
           ${navItem("kontakt.html", "Kontakt", active)}
         </ul>
         <a class="btn btn--primary" href="tel:+48501430894">Zamów wizytę</a>
@@ -97,6 +98,7 @@ function footer() {
           <li><a href="o-nas.html">O nas</a></li>
           <li><a href="zespol.html">Zespół</a></li>
           <li><a href="cennik.html">Cennik</a></li>
+          <li><a href="blog.html">Blog</a></li>
           <li><a href="kontakt.html">Kontakt</a></li>
         </ul>
       </div>
@@ -208,117 +210,13 @@ ${team
   </ul>`;
 }
 
-const priceGroups = [
-  {
-    title: "Konsultacje i znieczulenie",
-    items: [
-      ["Badanie stomatologiczne", "120–150 zł"],
-      ["Konsultacja", "300–350 zł"],
-      ["Konsultacja chirurgiczna", "300 zł"],
-      ["Znieczulenie nasiękowe", "50 zł"],
-      ["Znieczulenie przewodowe", "60 zł"],
-    ],
-  },
-  {
-    title: "Higiena i profilaktyka",
-    items: [
-      ["Scaling + polerowanie", "230 zł"],
-      ["Piaskowanie", "200 zł"],
-      ["Fluoryzacja za łuk", "100 zł"],
-      ["Scaling + piaskowanie + polerowanie", "300 zł"],
-      ["Scaling + piaskowanie + polerowanie + fluoryzacja", "310–350 zł"],
-      ["Czyszczenie + fluoryzacja u dziecka", "250 zł"],
-    ],
-  },
-  {
-    title: "Stomatologia zachowawcza i estetyczna",
-    items: [
-      ["Wypełnienie jednopowierzchniowe", "250–350 zł", "Małe, średnie lub duże"],
-      ["Wypełnienie dwupowierzchniowe", "300–400 zł"],
-      ["Wypełnienie wielopowierzchniowe", "350–800 zł", "Przedtrzonowiec, trzonowiec"],
-      ["Wypełnienie wielopowierzchniowe wzmocnione włóknem szklanym", "500–1000 zł"],
-      ["Wypełnienie w zębie mlecznym", "300 zł"],
-      ["Opatrunek", "150 zł"],
-      ["Opatrunek ZNO", "250 zł"],
-      ["Opatrunek Fuji", "300 zł"],
-      ["Zmiana kształtu zęba / zamykanie diastemy", "350–1000 zł"],
-      ["Licówka kompozytowa", "1000–1500 zł"],
-      ["Leczenie w koferdamie", "+ 30 zł"],
-    ],
-  },
-  {
-    title: "Endodoncja",
-    items: [
-      ["Płukanie kieszeni + Alveogyl", "120 zł"],
-      ["Pierwsza pomoc endodontyczna", "150 zł"],
-      ["Odbudowa pod koferdam", "300 zł"],
-      ["Trepanacja przez koronę", "150–200 zł"],
-      ["Usunięcie narzędzia / wkładu z kanału", "600 zł"],
-      ["Usunięcie zębiniaka", "400 zł"],
-      ["MTA", "300–500 zł"],
-      ["Dewitalizacja z opatrunkiem", "450 zł", "Cena zawiera znieczulenie"],
-      ["Leczenie kanałowe — 1 kanał", "800–1000 zł"],
-      ["Leczenie kanałowe — 2 kanały", "1000–1600 zł"],
-      ["Leczenie kanałowe — 3 kanały", "1600–2000 zł"],
-      ["Leczenie kanałowe — każdy dodatkowy kanał", "200 zł"],
-      ["Powtórne leczenie kanałowe — 1 kanał", "od 1000 zł"],
-      ["Powtórne leczenie kanałowe — 2 kanały", "od 1600 zł"],
-      ["Powtórne leczenie kanałowe — 3 kanały", "od 2000 zł"],
-    ],
-  },
-  {
-    title: "Protetyka",
-    items: [
-      ["Korona porcelanowa na stopie Cr-Co", "1800 zł"],
-      ["Korona porcelanowa na złocie", "1800 zł + koszt złota"],
-      ["Korona pełnoceramiczna", "2500–3500 zł"],
-      ["Korona pełnoceramiczna na podbudowie cyrkonowej", "2500–3500 zł"],
-      ["Licówka", "2500–4500 zł"],
-      ["Inlay / onlay kompozytowy", "od 1500 zł"],
-      ["Inlay / onlay pełnoceramiczny", "2500 zł"],
-      ["Wkład z włókna szklanego — 1 kanał", "1000 zł"],
-      ["Wkład z włókna szklanego — każdy kolejny kanał", "350 zł"],
-      ["Wkład koronowo-korzeniowy metalowy", "1000 zł"],
-      ["Proteza częściowa (za punkt)", "250 zł"],
-      ["Proteza całkowita", "3500 zł"],
-      ["Proteza szkieletowa", "od 3500 zł", "Szczegółowa wycena pracy protetycznej na wizycie konsultacyjnej"],
-      ["Osadzenie korony wykonanej w innym gabinecie", "350 zł", "za punkt"],
-      ["Model orientacyjny", "150 zł"],
-      ["Korona tymczasowa", "250–300 zł"],
-      ["Szynowanie — włókno szklane", "200 zł", "za ząb"],
-      ["Szyna relaksacyjna", "1200–1500 zł"],
-      ["Planowanie leczenia protetycznego", "2000 zł"],
-      ["Podnoszenie zwarcia metodą tłoczenia kompozytu", "1000–1400 zł", "za punkt"],
-      ["Wybielanie nakładkowe", "1400 zł"],
-      ["Wybielanie martwego zęba — pierwsza wizyta", "400 zł"],
-      ["Wybielanie martwego zęba — kolejna wizyta", "200 zł"],
-    ],
-  },
-  {
-    title: "Chirurgia i implantologia",
-    items: [
-      ["Usunięcie zęba rozchwianego / mlecznego", "120–150 zł"],
-      ["Usunięcie zęba stałego", "od 300 zł"],
-      ["Operacyjne usunięcie zęba", "od 500 zł"],
-      ["Resekcja", "1000 zł"],
-      ["Szycie chirurgiczne", "150 zł"],
-      ["Opatrunek chirurgiczny", "100 zł"],
-      [
-        "Kiretaż zamknięty",
-        "od 150 zł",
-        "za ząb — w zależności od stanu przyzębia i liczby zębów objętych zabiegiem",
-      ],
-      ["Plastyka wędzidełka", "od 400 zł"],
-      ["Wszczepienie implantu", "3500 zł"],
-      ["Podniesienie dna zatoki", "3800–6000 zł"],
-      ["Korona na implancie", "3500 zł"],
-    ],
-  },
-  {
-    title: "Diagnostyka",
-    items: [["RTG punktowe", "40 zł"]],
-  },
-];
+const priceGroups = JSON.parse(
+  fs.readFileSync(path.join(root, "assets", "data", "cennik.json"), "utf8")
+);
+
+const blogPosts = JSON.parse(
+  fs.readFileSync(path.join(root, "assets", "data", "blog.json"), "utf8")
+);
 
 function priceSortValue(price) {
   const match = String(price).replace(/\s/g, "").match(/(\d+(?:[.,]\d+)?)/);
@@ -333,7 +231,7 @@ function renderPrices() {
           <h3>${g.title}</h3>
           <ul class="price-list">
             ${g.items
-              .map(([name, price, note]) => {
+              .map(({ name, price, note }) => {
                 const sortPrice = priceSortValue(price);
                 return `
             <li data-name="${name.replace(/"/g, "&quot;")}" data-price="${sortPrice}">
@@ -347,6 +245,105 @@ function renderPrices() {
         </section>`
     )
     .join("");
+}
+
+function blogPostHref(slug) {
+  return `blog-${slug}.html`;
+}
+
+function renderBlogCards(limit = blogPosts.length) {
+  return blogPosts
+    .slice(0, limit)
+    .map((post) => {
+      const isVideo = Boolean(post.video);
+      return `
+        <a class="blog-card${isVideo ? " blog-card--video" : ""} reveal" href="${blogPostHref(post.slug)}">
+          <span class="blog-card__media">
+            <img src="${post.cover}" alt="" width="960" height="640" loading="lazy">
+            ${isVideo ? `<span class="blog-card__play" aria-hidden="true"></span>` : ""}
+          </span>
+          <span class="blog-card__body">
+            <time class="blog-card__date" datetime="${post.date}">${post.dateLabel}</time>
+            <h3 class="blog-card__title">${post.title}</h3>
+            <p class="blog-card__excerpt">${post.excerpt}</p>
+            <span class="blog-card__more">${isVideo ? "Zobacz wpis i rolkę" : "Czytaj więcej"}</span>
+          </span>
+        </a>`;
+    })
+    .join("");
+}
+
+function renderBlogPost(post) {
+  const gallery = (post.images || [])
+    .map(
+      (img, index) => `
+          <figure class="blog-gallery__item">
+            <button type="button" class="blog-gallery__trigger" data-lightbox-index="${index}" aria-label="Powiększ zdjęcie: ${img.alt}">
+              <img src="${img.src}" alt="${img.alt}" width="1200" height="800" loading="lazy">
+            </button>
+          </figure>`
+    )
+    .join("");
+
+  const paragraphs = (post.paragraphs || []).map((p) => `<p>${p}</p>`).join("\n");
+  const links = (post.links || (post.externalLink ? [post.externalLink] : []))
+    .map(
+      (link) =>
+        `<li><a href="${link.href}" rel="noopener noreferrer" target="_blank">${link.label}</a></li>`
+    )
+    .join("");
+  const linksBlock = links
+    ? `<div class="blog-links"><p class="blog-links__label">Zobacz też</p><ul>${links}</ul></div>`
+    : "";
+
+  const media = post.video
+    ? `
+          <aside class="blog-video reveal">
+            <a class="blog-video__link" href="${post.video.href}" rel="noopener noreferrer" target="_blank">
+              <img src="${post.video.poster}" alt="Miniatura rolki: ${post.title}" width="720" height="1280" loading="lazy">
+              <span class="blog-video__play" aria-hidden="true"></span>
+              <span class="blog-video__caption">${post.video.label}</span>
+            </a>
+          </aside>`
+    : gallery
+      ? `
+          <div class="blog-gallery reveal" data-lightbox-gallery aria-label="Galeria zdjęć">
+            ${gallery}
+          </div>`
+      : "";
+
+  return (
+    head({
+      title: `${post.title} — dentalpassion`,
+      description: post.excerpt,
+      active: "blog.html",
+      pagePath: blogPostHref(post.slug),
+    }) +
+    `
+  <main id="main">
+    <article class="blog-article${post.video ? " blog-article--with-video" : ""}">
+      <header class="page-hero">
+        <div class="container reveal">
+          <p class="section__eyebrow"><a href="blog.html">Blog</a></p>
+          <h1>${post.title}</h1>
+          <p><time datetime="${post.date}">${post.dateLabel}</time></p>
+        </div>
+      </header>
+      <section class="section" style="padding-top:0">
+        <div class="container blog-article__layout">
+          <div class="blog-article__content prose reveal">
+            ${paragraphs}
+            ${linksBlock}
+            <p style="margin-top:2rem"><a class="btn btn--ghost" href="blog.html">Wróć do bloga</a></p>
+          </div>
+          ${media}
+        </div>
+      </section>
+    </article>
+  </main>
+` +
+    footer()
+  );
 }
 
 function decodeEntities(s) {
@@ -473,6 +470,22 @@ const index =
       </div>
     </section>
 
+    <section class="section section--surface" id="blog">
+      <div class="container">
+        <div class="reveal" style="margin-bottom:2rem; display:flex; flex-wrap:wrap; justify-content:space-between; gap:1rem; align-items:end">
+          <div>
+            <p class="section__eyebrow">Blog</p>
+            <h2>Aktualności z życia gabinetu</h2>
+            <p class="section__lead">Szkolenia, wydarzenia i nowości, które wpływają na jakość leczenia w dentalpassion.</p>
+          </div>
+          <a class="btn btn--ghost" href="blog.html">Wszystkie wpisy</a>
+        </div>
+        <div class="blog-grid">
+          ${renderBlogCards(2)}
+        </div>
+      </div>
+    </section>
+
     <section class="section">
       <div class="container">
         <div class="cta-band reveal">
@@ -570,6 +583,35 @@ const zespol =
   </main>
 ` +
   footer();
+
+const blog =
+  head({
+    title: "Blog — dentalpassion Warszawa",
+    description:
+      "Aktualności z życia gabinetu dentalpassion: szkolenia, sympozja i wydarzenia stomatologiczne.",
+    active: "blog.html",
+  }) +
+  `
+  <main id="main">
+    <section class="page-hero">
+      <div class="container reveal">
+        <p class="section__eyebrow">Blog</p>
+        <h1>Aktualności z życia gabinetu</h1>
+        <p>Relacje ze szkoleń, konferencji i wydarzeń, które rozwijają naszą praktykę stomatologiczną.</p>
+      </div>
+    </section>
+    <section class="section" style="padding-top:0">
+      <div class="container blog-grid">
+        ${renderBlogCards()}
+      </div>
+    </section>
+  </main>
+` +
+  footer();
+
+const blogPostPages = Object.fromEntries(
+  blogPosts.map((post) => [blogPostHref(post.slug), renderBlogPost(post)])
+);
 
 const cennik =
   head({
@@ -796,6 +838,8 @@ const files = {
   "o-nas.html": oNas,
   "zespol.html": zespol,
   "cennik.html": cennik,
+  "blog.html": blog,
+  ...blogPostPages,
   "kontakt.html": kontakt,
   "rodo.html": rodo,
   "prawa-pacjenta.html": prawa,

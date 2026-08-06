@@ -1,0 +1,68 @@
+[
+  {
+    "slug": "seeking-occlusion-madrid",
+    "title": "Dentalpassion na Seeking Occlusion w Madrycie",
+    "date": "2025-05-31",
+    "dateLabel": "31 maja 2025",
+    "excerpt": "Nasz zespół wziął udział w międzynarodowym sympozjum Seeking Occlusion Global Concept — trzech dniach wykładów, paneli i wystawy poświęconych okluzji oraz rehabilitacji narządu żucia.",
+    "cover": "assets/events/first/2.jpg",
+    "images": [
+      {
+        "src": "assets/events/first/1.jpg",
+        "alt": "Plakat sympozjum Seeking Occlusion Global Concept w Madrycie"
+      },
+      {
+        "src": "assets/events/first/2.jpg",
+        "alt": "Spotkanie podczas Seeking Occlusion Global Concept"
+      },
+      {
+        "src": "assets/events/first/3.jpg",
+        "alt": "Uczestnicy sympozjum Seeking Occlusion przed ekranem konferencyjnym"
+      },
+      {
+        "src": "assets/events/first/4.jpg",
+        "alt": "Wykład o anatomii stawu i kręgosłupa szyjnego podczas sympozjum"
+      },
+      {
+        "src": "assets/events/first/5.jpg",
+        "alt": "Prezentacja analiz okluzyjnych na skanach 3D podczas Seeking Occlusion"
+      }
+    ],
+    "paragraphs": [
+      "W dniach 29–31 maja 2025 roku mieliśmy okazję uczestniczyć w Seeking Occlusion Global Concept — międzynarodowym sympozjum poświęconym okluzji i rehabilitacji układu stomatognatycznego, które odbyło się w COEM w Madrycie.",
+      "Wydarzenie zgromadziło najważniejsze szkoły i specjalistów z całego świata. Przez trzy dni można było poznać, zrozumieć i porównać różne podejścia do okluzji oraz rehabilitacji narządu żucia — a także wymieniać doświadczenia kliniczne i technologiczne podczas codziennych paneli dyskusyjnych. Tak intensywna konfrontacja protokołów w jednym miejscu i czasie zdarza się w stomatologii rzadko.",
+      "Równolegle z sesją wykładową trwała wystawa innowacyjnych produktów i usług związanych z diagnostyką oraz leczeniem układu żucia. To była doskonała okazja do rozmów z ekspertami, praktykami i firmami z branży stomatologicznej.",
+      "Wiedzę i inspiracje z Madrytu przenosimy do codziennej pracy w gabinecie dentalpassion — zwłaszcza w obszarze funkcjonowania stawu skroniowo-żuchwowego oraz kompleksowej rehabilitacji."
+    ],
+    "links": [
+      {
+        "href": "https://www.seekingocclusion.com/",
+        "label": "Strona wydarzenia — seekingocclusion.com"
+      }
+    ]
+  },
+  {
+    "slug": "wakacje-w-dentalpassion",
+    "title": "Czas wakacji w Dentalpassion",
+    "date": "2025-08-01",
+    "dateLabel": "sierpień 2025",
+    "excerpt": "Wakacje w naszym gabinecie to nie tylko urlop — to także serwis sprzętu i drobne zmiany, dzięki którym wszystko działa jeszcze sprawniej.",
+    "cover": "assets/events/summer/reel-thumb.jpg",
+    "video": {
+      "href": "https://www.facebook.com/share/v/19Tz19p3RG/",
+      "poster": "assets/events/summer/reel-thumb.jpg",
+      "label": "Obejrzyj rolkę na Facebooku"
+    },
+    "paragraphs": [
+      "Czas wakacji w Dentalpassion to nie tylko urlop i wypoczynek. To także moment, w którym dbamy o zaplecze gabinetu — tak, by po powrocie pacjentów wszystko działało jeszcze sprawniej i komfortowo.",
+      "Wykorzystujemy ten okres na serwisowanie sprzętu oraz wprowadzanie małych, ale zauważalnych zmian: w gabinecie, w recepcji i w poczekalni. Porządkujemy przestrzeń, dopracowujemy detale i przygotowujemy stanowiska pracy na kolejny intensywny sezon.",
+      "Dzięki temu możemy skupić się na tym, co najważniejsze — spokojnym, precyzyjnym leczeniu w przyjaznej atmosferze. Pozdrawiamy serdecznie — zespół Dentalpassion."
+    ],
+    "links": [
+      {
+        "href": "https://www.facebook.com/share/v/19Tz19p3RG/",
+        "label": "Zobacz rolkę na Facebooku"
+      }
+    ]
+  }
+]

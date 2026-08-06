@@ -49,6 +49,8 @@ Plik `.htaccess` mapuje stare adresy WP:
 
 ## Regeneracja stron HTML
 
+Źródło cennika: `assets/data/cennik.json`. Po zmianie cen uruchom:
+
 ```bash
 node assets/scripts/generate-pages.mjs
 ```
