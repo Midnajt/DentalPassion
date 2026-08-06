@@ -155,6 +155,9 @@ const team = [
     role: "Lekarz dentysta",
     spec: "stomatologia zachowawcza, protetyka, leczenie schorzeń stawu skroniowo-żuchwowego",
     photo: "assets/images/marcin.jpg",
+    bio: "Założyciel gabinetu dentalpassion. Łączy precyzję leczenia z indywidualnym planowaniem uśmiechu — zgodnie z filozofią FACE oraz Digital Smile Design. Szczególną uwagę poświęca funkcjonowaniu stawu skroniowo-żuchwowego i komfortowi pacjenta.",
+    facebook: "#",
+    znanyLekarz: "#",
   },
   {
     id: "wiktor-poczobutt",
@@ -162,6 +165,9 @@ const team = [
     role: "Lekarz dentysta",
     spec: "chirurgia, implantologia",
     photo: "assets/images/team-placeholder-m.svg",
+    bio: "Specjalizuje się w zabiegach chirurgicznych oraz implantologii. Pracuje spokojnie i przewidywalnie, dbając o bezpieczeństwo leczenia oraz jasne omówienie planu przed każdym zabiegiem.",
+    facebook: "#",
+    znanyLekarz: "#",
   },
   {
     id: "katarzyna-cichon",
@@ -169,6 +175,9 @@ const team = [
     role: "Lekarz dentysta",
     spec: "chirurgia, endodoncja",
     photo: "assets/images/team-placeholder-f.svg",
+    bio: "Łączy doświadczenie z zakresu chirurgii i endodoncji. Podchodzi do leczenia metodycznie, z naciskiem na precyzję i komfort pacjenta na każdym etapie terapii.",
+    facebook: "#",
+    znanyLekarz: "#",
   },
   {
     id: "agnieszka-fundakowska",
@@ -176,6 +185,9 @@ const team = [
     role: "Lekarz dentysta",
     spec: "stomatologia zachowawcza, stomatologia dziecięca",
     photo: "assets/images/team-placeholder-f.svg",
+    bio: "Zajmuje się stomatologią zachowawczą oraz opieką nad najmłodszymi pacjentami. Stawia na przyjazną atmosferę wizyty i dokładne, estetyczne odbudowy zębów.",
+    facebook: "#",
+    znanyLekarz: "#",
   },
   {
     id: "karina-kuczynska",
@@ -183,6 +195,19 @@ const team = [
     role: "Lekarz dentysta",
     spec: "endodoncja, stomatologia zachowawcza",
     photo: "assets/images/team-placeholder-f.svg",
+    bio: "Koncentruje się na endodoncji i leczeniu zachowawczym. Pracuje dokładnie i spokojnie, tak aby leczenie kanałowe oraz odbudowy były skuteczne i komfortowe dla pacjenta.",
+    facebook: "#",
+    znanyLekarz: "#",
+  },
+  {
+    id: "stella-stepniewska",
+    name: "Stella Stępniewska",
+    role: "Lekarz dentysta",
+    spec: "",
+    photo: "assets/images/team-placeholder-f.svg",
+    bio: "Lekarz dentysta w zespole dentalpassion. Dbamy wspólnie o indywidualne podejście do pacjenta, dokładną diagnostykę i leczenie dopasowane do potrzeb uśmiechu.",
+    facebook: "#",
+    znanyLekarz: "#",
   },
   {
     id: "anna-karwacka-oneczka",
@@ -190,8 +215,19 @@ const team = [
     role: "Higienistka stomatologiczna",
     spec: "",
     photo: "assets/images/ania.jpg",
+    bio: "Higienistka stomatologiczna, która dba o profilaktykę i komfort wizyt higienizacyjnych. Wspiera pacjentów w utrzymaniu zdrowych dziąseł oraz pięknego, zadbanego uśmiechu na co dzień.",
+    facebook: "#",
+    znanyLekarz: "#",
   },
 ];
+
+function teamSortKey(name) {
+  return String(name)
+    .replace(/^(lek\.?\s*dent\.?|mgr|dr|n\.?\s*med\.?)\s+/i, "")
+    .trim();
+}
+
+team.sort((a, b) => teamSortKey(a.name).localeCompare(teamSortKey(b.name), "pl"));
 
 function teamGrid(linkPrefix = "zespol.html#") {
   return `<ul class="team-grid">
@@ -572,7 +608,22 @@ const zespol =
             <div>
               <p class="team-member__role">${m.role}</p>
               <h2>${m.name}</h2>
-              ${m.spec ? `<p>${m.spec}</p>` : ""}
+              ${m.spec ? `<p class="team-detail__spec">${m.spec}</p>` : ""}
+              ${m.bio ? `<p class="team-detail__bio">${m.bio}</p>` : ""}
+              <ul class="team-detail__links">
+                <li>
+                  <a class="team-detail__link" href="${m.facebook || "#"}"${m.facebook && m.facebook !== "#" ? ' rel="noopener noreferrer" target="_blank"' : ""}>
+                    <img src="assets/images/fb.png" alt="" width="20" height="20" decoding="async">
+                    <span>Facebook</span>
+                  </a>
+                </li>
+                <li>
+                  <a class="team-detail__link" href="${m.znanyLekarz || "#"}"${m.znanyLekarz && m.znanyLekarz !== "#" ? ' rel="noopener noreferrer" target="_blank"' : ""}>
+                    <img src="assets/images/znanylekarz.png" alt="" width="20" height="20" decoding="async">
+                    <span>znanylekarz.pl</span>
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
         </article>`
@@ -742,10 +793,11 @@ const rodo =
         <h2>Kto jest administratorem danych osobowych?</h2>
         <p>Administratorem Państwa danych osobowych jest Marcin Mazik prowadzący działalność gospodarczą jako MARCIN MAZIK STOMATOLOGIA z siedzibą ul. Łukowska 30/96, 04-133 Warszawa, NIP: 1132511181, Numer REGON: 141414778, wykonujący działalność będąc zarejestrowanym zakładem leczniczym Dentalpassion „Mazik” ul. Ostrobramska 126 lok. 14, 04-026 Warszawa, określanym w dalszej części „MY” lub „Dentalpassion”.</p>
         <h2>Jakie dane osobowe pozyskujemy?</h2>
-        <p>Państwa dane osobowe pozyskaliśmy i przetwarzamy w celu realizacji usługi opieki zdrowotnej w Dentalpassion zgodnie z art. 9 ust. 2 lit. h) RODO. Przepisy prawa nakładają na nas obowiązek pozyskania danych osobowych w celu realizacji usługi medycznej i prowadzenia związanej z nią dokumentacji medycznej. Ustawa o prawach pacjenta i Rzeczniku Praw Pacjenta w art. 25 wskazuje zakres zbieranych przez nas danych, zaś w art. 26 — jakie dane musimy zebrać w celu realizacji Państwa prawa do wglądu i udostępniania dokumentacji medycznej.</p>
-        <p>Zgodnie z obowiązującymi przepisami do prawidłowej realizacji usługi medycznej niezbędne jest zebranie przez nas informacji o Państwa stanie zdrowia. Bez podania powyższych danych nie możemy świadczyć naszych usług. W celu sprawniejszej obsługi prosimy o dobrowolne wyrażenie zgody na przetwarzanie numeru telefonu i adresu e-mail.</p>
+        <p>Państwa dane osobowe pozyskaliśmy i przetwarzamy w celu realizacji usługi opieki zdrowotnej w Dentalpassion zgodnie z art. 9 ust. 2 lit. h) RODO. Przepisy prawa nakładają na nas obowiązek pozyskania danych osobowych w celu realizacji usługi medycznej i prowadzenia związanej z nią dokumentacji medycznej. Ustawa o prawach pacjenta i Rzeczniku Praw Pacjenta w art. 25 wskazuje zakres zbieranych przez nas danych, zaś w art. 26 jakie dane musimy zebrać w celu realizacji Państwa prawa do wglądu i udostępniania dokumentacji medycznej.</p>
+        <p>Zgodnie z obowiązującymi przepisami do prawidłowej realizacji usługi medycznej niezbędne jest zebranie przez nas informacji o Państwa stanie zdrowia. Bez podania powyższych danych nie możemy świadczyć naszych usług.</p>
+        <p>W celu sprawniejszej obsługi prosimy o dobrowolne wyrażenie zgody na przetwarzanie numeru telefonu i adresu e-mail.</p>
         <p>Możemy również pozyskiwać dane w przypadku korzystania przez Państwa ze strony internetowej w postaci plików cookie.</p>
-        <p>Zgodę na przetwarzanie danych osobowych możecie Państwo wycofać w dowolnym momencie w ten sam sposób, w jaki ją wyraziliście.</p>
+        <p>Zgodę na przetwarzanie danych osobowych możecie Państwo wycofać w dowolnym momencie w ten sam sposób jak ją wyraziliście.</p>
         <h2>Kto oprócz nas jest odbiorcą danych osobowych?</h2>
         <p>Odbiorcą Państwa danych mogą być współpracujące z nami podmioty takie jak:</p>
         <ul>
@@ -753,37 +805,179 @@ const rodo =
           <li>firma świadcząca usługi księgowo-podatkowe,</li>
           <li>podmiot świadczący obsługę informatyczną.</li>
         </ul>
-        <p>Państwa dane przed powierzeniem zabezpieczamy, podpisując wymaganą prawem umowę powierzenia i zapewniając zabezpieczenia techniczne przed dostępem osób niepowołanych oraz stosując zasady szyfrowania, pseudonimizacji i anonimizacji.</p>
+        <p>Państwa dane przed powierzeniem zabezpieczamy podpisując wymaganą prawem umowę powierzenia i zapewniając zabezpieczenia techniczne przed dostępem osób niepowołanych oraz stosując zasady szyfrowania, pseudonimizacji i anonimizacji.</p>
         <h2>Jak długo przetwarzamy dane osobowe?</h2>
-        <p>O czasie przetwarzania pozyskanych przez nas danych osobowych decydują terminy wskazane w przywołanych wyżej przepisach prawa o archiwizacji dokumentacji medycznej; termin ten wynosi 20 lat. Pozostałe dane przetwarzamy do czasu przedawnienia roszczeń związanych ze świadczonymi usługami w związku z ich rozliczeniem lub w celu wykonania zawartej umowy o kompleksowe leczenie lub świadczenie usługi medycznej.</p>
+        <p>O czasie przetwarzania pozyskanych przez nas danych osobowych decydują terminy wskazane w przywołanych wyżej przepisach prawa o archiwizacji dokumentacji medycznej, termin ten wynosi 20 lat. Pozostałe dane przetwarzamy do czasu przedawnienia roszczeń związanych ze świadczonymi usługami w związku z ich rozliczeniem lub w celu wykonania zawartej umowy o kompleksowe leczenie lub świadczenie usługi medycznej.</p>
         <h2>Czy przetwarzamy dane osobowe automatycznie?</h2>
         <p>Państwa dane osobowe będą przetwarzane w sposób zautomatyzowany (w tym w formie profilowania), jednakże nie będzie to wywoływać żadnych skutków prawnych lub w podobny sposób istotnie wpływać na Państwa sytuację. Profilowanie danych osobowych przez nas polega jedynie na przetwarzaniu danych osobowych (również w sposób zautomatyzowany) poprzez wykorzystywanie ich do oceny niektórych informacji, w szczególności do analizy lub prognozy osobistych potrzeb i statystyk wykonywanych świadczeń w ramach zarządzania usługą medyczną.</p>
-        <h2>Jakie prawa przysługują naszym Pacjentom?</h2>
+        <h2>Jakie prawa przysługują naszym Pacjentom w związku z przetwarzaniem danych osobowych?</h2>
         <p>Naszym Pacjentom przysługuje prawo dostępu do treści danych osobowych oraz prawo ich sprostowania, usunięcia, ograniczenia przetwarzania, prawo do przenoszenia danych, prawo wniesienia sprzeciwu. Jeżeli przetwarzanie odbywa się na podstawie wyrażonej zgody: prawo do cofnięcia zgody w dowolnym momencie. Jedynie zgodnie z przepisami prawa może dojść do ograniczenia praw związanych z usunięciem danych lub prawem do ograniczenia przetwarzania, o czym Państwa w danym przypadku poinformujemy.</p>
         <p>Zgodnie z art. 21 ust. 4 RODO przysługuje Państwu prawo wniesienia sprzeciwu wobec przetwarzania dotyczących Państwa danych osobowych. Zgodnie z art. 21 ust. 1 RODO, składając sprzeciw, należy wskazać jego przyczyny związane z Państwa szczególną sytuacją.</p>
         <p>W przypadku potrzeby uzyskania dodatkowych informacji dotyczących przetwarzania Państwa danych lub wyrażenia sprzeciwu prosimy o zgłoszenie tego faktu bezpośrednio w naszej recepcji przy ul. Ostrobramskiej 126 lok. 14, 04-026 Warszawa, telefonicznie: <a href="tel:+48501430894">501 430 894</a> lub e-mail: <a href="mailto:kontakt@dentalpassion.waw.pl">kontakt@dentalpassion.waw.pl</a>.</p>
-        <p>Jeśli uznacie Państwo, iż przetwarzanie danych osobowych narusza przepisy RODO, przysługuje Państwu prawo wniesienia skargi do organu nadzorczego — Prezesa Urzędu Ochrony Danych Osobowych (ul. Stawki 2, 00-193 Warszawa).</p>
+        <p>Jeśli uznacie Państwo, iż przetwarzanie danych osobowych narusza przepisy RODO, przysługuje Państwu prawo wniesienia skargi do organu nadzorczego, którym obecnie jest Generalny Inspektor Ochrony Danych Osobowych (adres: Generalny Inspektor Ochrony Danych Osobowych, ul. Stawki 2, 00-193 Warszawa).</p>
       </div>
     </section>
   </main>
 ` +
   footer();
 
-const prawaRaw = fs.readFileSync(path.join(root, "docs", "content-export", "prawa-pacjenta.html"), "utf8");
 const politRaw = fs.readFileSync(path.join(root, "docs", "content-export", "polityka-prywatnosci.html"), "utf8");
-
-let prawaBody = cleanLegal(prawaRaw);
-if (prawaBody.length < 500) {
-  prawaBody =
-    `<p>Szczegółowe informacje możesz uzyskać na stronie <a href="https://www.gov.pl/web/rpp/" rel="noopener noreferrer" target="_blank">gov.pl/web/rpp</a> lub pod numerem telefonu <a href="tel:800190590">800 190 590</a>.</p>` +
-    prawaBody;
-}
 
 let politBody = cleanLegal(politRaw);
 if (politBody.length < 500) {
   politBody =
     `<p>Polityka prywatności opisuje zasady przetwarzania informacji na Twój temat, w tym danych osobowych oraz plików cookies.</p>` +
     politBody;
+}
+
+const patientRights = [
+  {
+    title: "Prawo do świadczeń zdrowotnych",
+    body: `
+      <h3>Udzielanie świadczeń zdrowotnych</h3>
+      <p>Masz prawo do świadczeń zdrowotnych zgodnych z aktualnym stanem wiedzy medycznej.</p>
+      <p>Osoby wykonujące zawód medyczny (jak lekarz, lekarz dentysta, pielęgniarka, położna, fizjoterapeuta, ratownik medyczny, diagnosta laboratoryjny) mają obowiązek udzielać Ci świadczeń zdrowotnych z należytą starannością oraz zgodnie z zasadami etyki zawodowej.</p>
+      <p>Świadczenia zdrowotne powinny być udzielane w pomieszczeniach i przy użyciu urządzeń spełniających obowiązujące wymagania fachowe i sanitarne.</p>
+      <h3>Prawo do natychmiastowego udzielenia świadczeń zdrowotnych</h3>
+      <p><strong>PAMIĘTAJ!</strong> W przypadku zagrożenia zdrowia lub życia, masz prawo do uzyskania natychmiastowej pomocy medycznej.</p>
+      <p>W przypadku porodu pacjentka ma prawo do natychmiastowego uzyskania świadczeń zdrowotnych z nim związanych.</p>
+      <h3>Prawo do opinii innego lekarza</h3>
+      <p>Masz prawo żądać, aby lekarz udzielający Ci świadczeń zdrowotnych zasięgnął opinii innego lekarza lub zwołał konsylium lekarskie.</p>
+      <ul>
+        <li>Twoje żądanie powinno zostać odnotowane w dokumentacji medycznej.</li>
+        <li>Lekarz może odmówić, jeżeli uzna żądanie za bezzasadne. Ma on wówczas obowiązek odnotować odmowę w Twojej dokumentacji medycznej.</li>
+      </ul>
+      <p>Zasady te stosuje się także do pielęgniarki (położnej) w zakresie zasięgania opinii innej pielęgniarki (położnej).</p>
+    `,
+  },
+  {
+    title: "Prawo do informacji",
+    body: `
+      <p>Masz prawo do uzyskania od lekarza przystępnej informacji o swoim stanie zdrowia.<br>Lekarz powinien przekazać Ci informacje o rozpoznaniu, proponowanych i możliwych metodach diagnostycznych i leczniczych oraz dających się przewidzieć następstwach ich zastosowania lub zaniechania, a także o wynikach leczenia i rokowaniu.</p>
+      <p><a href="https://www.gov.pl/web/rpp/partnerska-komunikacja-lekarza-z-pacjentem" rel="noopener noreferrer" target="_blank">Partnerska komunikacja lekarza z pacjentem</a></p>
+      <p>Jeżeli nie chcesz być poinformowany o wszystkich lub niektórych faktach dotyczących Twojego stanu zdrowia, masz prawo żądać, aby lekarz nie udzielał Ci takich informacji.</p>
+      <p><a href="https://www.gov.pl/web/rpp/seniorze-poznaj-prawa-pacjenta-prawo-do-informacji" rel="noopener noreferrer" target="_blank">Więcej o prawie do informacji</a></p>
+      <p><strong>PAMIĘTAJ!</strong> Masz prawo wskazać osobę lub osoby, którym lekarz będzie udzielać informacji o Twoim stanie zdrowia i leczeniu.</p>
+    `,
+  },
+  {
+    title: "Prawo do wyrażania zgody na udzielenie świadczeń zdrowotnych",
+    body: `
+      <p>Masz prawo do wyrażenia zgody na udzielenie określonych świadczeń zdrowotnych lub odmowy takiej zgody – po uzyskaniu od lekarza wszystkich informacji o stanie zdrowia i proponowanym leczeniu.</p>
+      <p><a href="https://www.gov.pl/web/rpp/prawo-do-wyrazenia-zgody-pacjent-maloletni" rel="noopener noreferrer" target="_blank">Prawo do wyrażenia zgody – pacjent małoletni</a></p>
+      <p>W przypadku zabiegu operacyjnego albo zastosowania metody leczenia lub diagnostyki stwarzających podwyższone ryzyko, zgodę wyraża się w formie pisemnej. W każdej innej sytuacji zgodę lub sprzeciw możesz wyrazić ustnie.</p>
+      <p><a href="https://www.gov.pl/web/rpp/seniorze-poznaj-prawa-pacjenta-prawo-do-wyrazenia-zgody" rel="noopener noreferrer" target="_blank">Więcej o prawie do wyrażenia zgody</a></p>
+      <p><strong>PAMIĘTAJ!</strong> Bez Twojej zgody może zostać przeprowadzone badanie lub udzielone inne świadczenie zdrowotne tylko wówczas, gdy znajdujesz się w stanie, który wymaga niezwłocznej pomocy lekarskiej albo gdy zwłoka groziłaby Ci niebezpieczeństwem utraty życia, ciężkiego uszkodzenia ciała lub ciężkiego rozstroju zdrowia.</p>
+    `,
+  },
+  {
+    title: "Prawo do tajemnicy informacji",
+    body: `
+      <p><strong>PAMIĘTAJ!</strong> Osoby wykonujące zawód medyczny mają obowiązek zachować w tajemnicy wszelkie związane z Tobą informacje, w tym o Twoim stanie zdrowia, które uzyskały w związku z wykonywaniem zawodu.</p>
+      <p>Możesz jednak wyrazić zgodę na ujawnienie takich informacji. Bez Twojej zgody lekarz lub inna osoba wykonująca zawód medyczny mogą ujawnić informacje z Tobą związane tylko, gdy:</p>
+      <ul>
+        <li>zachodzi potrzeba przekazania niezbędnych informacji związanych z udzielaniem Ci świadczeń zdrowotnych innym osobom wykonującym zawód medyczny, uczestniczącym w udzielaniu tych świadczeń;</li>
+        <li>zachowanie tajemnicy może stanowić niebezpieczeństwo dla Twojego życia lub zdrowia albo życia lub zdrowia innych osób;</li>
+        <li>tak stanowią przepisy odrębnych ustaw;</li>
+        <li>dzieje się to w ramach postępowania przed wojewódzką komisją do spraw orzekania o zdarzeniach medycznych.</li>
+      </ul>
+      <p>Osoby wykonujące zawód medyczny są związane tajemnicą również po śmierci pacjenta.</p>
+    `,
+  },
+  {
+    title: "Prawo do zgłaszania niepożądanych działań produktów leczniczych",
+    body: `
+      <p>Każde niekorzystne i niezamierzone działanie produktu leczniczego możesz zgłosić:</p>
+      <ul>
+        <li>osobie wykonującej zawód medyczny (np. lekarzowi, pielęgniarce, farmaceucie),</li>
+        <li>Prezesowi Urzędu Rejestracji Produktów Leczniczych, Wyrobów Medycznych i Produktów Biobójczych,</li>
+        <li>podmiotowi odpowiedzialnemu za wprowadzenie produktu leczniczego do obrotu.</li>
+      </ul>
+      <p>Wszelkie informacje dotyczące sposobu zgłaszania działań niepożądanych produktów leczniczych znajdziesz na stronie internetowej Urzędu Rejestracji Produktów Leczniczych, Wyrobów Medycznych i Produktów Biobójczych <a href="http://www.urpl.gov.pl/pl" rel="noopener noreferrer" target="_blank">http://www.urpl.gov.pl/pl</a> – w zakładce Produkty lecznicze, w podzakładce Monitorowanie bezpieczeństwa leków.</p>
+    `,
+  },
+  {
+    title: "Prawo do zgłaszania sprzeciwu wobec opinii albo orzeczenia lekarza",
+    body: `
+      <p>Niektóre opinie albo orzeczenia wydawane przez lekarza mogą mieć wpływ na Twoje prawa lub obowiązki wynikające z obowiązujących przepisów. Przykładem takiej opinii/orzeczenia może być zaświadczenie o braku przeciwwskazań do korzystania z określonego rodzaju świadczeń zdrowotnych w uzdrowisku czy orzeczenie o istnieniu przeciwwskazań do wykonania obowiązkowego szczepienia ochronnego.</p>
+      <p>Jeżeli nie zgadzasz się z treścią takiego orzeczenia lub opinii, a postępowanie odwoławcze w odniesieniu do opinii i orzeczeń nie jest uregulowane w odrębnych przepisach prawa, możesz wnieść sprzeciw do Komisji Lekarskiej działającej przy Rzeczniku Praw Pacjenta.</p>
+      <p>Sprzeciw należy wnieść w terminie <strong>30 dni od dnia wydania opinii albo orzeczenia</strong> przez lekarza orzekającego o Twoim stanie zdrowia.</p>
+      <p>Wszelkie praktyczne informacje, a także przykładowy katalog opinii lub orzeczeń lekarskich, od których możesz wnieść sprzeciw do Komisji Lekarskiej, znajdziesz na stronie internetowej Rzecznika Praw Pacjenta <a href="https://www.gov.pl/web/rpp/sprzeciw-wobec-opiniiorzeczenia-lekarza" rel="noopener noreferrer" target="_blank">Sprzeciw wobec opinii/orzeczenia lekarza</a>.</p>
+    `,
+  },
+  {
+    title: "Prawo do dokumentacji medycznej",
+    body: `
+      <p>Masz prawo do dostępu do swojej dokumentacji medycznej, czyli dokumentów dotyczących Twojego stanu zdrowia i udzielonych Ci świadczeń zdrowotnych.</p>
+      <p>Dokumentacja może być udostępniona:</p>
+      <ol>
+        <li>do wglądu, w tym także do baz danych w zakresie ochrony zdrowia, w siedzibie podmiotu udzielającego świadczeń zdrowotnych;</li>
+        <li>poprzez sporządzenie jej wyciągów, odpisów, kopii lub wydruku;</li>
+        <li>poprzez wydanie oryginału za pokwitowaniem odbioru i z zastrzeżeniem zwrotu po wykorzystaniu (o ile zwłoka w wydaniu dokumentacji mogłaby spowodować zagrożenie Twojego życia lub zdrowia);</li>
+        <li>za pośrednictwem środków komunikacji elektronicznej;</li>
+        <li>na informatycznym nośniku danych.</li>
+      </ol>
+      <p><a href="https://www.gov.pl/web/rpp/seniorze-poznaj-prawa-pacjenta-prawo-do-dokumentacji-medycznej" rel="noopener noreferrer" target="_blank">Więcej o prawie do dokumentacji medycznej</a></p>
+      <p><strong>PAMIĘTAJ!</strong> Podmiot udzielający świadczeń zdrowotnych ma obowiązek udostępnienia dokumentacji medycznej również osobie przez Ciebie upoważnionej.</p>
+      <p><strong>WAŻNE!</strong> Pierwsza kopia dokumentacji jest wydawana nieodpłatnie.</p>
+    `,
+  },
+  {
+    title: "Prawo do poszanowania intymności i godności",
+    body: `
+      <p>Świadczenia zdrowotne powinny być udzielane z poszanowaniem Twojej intymności i godności.</p>
+      <p><a href="https://www.gov.pl/web/rpp/seniorze-poznaj-prawa-pacjenta-prawo-do-intymnosci-i-godnosci" rel="noopener noreferrer" target="_blank">Więcej o prawie do poszanowania intymności i godności</a></p>
+      <p>Prawo do poszanowania godności obejmuje także prawo do umierania w spokoju i godności. Pacjent znajdujący się w stanie terminalnym ma prawo do świadczeń zdrowotnych zapewniających łagodzenie bólu i innych cierpień.</p>
+      <p><a href="https://www.gov.pl/web/rpp/nie-musisz-cierpiec-z-bolu-masz-prawo-do-jego-lagodzenia2" rel="noopener noreferrer" target="_blank">Nie musisz cierpieć z bólu — masz prawo do jego łagodzenia</a></p>
+      <h3>Obecność osoby bliskiej podczas udzielania świadczeń zdrowotnych</h3>
+      <p><strong>PAMIĘTAJ!</strong> Masz prawo, aby przy udzielaniu świadczeń zdrowotnych towarzyszyła Ci osoba bliska (członek rodziny lub inna wskazana przez Ciebie osoba).</p>
+      <p><strong>PAMIĘTAJ!</strong> Jako rodzic masz prawo być obecny przy udzielaniu świadczeń zdrowotnych Twojemu dziecku.</p>
+      <p>Personel medyczny może odmówić obecności osoby bliskiej jedynie w przypadku prawdopodobieństwa wystąpienia zagrożenia epidemicznego lub ze względu na Twoje bezpieczeństwo zdrowotne. Taka odmowa musi zostać odnotowana w dokumentacji medycznej.</p>
+    `,
+  },
+  {
+    title: "Prawo do poszanowania życia prywatnego i rodzinnego",
+    body: `
+      <p>Przebywając w szpitalu masz prawo do kontaktu osobistego, telefonicznego lub korespondencyjnego z innymi osobami.</p>
+      <p>Prawo to przysługuje Ci również, jeżeli przebywasz w zakładzie pielęgnacyjno-opiekuńczym opiekuńczo-leczniczym lub rehabilitacji leczniczej czy hospicjum.</p>
+      <h3>Dodatkowa opieka pielęgnacyjna</h3>
+      <p>Masz prawo do dodatkowej opieki pielęgnacyjnej, czyli opieki, która nie polega na udzielaniu świadczeń zdrowotnych – w tym także opieki sprawowanej nad pacjentką w warunkach ciąży, porodu i połogu. Prawo to daje możliwość m.in. towarzyszenia pacjentce przy porodzie czy przebywania rodziców z dzieckiem podczas jego hospitalizacji.</p>
+      <p>Jeżeli realizacja tego prawa wiąże się z kosztami, jakie musi ponieść szpital lub inny podmiot udzielający stacjonarnych i całodobowych świadczeń zdrowotnych, może on pobrać opłatę rekompensującej rzeczywiste koszty. Informacja o wysokości opłaty oraz sposobie jej ustalenia jest jawna i podlega udostępnieniu w miejscu udzielania świadczeń zdrowotnych.</p>
+      <p>Nie podlega natomiast opłatom pobyt wraz z pacjentem małoletnim (lub posiadającym orzeczenie o znacznym stopniu niepełnosprawności) jego przedstawiciela ustawowego (albo opiekuna faktycznego).</p>
+    `,
+  },
+  {
+    title: "Prawo pacjenta do opieki duszpasterskiej",
+    body: `
+      <p>Przebywając w szpitalu lub w innym podmiocie udzielającym stacjonarnych i całodobowych świadczeń zdrowotnych (tj. zakładzie pielęgnacyjno-opiekuńczym, opiekuńczo-leczniczym lub rehabilitacji leczniczej czy hospicjum) masz prawo do opieki duszpasterskiej.</p>
+      <p>W sytuacji pogorszenia się stanu zdrowia lub zagrożenia życia wskazane podmioty lecznicze mają obowiązek umożliwić Ci kontakt z duchownym Twojego wyznania.</p>
+    `,
+  },
+  {
+    title: "Prawo do przechowywania rzeczy wartościowych w depozycie",
+    body: `
+      <p>Szpital oraz każdy inny podmiot udzielający stacjonarnych i całodobowych świadczeń zdrowotnych mają obowiązek zapewnić Ci bezpłatne przechowywanie rzeczy wartościowych w depozycie.</p>
+    `,
+  },
+];
+
+function renderPatientRightsAccordion() {
+  return patientRights
+    .map(
+      (item, index) => `
+        <details class="accordion__item">
+          <summary class="accordion__summary">
+            <span class="accordion__title">${item.title}</span>
+            <span class="accordion__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="accordion__panel" id="prawa-panel-${index + 1}">
+            <div class="accordion__panel-inner">
+              ${item.body.trim()}
+            </div>
+          </div>
+        </details>`
+    )
+    .join("");
 }
 
 const prawa =
@@ -797,12 +991,14 @@ const prawa =
     <section class="page-hero">
       <div class="container reveal">
         <h1>Prawa pacjenta</h1>
-        <p>Podstawowe informacje o Twoich prawach w placówce medycznej.</p>
+        <p>Szczegółowe informacje możesz uzyskać na stronie <a href="https://www.gov.pl/web/rpp/" rel="noopener noreferrer" target="_blank">gov.pl/web/rpp</a> lub pod numerem telefonu <a href="tel:800190590">800 190 590</a>.</p>
       </div>
     </section>
     <section class="section" style="padding-top:0">
-      <div class="container prose reveal">
-        ${prawaBody}
+      <div class="container reveal">
+        <div class="accordion" data-accordion>
+          ${renderPatientRightsAccordion()}
+        </div>
       </div>
     </section>
   </main>

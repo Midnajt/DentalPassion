@@ -294,4 +294,46 @@
       );
     }
   }
+
+  const accordion = document.querySelector("[data-accordion]");
+  if (accordion) {
+    const items = [...accordion.querySelectorAll(".accordion__item")];
+    const reduceAccordionMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const duration = 450;
+
+    items.forEach((item) => {
+      const summary = item.querySelector(".accordion__summary");
+      if (!summary) return;
+
+      if (item.open) item.classList.add("is-open");
+
+      summary.addEventListener("click", (event) => {
+        if (reduceAccordionMotion) return;
+
+        event.preventDefault();
+        if (item.classList.contains("is-prep") || item.classList.contains("is-closing")) return;
+
+        const isExpanded = item.open && !item.classList.contains("is-closing");
+
+        if (isExpanded) {
+          item.classList.remove("is-open");
+          item.classList.add("is-closing");
+          window.setTimeout(() => {
+            item.open = false;
+            item.classList.remove("is-closing");
+          }, duration);
+          return;
+        }
+
+        item.classList.add("is-prep");
+        item.open = true;
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            item.classList.remove("is-prep");
+            item.classList.add("is-open");
+          });
+        });
+      });
+    });
+  }
 })();
