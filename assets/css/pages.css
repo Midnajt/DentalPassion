@@ -111,7 +111,7 @@
 }
 
 .services-list li::before {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   top: 0.65em;
@@ -181,7 +181,7 @@
   padding: var(--space-xl) var(--space-lg);
   background:
     linear-gradient(120deg, rgba(86, 44, 101, 0.94), rgba(142, 35, 144, 0.88)),
-    url("../images/clinic.jpg") center / cover;
+    url('../images/clinic.jpg') center / cover;
   color: var(--color-white);
   display: flex;
   flex-wrap: wrap;
@@ -291,11 +291,13 @@
 
 .accordion__icon::before,
 .accordion__icon::after {
-  content: "";
+  content: '';
   position: absolute;
   inset: 50% auto auto 50%;
   background: var(--color-accent);
-  transition: transform 0.25s var(--ease), opacity 0.25s var(--ease);
+  transition:
+    transform 0.25s var(--ease),
+    opacity 0.25s var(--ease);
 }
 
 .accordion__icon::before {
@@ -444,7 +446,7 @@
 
 .blog-card__play::after,
 .blog-video__play::after {
-  content: "";
+  content: '';
   position: absolute;
   left: 54%;
   top: 50%;
@@ -520,7 +522,9 @@
   height: 100%;
   object-fit: cover;
   opacity: 0.92;
-  transition: transform 0.7s var(--ease), opacity var(--duration) var(--ease);
+  transition:
+    transform 0.7s var(--ease),
+    opacity var(--duration) var(--ease);
 }
 
 .blog-video__link:hover img,
@@ -605,7 +609,7 @@
 }
 
 .blog-gallery__trigger::after {
-  content: "";
+  content: '';
   position: absolute;
   inset: auto 0.65rem 0.65rem auto;
   width: 2rem;
@@ -643,7 +647,8 @@
   z-index: 1200;
   display: grid;
   place-items: center;
-  padding: max(0.75rem, env(safe-area-inset-top)) max(0.75rem, env(safe-area-inset-right)) max(0.75rem, env(safe-area-inset-bottom)) max(0.75rem, env(safe-area-inset-left));
+  padding: max(0.75rem, env(safe-area-inset-top)) max(0.75rem, env(safe-area-inset-right))
+    max(0.75rem, env(safe-area-inset-bottom)) max(0.75rem, env(safe-area-inset-left));
   opacity: 0;
   transition: opacity 0.2s var(--ease);
 }
