@@ -87,7 +87,8 @@
           }
         });
       },
-      { threshold: 0.16, rootMargin: "0px 0px -8% 0px" }
+      // threshold 0: tall blocks (e.g. legal pages) may never reach 16% visibility
+      { threshold: 0, rootMargin: "0px 0px -5% 0px" }
     );
 
     document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));

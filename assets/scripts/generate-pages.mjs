@@ -156,8 +156,8 @@ const team = [
     spec: "stomatologia zachowawcza, protetyka, leczenie schorzeń stawu skroniowo-żuchwowego",
     photo: "assets/images/marcin.jpg",
     bio: "Założyciel gabinetu dentalpassion. Łączy precyzję leczenia z indywidualnym planowaniem uśmiechu — zgodnie z filozofią FACE oraz Digital Smile Design. Szczególną uwagę poświęca funkcjonowaniu stawu skroniowo-żuchwowego i komfortowi pacjenta.",
-    facebook: "#",
-    znanyLekarz: "#",
+    facebook: "https://www.facebook.com/mazik.marcin",
+    znanyLekarz: "https://www.znanylekarz.pl/marcin-mazik/stomatolog/warszawa",
   },
   {
     id: "wiktor-poczobutt",
@@ -167,7 +167,7 @@ const team = [
     photo: "assets/images/team-placeholder-m.svg",
     bio: "Specjalizuje się w zabiegach chirurgicznych oraz implantologii. Pracuje spokojnie i przewidywalnie, dbając o bezpieczeństwo leczenia oraz jasne omówienie planu przed każdym zabiegiem.",
     facebook: "#",
-    znanyLekarz: "#",
+    znanyLekarz: "https://www.znanylekarz.pl/wiktor-poczobutt-odlanicki/stomatolog-protetyk/warszawa",
   },
   {
     id: "katarzyna-cichon",
@@ -197,7 +197,7 @@ const team = [
     photo: "assets/images/team-placeholder-f.svg",
     bio: "Koncentruje się na endodoncji i leczeniu zachowawczym. Pracuje dokładnie i spokojnie, tak aby leczenie kanałowe oraz odbudowy były skuteczne i komfortowe dla pacjenta.",
     facebook: "#",
-    znanyLekarz: "#",
+    znanyLekarz: "https://www.znanylekarz.pl/karina-kuczynska-witan/stomatolog/warszawa",
   },
   {
     id: "stella-stepniewska",
@@ -216,8 +216,8 @@ const team = [
     spec: "",
     photo: "assets/images/ania.jpg",
     bio: "Higienistka stomatologiczna, która dba o profilaktykę i komfort wizyt higienizacyjnych. Wspiera pacjentów w utrzymaniu zdrowych dziąseł oraz pięknego, zadbanego uśmiechu na co dzień.",
-    facebook: "#",
-    znanyLekarz: "#",
+    facebook: "https://www.facebook.com/anna.oneczka?locale=pl_PL",
+    znanyLekarz: "https://www.znanylekarz.pl/anna-karwacka-2/higienistka-stomatologiczna/warszawa#about-section",
   },
 ];
 
@@ -382,38 +382,6 @@ function renderBlogPost(post) {
   );
 }
 
-function decodeEntities(s) {
-  return s
-    .replace(/&#8211;/g, "–")
-    .replace(/&#8212;/g, "—")
-    .replace(/&#8220;/g, "„")
-    .replace(/&#8221;/g, "”")
-    .replace(/&#8222;/g, "„")
-    .replace(/&nbsp;/g, " ")
-    .replace(/&amp;/g, "&")
-    .replace(/&quot;/g, '"')
-    .replace(/&#038;/g, "&");
-}
-
-function cleanLegal(html) {
-  const parts = [];
-  const re = /<(h[2-4]|p|ul|ol)[^>]*>([\s\S]*?)<\/\1>/gi;
-  let match;
-  while ((match = re.exec(html))) {
-    const tag = match[1].toLowerCase();
-    let inner = decodeEntities(match[2]).replace(/<br\s*\/?>/gi, "<br>").trim();
-    if (!inner || inner.length < 2) continue;
-    if (tag.startsWith("h")) {
-      parts.push(`<${tag}>${inner.replace(/<[^>]+>/g, "")}</${tag}>`);
-    } else {
-      // keep simple links
-      inner = inner.replace(/<\/?span[^>]*>/gi, "");
-      parts.push(`<${tag}>${inner}</${tag}>`);
-    }
-  }
-  return parts.join("\n");
-}
-
 const index =
   head({
     title: "dentalpassion Marcin Mazik — stomatologia Warszawa",
@@ -459,7 +427,7 @@ const index =
           <p style="margin-top:1.5rem">Zaprojektujemy Państwa uśmiech w oparciu o dokumentację fotograficzną i zgodnie z zasadami Digital Smile Design (DSD).</p>
         </div>
         <div class="services-layout__media reveal">
-          <img src="assets/images/clinic.jpg" alt="Wnętrze gabinetu stomatologicznego" width="800" height="600">
+          <img src="assets/images/clinic3.png" alt="Zespół dentalpassion w gabinecie" width="1872" height="840">
         </div>
       </div>
     </section>
@@ -788,7 +756,7 @@ const rodo =
       </div>
     </section>
     <section class="section" style="padding-top:0">
-      <div class="container prose reveal">
+      <div class="container prose">
         <p>Informacja o ochronie danych osobowych na podstawie Rozporządzenia Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i w sprawie swobodnego przepływu takich danych oraz uchylenia dyrektywy 95/46/WE (ogólne rozporządzenie o ochronie danych), zwanym dalej „RODO”.</p>
         <h2>Kto jest administratorem danych osobowych?</h2>
         <p>Administratorem Państwa danych osobowych jest Marcin Mazik prowadzący działalność gospodarczą jako MARCIN MAZIK STOMATOLOGIA z siedzibą ul. Łukowska 30/96, 04-133 Warszawa, NIP: 1132511181, Numer REGON: 141414778, wykonujący działalność będąc zarejestrowanym zakładem leczniczym Dentalpassion „Mazik” ul. Ostrobramska 126 lok. 14, 04-026 Warszawa, określanym w dalszej części „MY” lub „Dentalpassion”.</p>
@@ -821,14 +789,95 @@ const rodo =
 ` +
   footer();
 
-const politRaw = fs.readFileSync(path.join(root, "docs", "content-export", "polityka-prywatnosci.html"), "utf8");
+const politBody = `
+        <p>Niniejsza Polityka prywatności określa zasady przetwarzania danych osobowych oraz wykorzystywania plików cookies i podobnych technologii w serwisie internetowym dostępnym pod adresem <strong>dentalpassion.waw.pl</strong> (dalej: „Serwis”).</p>
+        <p>Informacje dotyczące przetwarzania danych pacjentów w związku z udzielaniem świadczeń zdrowotnych w gabinecie znajdują się w osobnym dokumencie: <a href="rodo.html">Informacja RODO</a>.</p>
 
-let politBody = cleanLegal(politRaw);
-if (politBody.length < 500) {
-  politBody =
-    `<p>Polityka prywatności opisuje zasady przetwarzania informacji na Twój temat, w tym danych osobowych oraz plików cookies.</p>` +
-    politBody;
-}
+        <h2>1. Administrator danych</h2>
+        <p>Administratorem danych osobowych jest Marcin Mazik prowadzący działalność gospodarczą jako MARCIN MAZIK STOMATOLOGIA z siedzibą ul. Łukowska 30/96, 04-133 Warszawa, NIP: 1132511181, REGON: 141414778, prowadzący zakład leczniczy Dentalpassion „Mazik” przy ul. Ostrobramskiej 126 lok. 14, 04-026 Warszawa (dalej: „Administrator” lub „Dentalpassion”).</p>
+        <p>Kontakt w sprawach związanych z ochroną danych osobowych:</p>
+        <ul>
+          <li>e-mail: <a href="mailto:kontakt@dentalpassion.waw.pl">kontakt@dentalpassion.waw.pl</a></li>
+          <li>telefon: <a href="tel:+48501430894">501 430 894</a></li>
+          <li>adres: ul. Ostrobramska 126 lok. 14, 04-026 Warszawa</li>
+        </ul>
+
+        <h2>2. Zakres Polityki</h2>
+        <p>Polityka dotyczy osób odwiedzających Serwis oraz osób, które kontaktują się z Dentalpassion za pośrednictwem danych kontaktowych udostępnionych w Serwisie (telefon, e-mail, media społecznościowe).</p>
+
+        <h2>3. Jakie dane przetwarzamy w związku z Serwisem</h2>
+        <p>W ramach korzystania z Serwisu możemy przetwarzać:</p>
+        <ul>
+          <li>dane techniczne związane z wizytą na stronie (np. adres IP, typ przeglądarki, data i godzina dostępu, informacje o urządzeniu) — w zakresie wynikającym z logów serwera lub narzędzi utrzymania Serwisu,</li>
+          <li>dane zapisane lokalnie w urządzeniu użytkownika, w szczególności informację o wyrażeniu zgody na cookies i przetwarzanie danych (zapisywaną w pamięci przeglądarki),</li>
+          <li>dane podane dobrowolnie podczas kontaktu (np. imię i nazwisko, numer telefonu, adres e-mail, treść wiadomości), jeśli użytkownik sam je przekaże telefonicznie, mailowo lub w inny sposób.</li>
+        </ul>
+        <p>Serwis nie prowadzi obecnie formularza kontaktowego online. Kontakt odbywa się przede wszystkim telefonicznie lub pocztą elektroniczną.</p>
+
+        <h2>4. Cele i podstawy przetwarzania</h2>
+        <p>Dane związane z Serwisem przetwarzamy w następujących celach:</p>
+        <ul>
+          <li>zapewnienie prawidłowego działania, bezpieczeństwa i utrzymania Serwisu — prawnie uzasadniony interes Administratora (art. 6 ust. 1 lit. f RODO),</li>
+          <li>zapamiętanie wyboru dotyczącego zgody na cookies i przetwarzanie danych — zgoda użytkownika (art. 6 ust. 1 lit. a RODO) oraz prawnie uzasadniony interes związany z obsługą Serwisu,</li>
+          <li>udzielenie odpowiedzi na zapytania i prowadzenie korespondencji — zgoda lub prawnie uzasadniony interes Administratora (art. 6 ust. 1 lit. a lub f RODO), a w razie nawiązania współpracy lub usługi — także wykonanie umowy (art. 6 ust. 1 lit. b RODO),</li>
+          <li>ustalenie, dochodzenie lub obrona roszczeń — prawnie uzasadniony interes Administratora (art. 6 ust. 1 lit. f RODO).</li>
+        </ul>
+
+        <h2>5. Pliki cookies i podobne technologie</h2>
+        <p>Serwis może wykorzystywać pliki cookies oraz lokalną pamięć przeglądarki (localStorage).</p>
+        <p>Aktualnie Serwis zapisuje w urządzeniu użytkownika m.in. informację o akceptacji zgody na cookies i przetwarzanie danych (klucz przechowywany lokalnie w przeglądarce), aby nie wyświetlać banera zgody przy każdej kolejnej wizycie.</p>
+        <p>W Serwisie mogą być także wykorzystywane elementy zewnętrzne, które ładują zasoby od dostawców trzecich, w szczególności:</p>
+        <ul>
+          <li>czcionki Google Fonts,</li>
+          <li>mapa Google Maps osadzona na stronie Kontakt,</li>
+          <li>odnośniki do profilu Facebook Dentalpassion.</li>
+        </ul>
+        <p>Korzystanie z tych usług może wiązać się z przetwarzaniem danych technicznych przez ich dostawców zgodnie z ich własnymi politykami prywatności.</p>
+        <p>Użytkownik może w każdej chwili zarządzać cookies w ustawieniach przeglądarki (blokowanie, usuwanie, ograniczenie). Ograniczenie cookies może wpłynąć na działanie niektórych funkcji Serwisu.</p>
+
+        <h2>6. Odbiorcy danych</h2>
+        <p>Dane mogą być przekazywane podmiotom wspierającym działanie Serwisu i działalności Administratora, w szczególności:</p>
+        <ul>
+          <li>dostawcom hostingu i utrzymania strony,</li>
+          <li>dostawcom usług IT i poczty elektronicznej,</li>
+          <li>dostawcom narzędzi zewnętrznych wykorzystywanych w Serwisie (np. Google, Meta/Facebook) — w zakresie niezbędnym do wyświetlenia treści lub realizacji funkcji, z których korzysta użytkownik.</li>
+        </ul>
+        <p>Dane nie są sprzedawane podmiotom trzecim.</p>
+
+        <h2>7. Przekazywanie danych poza EOG</h2>
+        <p>Korzystanie z usług niektórych dostawców (m.in. Google, Meta) może wiązać się z przekazywaniem danych poza Europejski Obszar Gospodarczy. W takich przypadkach przekazywanie odbywa się na podstawie mechanizmów przewidzianych przepisami RODO, w szczególności odpowiednich zabezpieczeń stosowanych przez tych dostawców.</p>
+
+        <h2>8. Okres przechowywania danych</h2>
+        <ul>
+          <li>dane związane z logami i bezpieczeństwem Serwisu — przez okres niezbędny do zapewnienia bezpieczeństwa i rozliczalności, zwykle nie dłużej niż jest to potrzebne do tych celów,</li>
+          <li>informacja o zgodzie zapisana w przeglądarce — do czasu jej usunięcia przez użytkownika lub wyczyszczenia danych przeglądarki,</li>
+          <li>dane z korespondencji — przez czas obsługi zapytania oraz przez okres niezbędny do ochrony roszczeń (zgodnie z obowiązującymi terminami przedawnienia).</li>
+        </ul>
+        <p>Okresy przechowywania dokumentacji medycznej pacjentów reguluje <a href="rodo.html">Informacja RODO</a>.</p>
+
+        <h2>9. Prawa użytkownika</h2>
+        <p>Osobie, której dane dotyczą, przysługuje prawo do:</p>
+        <ul>
+          <li>dostępu do danych,</li>
+          <li>sprostowania danych,</li>
+          <li>usunięcia danych,</li>
+          <li>ograniczenia przetwarzania,</li>
+          <li>przenoszenia danych,</li>
+          <li>wniesienia sprzeciwu wobec przetwarzania opartego na prawnie uzasadnionym interesie,</li>
+          <li>cofnięcia zgody w dowolnym momencie (bez wpływu na zgodność z prawem przetwarzania sprzed jej cofnięcia).</li>
+        </ul>
+        <p>Przysługuje również prawo wniesienia skargi do Prezesa Urzędu Ochrony Danych Osobowych (ul. Stawki 2, 00-193 Warszawa).</p>
+
+        <h2>10. Dobrowolność podania danych</h2>
+        <p>Korzystanie z Serwisu nie wymaga zakładania konta. Podanie danych w kontakcie z Dentalpassion jest dobrowolne, jednak może być konieczne do udzielenia odpowiedzi na zapytanie lub umówienia wizyty.</p>
+
+        <h2>11. Bezpieczeństwo</h2>
+        <p>Administrator stosuje środki techniczne i organizacyjne adekwatne do ryzyka, aby chronić dane przed nieuprawnionym dostępem, utratą lub uszkodzeniem. Dostęp do danych mają wyłącznie osoby upoważnione.</p>
+
+        <h2>12. Zmiany Polityki prywatności</h2>
+        <p>Polityka prywatności może być aktualizowana, w szczególności w razie zmian w Serwisie, przepisach prawa lub sposobach przetwarzania danych. Aktualna wersja jest zawsze dostępna na tej stronie.</p>
+        <p>Data ostatniej aktualizacji: 6 sierpnia 2026 r.</p>
+`;
 
 const patientRights = [
   {
@@ -1009,7 +1058,7 @@ const polityka =
   head({
     title: "Polityka prywatności — dentalpassion",
     description:
-      "Polityka prywatności serwisu dentalpassion.waw.pl — dane osobowe i pliki cookies.",
+      "Polityka prywatności serwisu dentalpassion.waw.pl — dane osobowe, cookies i zasady korzystania ze strony.",
     pagePath: "polityka-prywatnosci.html",
   }) +
   `
@@ -1021,7 +1070,7 @@ const polityka =
       </div>
     </section>
     <section class="section" style="padding-top:0">
-      <div class="container prose reveal">
+      <div class="container prose">
         ${politBody}
       </div>
     </section>
