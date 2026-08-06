@@ -160,6 +160,16 @@ const team = [
     znanyLekarz: "https://www.znanylekarz.pl/marcin-mazik/stomatolog/warszawa",
   },
   {
+    id: "marcin-kucharski",
+    name: "dr Marcin Kucharski",
+    role: "Ortodonta",
+    spec: "ortodoncja",
+    photo: "assets/images/team-placeholder-m.svg",
+    bio: "Ortodonta w zespole dentalpassion. Zajmuje się leczeniem wad zgryzu i ustawieniem zębów — od diagnostyki po indywidualny plan terapii dopasowany do potrzeb pacjenta.",
+    facebook: "#",
+    znanyLekarz: "#",
+  },
+  {
     id: "wiktor-poczobutt",
     name: "Wiktor Poczobutt-Odlanicki",
     role: "Lekarz dentysta",
@@ -464,7 +474,7 @@ const index =
           <div>
             <p class="section__eyebrow">Zespół</p>
             <h2>Poznaj naszych lekarzy</h2>
-            <p class="section__lead">Doświadczeni dentyści specjalizujący się w zachowawczej, estetycznej, endodoncji, chirurgii i implantologii.</p>
+            <p class="section__lead">Doświadczeni dentyści specjalizujący się w zachowawczej, estetycznej, endodoncji, ortodoncji, chirurgii i implantologii.</p>
           </div>
           <a class="btn btn--ghost" href="zespol.html">Pełny zespół</a>
         </div>
@@ -550,7 +560,7 @@ const zespol =
   head({
     title: "Zespół — dentalpassion Warszawa",
     description:
-      "Poznaj zespół lekarzy dentystów dentalpassion: stomatologia zachowawcza, endodoncja, chirurgia i implantologia.",
+      "Poznaj zespół lekarzy dentystów dentalpassion: stomatologia zachowawcza, endodoncja, ortodoncja, chirurgia i implantologia.",
     active: "zespol.html",
   }) +
   `
@@ -559,7 +569,7 @@ const zespol =
       <div class="container reveal">
         <p class="section__eyebrow">Zespół</p>
         <h1>Lekarze dentalpassion</h1>
-        <p>Kompetencje w zakresie leczenia zachowawczego, estetycznego, endodoncji, chirurgii i implantologii.</p>
+        <p>Kompetencje w zakresie leczenia zachowawczego, estetycznego, endodoncji, ortodoncji, chirurgii i implantologii.</p>
       </div>
     </section>
     <section class="section" style="padding-top:0">
