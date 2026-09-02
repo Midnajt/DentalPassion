@@ -106,3 +106,14 @@ node assets/scripts/generate-pages.mjs
 - [ ] `robots.txt` i `sitemap.xml` odpowiadają pod nowymi adresami
 - [ ] Nowa mapa strony zgłoszona w Google Search Console
 - [ ] Po okresie próbnym: usunięty `wp-old` z serwera i baza danych WordPressa
+
+## Stan po wdrożeniu (2 września 2026)
+
+Strona statyczna działa na `dentalpassion.waw.pl`. Pliki WordPressa leżą w `/wp-old` poza
+`public_html` — są niedostępne z internetu i pozwalają się wycofać. GitHub Pages wyłączone.
+
+Do zrobienia później:
+
+- zgłoszenie `sitemap.xml` w Google Search Console (wymaga konta Google z dostępem do usługi),
+- po 2-4 tygodniach stabilnej pracy: usunięcie `/wp-old` i bazy danych WordPressa,
+- objęcie certyfikatem SSL adresu `www.dentalpassion.waw.pl` (zgłoszenie do hostingu).

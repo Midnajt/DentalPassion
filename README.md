@@ -4,8 +4,6 @@ Statyczna strona internetowa gabinetu stomatologii **dentalpassion** (Marcin Maz
 
 **Produkcja:** [dentalpassion.waw.pl](https://dentalpassion.waw.pl)
 
-**Podgląd:** [midnajt.github.io/DentalPassion](https://midnajt.github.io/DentalPassion) — kopia prezentacyjna, do wyłączenia po wdrożeniu na docelowej domenie.
-
 ## Stack
 
 - HTML5 + CSS (custom design tokens)
@@ -60,9 +58,8 @@ Procedura, lista plików do wysłania, mapowanie starych URL WordPress i checkli
 
 ### GitHub Pages
 
-Kopia prezentacyjna publikowana z gałęzi `master`. Strony mają adresy kanoniczne wskazujące na
-`dentalpassion.waw.pl`, więc nie konkurują w wyszukiwarce z produkcją. Po wdrożeniu na docelowej
-domenie Pages można wyłączyć w ustawieniach repozytorium.
+Służyło wyłącznie do prezentacji projektu klientowi i zostało wyłączone po wdrożeniu na docelowej
+domenie. Repozytorium pozostaje źródłem kodu.
 
 ## Kontakt (CTA na stronie)
 
