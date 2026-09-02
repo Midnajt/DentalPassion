@@ -5,19 +5,22 @@ import { fileURLToPath } from "url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, "..", "..");
 
-/** Public site origin on GitHub Pages (no trailing slash). */
-const SITE_URL = "https://midnajt.github.io/DentalPassion";
+/** Public site origin (no trailing slash). */
+const SITE_URL = "https://dentalpassion.waw.pl";
 
 const fonts = `  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,450;9..144,550;9..144,650&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">`;
 
-function head({ title, description, active = "", heroHeader = false, pagePath = "" }) {
+function head({ title, description, active = "", heroHeader = false, pagePath = "", noindex = false }) {
   const file = pagePath || active || "index.html";
   const pageUrl =
     file === "index.html" ? SITE_URL : `${SITE_URL}/${file}`;
   const ogImage = `${SITE_URL}/assets/images/og-image.png`;
   const favicon = `${SITE_URL}/assets/images/favicon.png`;
+  const indexingTag = noindex
+    ? `  <meta name="robots" content="noindex,follow">`
+    : `  <link rel="canonical" href="${pageUrl}">`;
 
   return `<!DOCTYPE html>
 <html lang="pl">
@@ -26,7 +29,7 @@ function head({ title, description, active = "", heroHeader = false, pagePath = 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${title}</title>
   <meta name="description" content="${description}">
-  <link rel="canonical" href="${pageUrl}">
+${indexingTag}
   <meta property="og:title" content="${title}">
   <meta property="og:description" content="${description}">
   <meta property="og:type" content="website">
@@ -1087,6 +1090,53 @@ const polityka =
 ` +
   footer();
 
+/**
+ * Apache serves 404.html under the originally requested URL, so relative paths
+ * would resolve against that URL instead of the site root.
+ */
+function toRootRelative(html) {
+  return html
+    .replace(/(href|src)="(assets\/)/g, '$1="/$2')
+    .replace(/(href)="([a-z0-9-]+\.html)"/g, '$1="/$2"');
+}
+
+const notFound = toRootRelative(
+  head({
+    title: "Nie znaleziono strony — dentalpassion",
+    description: "Strona o podanym adresie nie istnieje. Przejdź do strony głównej dentalpassion.",
+    noindex: true,
+  }) +
+    `
+  <main id="main">
+    <section class="page-hero">
+      <div class="container reveal">
+        <p class="section__eyebrow">Błąd 404</p>
+        <h1>Nie znaleźliśmy tej strony</h1>
+        <p>Adres mógł się zmienić lub strona została usunięta.</p>
+      </div>
+    </section>
+    <section class="section" style="padding-top:0">
+      <div class="container prose reveal">
+        <p>Sprawdź, czy adres jest poprawny, albo przejdź do jednej z sekcji serwisu:</p>
+        <ul>
+          <li><a href="index.html">Strona główna</a></li>
+          <li><a href="o-nas.html">O nas</a></li>
+          <li><a href="zespol.html">Zespół</a></li>
+          <li><a href="cennik.html">Cennik</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+        <p style="margin-top:2rem">
+          <a class="btn btn--primary" href="tel:+48501430894">Zamów wizytę</a>
+          <a class="btn btn--ghost" href="kontakt.html">Dane kontaktowe</a>
+        </p>
+      </div>
+    </section>
+  </main>
+` +
+    footer()
+);
+
 const files = {
   "index.html": index,
   "o-nas.html": oNas,
@@ -1098,9 +1148,31 @@ const files = {
   "rodo.html": rodo,
   "prawa-pacjenta.html": prawa,
   "polityka-prywatnosci.html": polityka,
+  "404.html": notFound,
 };
 
 for (const [file, content] of Object.entries(files)) {
+  fs.writeFileSync(path.join(root, file), content, "utf8");
+  console.log("wrote", file, content.length);
+}
+
+const sitemapUrls = Object.keys(files)
+  .filter((file) => file !== "404.html")
+  .map((file) => (file === "index.html" ? `${SITE_URL}/` : `${SITE_URL}/${file}`));
+
+const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${sitemapUrls.map((url) => `  <url><loc>${url}</loc></url>`).join("\n")}
+</urlset>
+`;
+
+const robots = `User-agent: *
+Allow: /
+
+Sitemap: ${SITE_URL}/sitemap.xml
+`;
+
+for (const [file, content] of Object.entries({ "sitemap.xml": sitemap, "robots.txt": robots })) {
   fs.writeFileSync(path.join(root, file), content, "utf8");
   console.log("wrote", file, content.length);
 }

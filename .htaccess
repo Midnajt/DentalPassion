@@ -2,11 +2,15 @@
 # Wymaga Apache + mod_rewrite. Na cyberFolks zwykle działa w katalogu public_html.
 
 Options -Indexes
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+
 RewriteEngine On
 
-# Wymuś HTTPS (odkomentuj po wdrożeniu certyfikatu)
-# RewriteCond %{HTTPS} !=on
-# RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# Wymuś HTTPS (wyjątek dla walidacji certyfikatu Let's Encrypt)
+RewriteCond %{HTTPS} !=on
+RewriteCond %{REQUEST_URI} !^/\.well-known/
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 # Stare permalinki WP z index.php
 RewriteRule ^index\.php/cennik/?$ /cennik.html [R=301,L]
@@ -18,6 +22,6 @@ RewriteRule ^index\.php/?$ / [R=301,L]
 # Krótsze aliasy bez .html (opcjonalne, ładniejsze URL)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(o-nas|zespol|cennik|kontakt|rodo|prawa-pacjenta|polityka-prywatnosci)/?$ /$1.html [L]
+RewriteRule ^(o-nas|zespol|cennik|blog|kontakt|rodo|prawa-pacjenta|polityka-prywatnosci)/?$ /$1.html [L]
 
 # Typy MIME / kompresja zostaw serwerowi hostingu
