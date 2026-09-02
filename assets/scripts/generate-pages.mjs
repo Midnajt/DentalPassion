@@ -5,8 +5,30 @@ import { fileURLToPath } from "url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, "..", "..");
 
+/** Strony powstają wyłącznie w katalogu wysyłkowym — w repozytorium ich nie trzymamy. */
+const outDir = path.join(root, "dist");
+fs.mkdirSync(outDir, { recursive: true });
+
 /** Public site origin (no trailing slash). */
 const SITE_URL = "https://dentalpassion.waw.pl";
+
+/** Google Analytics 4. Zgodę na cookies odblokowuje `main.js` po akceptacji banera. */
+const GA_ID = "G-55QG7SQY7K";
+
+const analytics = `  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied',
+      wait_for_update: 500
+    });
+    gtag('js', new Date());
+    gtag('config', '${GA_ID}');
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=${GA_ID}"></script>`;
 
 const fonts = `  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,6 +49,7 @@ function head({ title, description, active = "", heroHeader = false, pagePath = 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+${analytics}
   <title>${title}</title>
   <meta name="description" content="${description}">
 ${indexingTag}
@@ -135,7 +158,7 @@ function footer() {
     <div class="consent-banner__inner">
       <div class="consent-banner__text">
         <p id="consent-title" class="consent-banner__title">Zgoda na pliki cookies i przetwarzanie danych</p>
-        <p id="consent-desc">Korzystamy z plików cookies oraz przetwarzamy dane zgodnie z <a href="rodo.html">informacją RODO</a> i <a href="polityka-prywatnosci.html">polityką prywatności</a>. Aby kontynuować, potwierdź zgodę poniżej.</p>
+        <p id="consent-desc">Korzystamy z plików cookies oraz przetwarzamy dane zgodnie z <a href="rodo.html">informacją RODO</a> i <a href="polityka-prywatnosci.html">polityką prywatności</a>. Do statystyk odwiedzin używamy Google Analytics — jego pliki cookies zapisujemy dopiero po Twojej zgodzie. Aby kontynuować, potwierdź zgodę poniżej.</p>
         <label class="consent-banner__check">
           <input type="checkbox" id="consent-checkbox" data-consent-checkbox>
           <span>Wyrażam zgodę na wykorzystywanie plików cookies oraz przetwarzanie danych osobowych w celach opisanych w dokumentach RODO i polityki prywatności.</span>
@@ -822,6 +845,7 @@ const politBody = `
         <ul>
           <li>dane techniczne związane z wizytą na stronie (np. adres IP, typ przeglądarki, data i godzina dostępu, informacje o urządzeniu) — w zakresie wynikającym z logów serwera lub narzędzi utrzymania Serwisu,</li>
           <li>dane zapisane lokalnie w urządzeniu użytkownika, w szczególności informację o wyrażeniu zgody na cookies i przetwarzanie danych (zapisywaną w pamięci przeglądarki),</li>
+          <li>zanonimizowane dane statystyczne o korzystaniu z Serwisu, zbierane przez Google Analytics po wyrażeniu zgody (szczegóły w punkcie 5),</li>
           <li>dane podane dobrowolnie podczas kontaktu (np. imię i nazwisko, numer telefonu, adres e-mail, treść wiadomości), jeśli użytkownik sam je przekaże telefonicznie, mailowo lub w inny sposób.</li>
         </ul>
         <p>Serwis nie prowadzi obecnie formularza kontaktowego online. Kontakt odbywa się przede wszystkim telefonicznie lub pocztą elektroniczną.</p>
@@ -831,6 +855,7 @@ const politBody = `
         <ul>
           <li>zapewnienie prawidłowego działania, bezpieczeństwa i utrzymania Serwisu — prawnie uzasadniony interes Administratora (art. 6 ust. 1 lit. f RODO),</li>
           <li>zapamiętanie wyboru dotyczącego zgody na cookies i przetwarzanie danych — zgoda użytkownika (art. 6 ust. 1 lit. a RODO) oraz prawnie uzasadniony interes związany z obsługą Serwisu,</li>
+          <li>prowadzenie statystyk odwiedzin i analiza sposobu korzystania z Serwisu w celu jego ulepszania — zgoda użytkownika (art. 6 ust. 1 lit. a RODO),</li>
           <li>udzielenie odpowiedzi na zapytania i prowadzenie korespondencji — zgoda lub prawnie uzasadniony interes Administratora (art. 6 ust. 1 lit. a lub f RODO), a w razie nawiązania współpracy lub usługi — także wykonanie umowy (art. 6 ust. 1 lit. b RODO),</li>
           <li>ustalenie, dochodzenie lub obrona roszczeń — prawnie uzasadniony interes Administratora (art. 6 ust. 1 lit. f RODO).</li>
         </ul>
@@ -845,6 +870,13 @@ const politBody = `
           <li>odnośniki do profilu Facebook Dentalpassion.</li>
         </ul>
         <p>Korzystanie z tych usług może wiązać się z przetwarzaniem danych technicznych przez ich dostawców zgodnie z ich własnymi politykami prywatności.</p>
+
+        <h3>Google Analytics</h3>
+        <p>Serwis korzysta z narzędzia Google Analytics 4 dostarczanego przez Google Ireland Limited (Gordon House, Barrow Street, Dublin 4, Irlandia). Narzędzie zbiera zanonimizowane dane statystyczne o sposobie korzystania ze strony — m.in. liczbę i źródło wizyt, odwiedzane podstrony, przybliżoną lokalizację, typ urządzenia i przeglądarki. Dane te służą wyłącznie do analizy ruchu i ulepszania Serwisu; nie są wykorzystywane do identyfikacji poszczególnych osób ani łączone z dokumentacją medyczną.</p>
+        <p>Podstawą przetwarzania jest zgoda użytkownika (art. 6 ust. 1 lit. a RODO). Serwis korzysta z mechanizmu zarządzania zgodą Google (Consent Mode): do czasu zaakceptowania banera narzędzie działa w trybie ograniczonym — nie zapisuje w urządzeniu plików cookies ani identyfikatorów użytkownika, a do Google trafiają wyłącznie zanonimizowane, zbiorcze sygnały o wizycie, na podstawie których nie da się rozpoznać konkretnej osoby. Pełny pomiar, w tym zapis plików cookies, uruchamia się dopiero po wyrażeniu zgody.</p>
+        <p>Zgodę można wycofać w każdej chwili, usuwając dane witryny (pliki cookies i pamięć lokalną) w ustawieniach przeglądarki — przy kolejnej wizycie baner zgody pojawi się ponownie. Instalację analityki można też zablokować dodatkiem <a href="https://tools.google.com/dlpage/gaoptout" rel="noopener noreferrer" target="_blank">Google Analytics Opt-out</a>. Zasady przetwarzania danych przez dostawcę opisuje <a href="https://policies.google.com/privacy" rel="noopener noreferrer" target="_blank">polityka prywatności Google</a>.</p>
+        <p>Dane w Google Analytics przechowywane są zgodnie z ustawieniami usługi, standardowo przez 14 miesięcy od ostatniej aktywności użytkownika.</p>
+
         <p>Użytkownik może w każdej chwili zarządzać cookies w ustawieniach przeglądarki (blokowanie, usuwanie, ograniczenie). Ograniczenie cookies może wpłynąć na działanie niektórych funkcji Serwisu.</p>
 
         <h2>6. Odbiorcy danych</h2>
@@ -863,6 +895,7 @@ const politBody = `
         <ul>
           <li>dane związane z logami i bezpieczeństwem Serwisu — przez okres niezbędny do zapewnienia bezpieczeństwa i rozliczalności, zwykle nie dłużej niż jest to potrzebne do tych celów,</li>
           <li>informacja o zgodzie zapisana w przeglądarce — do czasu jej usunięcia przez użytkownika lub wyczyszczenia danych przeglądarki,</li>
+          <li>dane statystyczne w Google Analytics — zgodnie z ustawieniami usługi, standardowo 14 miesięcy od ostatniej aktywności użytkownika,</li>
           <li>dane z korespondencji — przez czas obsługi zapytania oraz przez okres niezbędny do ochrony roszczeń (zgodnie z obowiązującymi terminami przedawnienia).</li>
         </ul>
         <p>Okresy przechowywania dokumentacji medycznej pacjentów reguluje <a href="rodo.html">Informacja RODO</a>.</p>
@@ -888,7 +921,7 @@ const politBody = `
 
         <h2>12. Zmiany Polityki prywatności</h2>
         <p>Polityka prywatności może być aktualizowana, w szczególności w razie zmian w Serwisie, przepisach prawa lub sposobach przetwarzania danych. Aktualna wersja jest zawsze dostępna na tej stronie.</p>
-        <p>Data ostatniej aktualizacji: 6 sierpnia 2026 r.</p>
+        <p>Data ostatniej aktualizacji: 2 września 2026 r.</p>
 `;
 
 const patientRights = [
@@ -1152,7 +1185,7 @@ const files = {
 };
 
 for (const [file, content] of Object.entries(files)) {
-  fs.writeFileSync(path.join(root, file), content, "utf8");
+  fs.writeFileSync(path.join(outDir, file), content, "utf8");
   console.log("wrote", file, content.length);
 }
 
@@ -1173,6 +1206,6 @@ Sitemap: ${SITE_URL}/sitemap.xml
 `;
 
 for (const [file, content] of Object.entries({ "sitemap.xml": sitemap, "robots.txt": robots })) {
-  fs.writeFileSync(path.join(root, file), content, "utf8");
+  fs.writeFileSync(path.join(outDir, file), content, "utf8");
   console.log("wrote", file, content.length);
 }

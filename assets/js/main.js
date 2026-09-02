@@ -11,7 +11,24 @@
   const consentBanner = document.querySelector("[data-consent-banner]");
   const consentCheckbox = document.querySelector("[data-consent-checkbox]");
   const consentAccept = document.querySelector("[data-consent-accept]");
-  const consentKey = "dentalpassion-consent-v1";
+  const consentKey = "dentalpassion-consent-v2";
+
+  /**
+   * Consent Mode v2: tag Google startuje z `analytics_storage: denied`
+   * ustawionym w <head>, a dopiero zgoda użytkownika odblokowuje zapis cookies.
+   *
+   * Odsłona wysłana przed zgodą leci bez identyfikatora i nie tworzy sesji, więc
+   * po świeżej akceptacji powtarzamy `page_view`. Przy zgodzie z wcześniejszej
+   * wizyty jest to zbędne: `wait_for_update` wstrzymuje pierwszy ping na tyle,
+   * by wyszedł już z odblokowanym zapisem.
+   */
+  function grantAnalyticsConsent({ resendPageView = false } = {}) {
+    if (typeof window.gtag !== "function") return;
+    window.gtag("consent", "update", { analytics_storage: "granted" });
+    if (resendPageView) {
+      window.gtag("event", "page_view");
+    }
+  }
 
   if (consentBanner && consentCheckbox && consentAccept) {
     const stored = (() => {
@@ -24,6 +41,7 @@
 
     if (stored === "accepted") {
       consentBanner.hidden = true;
+      grantAnalyticsConsent();
     } else {
       consentBanner.hidden = false;
       requestAnimationFrame(() => {
@@ -42,6 +60,7 @@
         } catch {
           /* ignore storage errors */
         }
+        grantAnalyticsConsent({ resendPageView: true });
         consentBanner.classList.remove("is-visible");
         document.body.classList.remove("has-consent-banner");
         window.setTimeout(() => {

@@ -8,46 +8,40 @@ Statyczna strona internetowa gabinetu stomatologii **dentalpassion** (Marcin Maz
 
 - HTML5 + CSS (custom design tokens)
 - Vanilla JavaScript
-- Generator stron: Node.js (`assets/scripts/generate-pages.mjs`)
+- Generator stron: Node.js (`assets/scripts/generate-pages.mjs`, budowanie `build-dist.mjs`)
 - Hosting: Apache / cyberFolks, katalog `public_html` — zob. [docs/DEPLOY.md](docs/DEPLOY.md)
 
 ## Struktura
 
 ```
 /
-  *.html                 strony publiczne (w tym 404.html)
   .htaccess              przekierowania 301, HTTPS, strona błędu (Apache)
-  robots.txt             generowane razem ze stronami
-  sitemap.xml            generowane razem ze stronami
+  google….html           weryfikacja Google Search Console
   assets/
     css/                 style
     js/                  skrypty frontowe
     images/              grafiki
     data/                źródła danych (cennik, blog)
-    scripts/             generator HTML (tylko lokalnie)
+    scripts/             generator stron i skrypt budujący (tylko lokalnie)
   docs/                  dokumentacja i eksport treści
+  dist/                  wynik budowania, poza repozytorium
 ```
 
-## Lokalny podgląd
+Strony HTML, `sitemap.xml` i `robots.txt` są generowane i trafiają wyłącznie do `dist/`.
 
-W katalogu projektu:
+## Budowanie i lokalny podgląd
 
 ```bash
-npx serve .
+node assets/scripts/build-dist.mjs
+npx serve dist
 ```
 
 Potem otwórz adres podany w terminalu (zwykle `http://localhost:3000`).
 
-## Regeneracja stron HTML
+Źródła treści (m.in. cennik) leżą w `assets/data/` — po ich zmianie wystarczy przebudować.
+Adres produkcyjny jest w jednym miejscu: stała `SITE_URL` w `generate-pages.mjs`.
 
-Źródła treści (m.in. cennik) leżą w `assets/data/`. Po zmianach uruchom:
-
-```bash
-node assets/scripts/generate-pages.mjs
-```
-
-Skrypt nadpisuje wygenerowane pliki `*.html`, `sitemap.xml` i `robots.txt` w katalogu głównym.
-Adres produkcyjny jest w jednym miejscu — stała `SITE_URL` w generatorze.
+Zawartość `dist/` odpowiada jeden do jednego temu, co ma leżeć w `public_html` na serwerze.
 
 ## Wdrożenie
 
