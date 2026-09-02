@@ -123,7 +123,7 @@
 
 .services-layout {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 1.2fr 0.8fr;
   gap: var(--space-xl);
   align-items: center;
 }
@@ -132,13 +132,16 @@
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-soft);
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 4 / 5;
+  max-width: 420px;
+  justify-self: end;
 }
 
 .services-layout__media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
 }
 
 /* Highlights */
@@ -861,6 +864,12 @@ body.has-lightbox {
   .about-split,
   .team-detail__grid {
     grid-template-columns: 1fr;
+  }
+
+  .services-layout__media {
+    max-width: 360px;
+    justify-self: center;
+    width: 100%;
   }
 
   .about-split__media {

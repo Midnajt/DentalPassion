@@ -153,9 +153,9 @@ const team = [
     id: "marcin-mazik",
     name: "Marcin Mazik",
     role: "Lekarz dentysta",
-    spec: "stomatologia zachowawcza, protetyka, leczenie schorzeń stawu skroniowo-żuchwowego",
-    photo: "assets/images/marcin.jpg",
-    bio: "Założyciel gabinetu dentalpassion. Łączy precyzję leczenia z indywidualnym planowaniem uśmiechu — zgodnie z filozofią FACE oraz Digital Smile Design. Szczególną uwagę poświęca funkcjonowaniu stawu skroniowo-żuchwowego i komfortowi pacjenta.",
+    spec: "protetyka i kompleksowa odbudowa zgryzu, stomatologia estetyczna, diagnostyka i leczenie zaburzeń stawów skroniowo-żuchwowych",
+    photo: "assets/images/marcin-portrait.jpg",
+    bio: "Założyciel dentalpassion. Zajmuje się kompleksowymi rekonstrukcjami zgryzu, leczeniem protetycznym — również na implantach — oraz diagnostyką i leczeniem zaburzeń stawów skroniowo-żuchwowych. W swojej pracy łączy prawidłową funkcję, naturalną estetykę i cyfrowe planowanie leczenia. Jest członkiem PASE oraz wykładowcą prowadzącym szkolenia dla lekarzy dentystów.",
     facebook: "https://www.facebook.com/mazik.marcin",
     znanyLekarz: "https://www.znanylekarz.pl/marcin-mazik/stomatolog/warszawa",
   },
@@ -422,22 +422,23 @@ const index =
     <section class="section" id="zakres">
       <div class="container services-layout">
         <div class="reveal">
-          <p class="section__eyebrow">Zakres usług</p>
-          <h2>Kompleksowe leczenie pacjentów</h2>
-          <p class="section__lead">Celem naszego leczenia jest przywrócenie funkcji oraz estetyki w oparciu o najnowszą wiedzę oraz wysokiej jakości materiały stomatologiczne.</p>
+          <p class="section__eyebrow">Kompleksowa opieka</p>
+          <h2>Kompleksowa stomatologia w&nbsp;jednym miejscu</h2>
+          <p class="section__lead">Patrzymy na zdrowie jamy ustnej całościowo. Plan leczenia uwzględnia stan zębów i&nbsp;dziąseł, funkcję zgryzu oraz estetykę uśmiechu. W&nbsp;bardziej złożonych przypadkach powstaje on we&nbsp;współpracy lekarzy różnych dziedzin.</p>
           <ul class="services-list">
-            <li>stomatologia zachowawcza</li>
-            <li>stomatologia estetyczna</li>
+            <li>stomatologia zachowawcza i&nbsp;estetyczna</li>
             <li>stomatologia dziecięca</li>
-            <li>periodontologia</li>
             <li>endodoncja</li>
-            <li>protetyka stomatologiczna</li>
-            <li>chirurgia oraz implantologia</li>
+            <li>ortodoncja</li>
+            <li>periodontologia</li>
+            <li>chirurgia stomatologiczna i&nbsp;implantologia</li>
+            <li>protetyka i&nbsp;kompleksowa odbudowa zgryzu</li>
+            <li>diagnostyka i&nbsp;leczenie zaburzeń stawów skroniowo-żuchwowych</li>
           </ul>
-          <p style="margin-top:1.5rem">Zaprojektujemy Państwa uśmiech w oparciu o dokumentację fotograficzną i zgodnie z zasadami Digital Smile Design (DSD).</p>
+          <p style="margin-top:1.5rem">Każdy plan opieramy na badaniu oraz potrzebnej dokumentacji fotograficznej i&nbsp;cyfrowej. Przed rozpoczęciem leczenia omawiamy z&nbsp;pacjentem jego etapy, możliwe rozwiązania i&nbsp;koszty.</p>
         </div>
         <div class="services-layout__media reveal">
-          <img src="assets/images/clinic4.png" alt="Zespół dentalpassion w gabinecie" width="1872" height="840">
+          <img src="assets/images/marcin-portrait.jpg" alt="lek. dent. Marcin Mazik" width="1122" height="1402">
         </div>
       </div>
     </section>
@@ -537,17 +538,15 @@ const oNas =
     <section class="section" style="padding-top:0">
       <div class="container about-split">
         <div class="about-split__media reveal">
-          <img src="assets/images/marcin.jpg" alt="lek. dent. Marcin Mazik" width="720" height="960">
+          <img src="assets/images/marcin-portrait.jpg" alt="lek. dent. Marcin Mazik" width="1122" height="1402">
         </div>
         <div class="prose reveal">
           <img class="feather-accent" src="assets/images/feathers.png" alt="" width="120" height="120" aria-hidden="true">
+          <p class="section__eyebrow">Lekarz dentysta</p>
           <h2>Marcin Mazik</h2>
-          <p>Witam w moim gabinecie, nazywam się Marcin Mazik i jestem lekarzem dentystą.</p>
-          <p>Ukończyłem studia na Warszawskim Uniwersytecie Medycznym w 2006 roku, ale nieprzerwanie poszerzam swoją wiedzę i umiejętności na licznych stażach i szkoleniach w Polsce i zagranicą, zwłaszcza z zakresu stomatologii estetycznej i protetyki.</p>
-          <p>Pasjonuję się funkcjonowaniem stawu skroniowo-żuchwowego oraz zaburzeniami narządu żucia.</p>
-          <p>Jestem członkiem Polskiej Akademii Stomatologii Estetycznej PASE.</p>
-          <p>Podchodzę do każdego Pacjenta indywidualnie i ustalam plan leczenia w oparciu o najnowszą wiedzę, zgodnie z filozofią FACE oraz DSD.</p>
-          <p>Staram się, aby leczenie przebiegało bezstresowo, bezboleśnie i w przyjaznej atmosferze, dzięki czemu wielu pacjentów pozbawiłem dentofobii. Najlepszym tego przykładem są moi najmłodsi Pacjenci.</p>
+          <p><strong>Protetyka i&nbsp;kompleksowa odbudowa zgryzu</strong> · stomatologia estetyczna · diagnostyka i&nbsp;leczenie zaburzeń stawów skroniowo-żuchwowych</p>
+          <p>Założyciel dentalpassion. Zajmuje się kompleksowymi rekonstrukcjami zgryzu, leczeniem protetycznym — również na implantach — oraz diagnostyką i&nbsp;leczeniem zaburzeń stawów skroniowo-żuchwowych. W&nbsp;swojej pracy łączy prawidłową funkcję, naturalną estetykę i&nbsp;cyfrowe planowanie leczenia.</p>
+          <p>Od lat rozwija wiedzę w&nbsp;zakresie okluzji, TMD, protetyki i&nbsp;stomatologii odtwórczej. Kształcił się na licznych kursach i&nbsp;programach w&nbsp;Polsce oraz za granicą, m.in. FACE, OBI, Dawson, Kois, Bumann i&nbsp;Rocabado. Jest członkiem Polskiej Akademii Stomatologii Estetycznej (PASE) oraz wykładowcą prowadzącym szkolenia dla lekarzy dentystów.</p>
           <p style="margin-top:2rem"><a class="btn btn--primary" href="tel:+48501430894">Zamów wizytę</a></p>
         </div>
       </div>
