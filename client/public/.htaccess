@@ -1,0 +1,36 @@
+# dentalpassion — SPA hash + przekierowania ze starej struktury
+# Wymaga Apache + mod_rewrite. Katalog public_html na cyberFolks.
+
+Options -Indexes
+DirectoryIndex index.html
+ErrorDocument 404 /index.html
+
+RewriteEngine On
+
+# Wymuś HTTPS (wyjątek dla walidacji certyfikatu Let's Encrypt)
+RewriteCond %{HTTPS} !=on
+RewriteCond %{REQUEST_URI} !^/\.well-known/
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Stare permalinki WP z index.php
+RewriteRule ^index\.php/cennik/?$ /#cennik [R=301,L,NE]
+RewriteRule ^index\.php/rodo/?$ /#/rodo [R=301,L,NE]
+RewriteRule ^index\.php/prawa-pacjenta/?$ /#/prawa-pacjenta [R=301,L,NE]
+RewriteRule ^index\.php/polityka-prywatnosci/?$ /#/polityka [R=301,L,NE]
+RewriteRule ^index\.php/?$ / [R=301,L]
+
+# Poprzednie pliki HTML i aliasy bez rozszerzenia → hash SPA
+RewriteRule ^polityka-prywatnosci(\.html)?/?$ /#/polityka [R=301,L,NE]
+RewriteRule ^prawa-pacjenta(\.html)?/?$ /#/prawa-pacjenta [R=301,L,NE]
+RewriteRule ^rodo(\.html)?/?$ /#/rodo [R=301,L,NE]
+RewriteRule ^blog-([A-Za-z0-9-]+)(\.html)?/?$ /#blog/$1 [R=301,L,NE]
+RewriteRule ^(o-nas|zespol|cennik|blog|kontakt)(\.html)?/?$ /#$1 [R=301,L,NE]
+RewriteRule ^index\.html$ / [R=301,L]
+
+# Istniejące pliki (GSC, assety, sitemap) serwuj wprost
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Nieznana ścieżka → widok 404 w SPA
+RewriteRule ^ /#/404 [R=302,L,NE]

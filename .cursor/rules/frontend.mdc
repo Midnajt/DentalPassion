@@ -1,0 +1,18 @@
+---
+description: Zasady frontendu SPA dentalpassion
+globs: client/**
+alwaysApply: false
+---
+
+# Frontend
+
+- Źródło aplikacji jest wyłącznie w `client/`. Alias `@/` → `client/src`.
+- Nawigacja: hash (`#cennik`, `#/rodo`). Bez React Router, dopóki hash + `.htaccess` wystarczają.
+- Widoki: home, o-nas, zespół, cennik, blog (+ wpis), kontakt, RODO, prawa pacjenta, polityka, 404.
+- Nowa sekcja / strona = plik w `components/pages/` lub `components/sections/`, montaż w `App.tsx`.
+- Kotwica w obrębie widoku = `id` na elemencie. Po zmianie hash zamykaj menu mobilne, potem scroll.
+- Komponenty UI: shadcn. Nie edytuj stylu „na dziko”. Wygląd marki: istniejące klasy + tokeny, nie rebrand New York.
+- SEO: tytuł, description i OG aktualizuj w `index.html` / efekcie widoku. `og:image` to absolutny URL (`/assets/images/og-image.png`).
+- Kontakt tylko `tel:` i `mailto:` z `site.ts`. Brak formularza POST.
+- Teksty dwujęzyczne: locale, nie twarde stringi w JSX.
+- GA4: Consent Mode v2, klucz `dentalpassion-consent-v2`, `page_view` po świeżej zgodzie i przy zmianie hash.

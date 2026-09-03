@@ -1,0 +1,12 @@
+---
+description: Kolory, fakty i treści klienta
+globs: client/src/config/**
+alwaysApply: false
+---
+
+# Motyw i treść
+
+- Kolory i fonty zmieniaj w **dwóch** miejscach: `theme.ts` oraz `:root` w `index.css`.
+- Nie rozrzucaj hexów w komponentach.
+- Fakty (telefon, adres, mapy, godziny, linki) — `site.ts`, interpolacja w i18n (`{{phone}}`).
+- Zdjęcia: `assets.ts` + `client/assets/ASSETS.md`. Kadr: `objectPosition` gdy potrzeba.

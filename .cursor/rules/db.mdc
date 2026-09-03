@@ -1,0 +1,9 @@
+---
+description: Brak bazy danych w tym projekcie
+alwaysApply: false
+---
+
+# Baza danych
+
+Strona nie ma bazy. Nie dodawaj MySQL, ORM ani dumpów SQL.
+Stara baza WordPressa na hostingu jest poza zakresem tej aplikacji.

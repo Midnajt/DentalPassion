@@ -1,0 +1,10 @@
+---
+description: Placeholder serwera — nie stawiaj backendu sam z siebie
+globs: server/**
+alwaysApply: false
+---
+
+# Backend
+
+`server/` jest pusty celowo. Hosting to statyczne pliki na FTP (Apache).
+Nie stawiaj Expressa, Dockera ani API, dopóki nie ma takiego wymagania.

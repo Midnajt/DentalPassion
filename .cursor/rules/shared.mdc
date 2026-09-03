@@ -1,0 +1,40 @@
+---
+description: Cel projektu, stack, FTP, i18n, raporty i zasady pracy z agentem
+alwaysApply: true
+---
+
+# Cel
+
+Wizytówka gabinetu stomatologii **dentalpassion** (Marcin Mazik) na [dentalpassion.waw.pl](https://dentalpassion.waw.pl).
+Jednostronicowa aplikacja SPA bez backendu i bez bazy. Kontakt: `tel:` i `mailto:`, nie formularz POST.
+
+# Stack
+
+- Vite 8 (`root` = `client/`), wynik w `dist/` w korzeniu repo
+- React 19 + TypeScript strict (`tsc -b` przed bundlem)
+- Tailwind CSS v4 + tokeny w `index.css` `:root` i lustrze `theme.ts`
+- shadcn/ui (New York) w `client/src/components/ui/` — bez dzikich zmian stylu
+- i18next / react-i18next: PL (domyślny) i EN, wybór w `localStorage`
+- npm, `package-lock.json`, Node 22 w CI
+- Zmienne wyłącznie `import.meta.env.VITE_*`. Nie commituj `.env`. Nie zgaduj sekretów.
+
+# Publikacja
+
+Jedyna uzgodniona ścieżka: `npm run build` → wrzut **zawartości** `dist/` na FTP (`public_html` na cyberFolks).
+Nie dodawaj skryptu FTP, dopóki nie poprosisz. Nie stawiaj Expressa ani MySQL „na zapas”.
+
+# Komunikacja
+
+Z człowiekiem **po polsku**. Identyfikatory w kodzie **po angielsku**.
+Treść klienta: `site.ts`, `theme.ts`, `i18n/locales/`. Grafiki: najpierw `client/assets/ASSETS.md`.
+
+# Raporty
+
+Po skończonej pracy dopisz trzy zdania pod `Ostatnie zadania:` (kontekst na kolejną sesję).
+Każdy raport: `.cursor/reports/temat_YYYYMMDD.md`.
+
+# Ostatnie zadania
+
+Pełna migracja na Vite/React: reguły Cursora, `client/` → `dist/`, hash zamiast osobnych HTML, PL/EN.
+Wygląd zostaje na starych klasach CSS; shadcn tylko pod Dialog (lightbox).
+GA4 Consent Mode v2 przeniesiony 1:1 plus `page_view` przy zmianie hash; stary generator usunięty.
