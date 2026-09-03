@@ -40,6 +40,6 @@ Każdy raport: `.cursor/reports/temat_YYYYMMDD.md`.
 
 # Ostatnie zadania
 
-Hover przycisków `.btn` jest animowany: kolor, obramowanie, cień i transform; gradient primary przez `::before` + opacity (gradientów CSS nie interpoluje).
-Przy `prefers-reduced-motion` te przejścia są wyłączone. `lang-switch` też ma transition.
-Sekcja profilaktyki na home zostaje jak wcześniej (4w1, PL/EN, scroll bez hasha).
+`.btn--primary` nie ma już 1 px obramowania (`border: 0`) — na hero dawało to czerwony otok.
+Cień primary jest neutralny (`rgba(20, 16, 24, …)`), nie fioletowo-magenta. Ghost/light bez zmian.
+Headerowy primary nadal bez cienia. Hover i `prefers-reduced-motion` zostają jak wcześniej.
