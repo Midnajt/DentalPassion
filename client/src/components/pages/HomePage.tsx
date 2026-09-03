@@ -4,7 +4,12 @@ import { site } from "@/config/site";
 import { HashLink } from "@/components/layout/HashLink";
 import { Reveal } from "@/components/motion/Reveal";
 import { BlogCards } from "@/components/sections/BlogCards";
+import { PreventionSection } from "@/components/sections/PreventionSection";
 import { TeamGrid } from "@/components/sections/TeamGrid";
+
+function scrollToPrevention() {
+  document.getElementById("profilaktyka")?.scrollIntoView({ behavior: "smooth", block: "start" });
+}
 
 export function HomePage() {
   const { t } = useTranslation();
@@ -29,6 +34,9 @@ export function HomePage() {
             <HashLink className="btn btn--light" to="#cennik">
               {t("home.seePricing")}
             </HashLink>
+            <button className="btn btn--ghost hero__prevent" type="button" onClick={scrollToPrevention}>
+              {t("home.seePrevention")}
+            </button>
           </div>
         </div>
       </section>
@@ -52,6 +60,8 @@ export function HomePage() {
         </div>
       </section>
 
+      <PreventionSection />
+
       <section className="section section--surface">
         <div className="container">
           <Reveal style={{ marginBottom: "2rem" }}>
@@ -73,6 +83,11 @@ export function HomePage() {
               <span className="highlight__mark" aria-hidden="true"></span>
               <h3>{t("home.h3Title")}</h3>
               <p>{t("home.h3Text")}</p>
+            </Reveal>
+            <Reveal as="article" className="highlight">
+              <span className="highlight__mark" aria-hidden="true"></span>
+              <h3>{t("home.h4Title")}</h3>
+              <p>{t("home.h4Text")}</p>
             </Reveal>
           </div>
         </div>

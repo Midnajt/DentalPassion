@@ -56,12 +56,14 @@
   "home": {
     "heroAria": "Introduction",
     "heroTitle": "A dental practice with a passion for smiles",
-    "heroText": "Comprehensive treatment in Warsaw — function and aesthetics based on current knowledge and Digital Smile Design.",
+    "heroText": "Comprehensive treatment in Warsaw — function and aesthetics based on current knowledge and Digital Smile Design. Prevention is our first step towards a calm, lasting smile.",
     "seePricing": "See fees",
+    "seePrevention": "Prevention",
     "careEyebrow": "Comprehensive care",
     "careTitle": "Comprehensive dentistry in one place",
     "careLead": "We look at oral health as a whole. The treatment plan considers teeth and gums, bite function and smile aesthetics. In more complex cases it is created together by doctors from different fields.",
     "services": [
+      "hygiene and prevention",
       "restorative and aesthetic dentistry",
       "paediatric dentistry",
       "endodontics",
@@ -81,6 +83,44 @@
     "h2Text": "Dr Marcin Mazik is a member of the Polish Academy of Aesthetic Dentistry and continually develops his skills in Poland and abroad.",
     "h3Title": "Friendly atmosphere",
     "h3Text": "We take care of painless, calm visits — including for the youngest patients and people with dental anxiety.",
+    "h4Title": "Prevention before treatment",
+    "h4Text": "A clean mouth is a better starting point for FACE and DSD plans — less inflammation, a clearer view of the tissues and a more durable aesthetic result.",
+    "prevEyebrow": "A healthy smile for years",
+    "prevTitle": "What is",
+    "prevTitleAccent": "prevention?",
+    "prevLead": "It is regular care for teeth and gums: a thorough clean in the practice plus advice tailored to your habits. It helps slow cavities and gum inflammation, and it freshens the look of the smile — including when we plan treatment with FACE and Digital Smile Design.",
+    "prevCta": "See prevention fees",
+    "prevPackTitle": "What does 4-in-1 prevention include?",
+    "prevPackLead": "One visit brings together four stages. Together they leave a smooth, clean tooth surface and a calmer start if further treatment is needed later.",
+    "prevSteps": [
+      {
+        "title": "Scaling",
+        "text": "Ultrasound lifts hardened deposits from places a toothbrush cannot reach. Under that layer, bacteria more easily damage enamel and the gum attachment."
+      },
+      {
+        "title": "Air polishing",
+        "text": "A fine powder with water under pressure lifts soft deposits and stains. The surface becomes more even and easier to keep clean."
+      },
+      {
+        "title": "Fluoride",
+        "text": "We apply a fluoride gel, foam or varnish to the cleaned enamel to strengthen it and make cavities harder to form."
+      },
+      {
+        "title": "Hygiene coaching",
+        "text": "The hygienist shows brushing, floss and rinse technique and suggests which food habits best support your teeth."
+      }
+    ],
+    "prevGainsTitle": "What do you gain from regular prevention?",
+    "prevGains": [
+      "Thorough removal of tartar and deposits from hard-to-reach surfaces",
+      "A brighter, smoother smile — without a dull film on the enamel",
+      "Fewer bacteria that feed gum inflammation and bad breath",
+      "Better conditions for restorative, aesthetic treatment and DSD plans",
+      "A clear, personal routine for looking after your mouth between visits"
+    ],
+    "prevWhyEyebrow": "Why regularly",
+    "prevWhyTitle": "A toothbrush at home cannot replace a prevention visit",
+    "prevWhyText": "Daily brushing and flossing are essential, but they do not fully remove mineralising deposits along the gum line and between teeth. Regular prevention closes that gap: it protects the tissues, keeps the aesthetic result and settles the mouth before we move to more complex stages of the treatment plan.",
     "teamEyebrow": "Team",
     "teamTitle": "Meet our doctors",
     "teamLead": "Experienced dentists specialising in restorative and aesthetic dentistry, endodontics, orthodontics, surgery and implantology.",

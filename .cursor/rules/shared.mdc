@@ -3,6 +3,11 @@ description: Cel projektu, stack, FTP, i18n, raporty i zasady pracy z agentem
 alwaysApply: true
 ---
 
+# Nadrzędne zadania
+
+Nigdy nie wprowadzaj zmian na FTP bez zgody użytkownika. Pisz instrukcję co należy zrobić na FTP jeżeli jest taka potrzeba i ewentualnie zapytaj czy masz wyręczyć programistę.
+
+
 # Cel
 
 Wizytówka gabinetu stomatologii **dentalpassion** (Marcin Mazik) na [dentalpassion.waw.pl](https://dentalpassion.waw.pl).
@@ -35,6 +40,6 @@ Każdy raport: `.cursor/reports/temat_YYYYMMDD.md`.
 
 # Ostatnie zadania
 
-Pełna migracja na Vite/React: reguły Cursora, `client/` → `dist/`, hash zamiast osobnych HTML, PL/EN.
-Wygląd zostaje na starych klasach CSS; shadcn tylko pod Dialog (lightbox).
-GA4 Consent Mode v2 przeniesiony 1:1 plus `page_view` przy zmianie hash; stary generator usunięty.
+Hover przycisków `.btn` jest animowany: kolor, obramowanie, cień i transform; gradient primary przez `::before` + opacity (gradientów CSS nie interpoluje).
+Przy `prefers-reduced-motion` te przejścia są wyłączone. `lang-switch` też ma transition.
+Sekcja profilaktyki na home zostaje jak wcześniej (4w1, PL/EN, scroll bez hasha).

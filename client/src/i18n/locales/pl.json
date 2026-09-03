@@ -56,12 +56,14 @@
   "home": {
     "heroAria": "Wprowadzenie",
     "heroTitle": "Gabinet stomatologii z pasją do uśmiechu",
-    "heroText": "Kompleksowe leczenie w Warszawie — funkcjonalność i estetyka w oparciu o najnowszą wiedzę oraz Digital Smile Design.",
+    "heroText": "Kompleksowe leczenie w Warszawie — funkcjonalność i estetyka w oparciu o najnowszą wiedzę oraz Digital Smile Design. Profilaktyka jest u nas pierwszym krokiem do spokojnego, trwałego uśmiechu.",
     "seePricing": "Zobacz cennik",
+    "seePrevention": "Profilaktyka",
     "careEyebrow": "Kompleksowa opieka",
     "careTitle": "Kompleksowa stomatologia w jednym miejscu",
     "careLead": "Patrzymy na zdrowie jamy ustnej całościowo. Plan leczenia uwzględnia stan zębów i dziąseł, funkcję zgryzu oraz estetykę uśmiechu. W bardziej złożonych przypadkach powstaje on we współpracy lekarzy różnych dziedzin.",
     "services": [
+      "higiena i profilaktyka",
       "stomatologia zachowawcza i estetyczna",
       "stomatologia dziecięca",
       "endodoncja",
@@ -81,6 +83,44 @@
     "h2Text": "Dr Marcin Mazik jest członkiem Polskiej Akademii Stomatologii Estetycznej i stale rozwija kompetencje w kraju i za granicą.",
     "h3Title": "Przyjazna atmosfera",
     "h3Text": "Dbamy o bezbolesne, spokojne wizyty — także u najmłodszych pacjentów i osób z dentofobią.",
+    "h4Title": "Profilaktyka przed leczeniem",
+    "h4Text": "Czysta jama ustna to lepszy punkt startu do planów FACE i DSD — mniej stanów zapalnych, pewniejsza ocena tkanek i trwalszy efekt estetyczny.",
+    "prevEyebrow": "Zdrowy uśmiech na lata",
+    "prevTitle": "Czym jest",
+    "prevTitleAccent": "profilaktyka?",
+    "prevLead": "To systematyczna opieka nad zębami i dziąsłami: dokładne oczyszczenie w gabinecie oraz wskazówki dopasowane do Twoich nawyków. Pomaga hamować próchnicę i stany zapalne, a przy tym odświeża wygląd uśmiechu — także wtedy, gdy planujemy leczenie według FACE i Digital Smile Design.",
+    "prevCta": "Zobacz cennik profilaktyki",
+    "prevPackTitle": "Co obejmuje profilaktyka 4w1?",
+    "prevPackLead": "Na jednej wizycie łączymy cztery etapy. Razem dają gładką, czystą powierzchnię zębów i spokojniejszy start, jeśli później potrzebne będą kolejne etapy leczenia.",
+    "prevSteps": [
+      {
+        "title": "Skaling",
+        "text": "Ultradźwiękami schodzimy z twardych złogów w miejscach, do których szczoteczka nie sięga. Pod taką warstwą bakterie łatwiej uszkadzają szkliwo i przyczep dziąsła."
+      },
+      {
+        "title": "Piaskowanie",
+        "text": "Drobny proszek z wodą pod ciśnieniem zbiera miękki osad i przebarwienia. Powierzchnia staje się bardziej jednolita i łatwiejsza do utrzymania w czystości."
+      },
+      {
+        "title": "Fluoryzacja",
+        "text": "Na oczyszczone szkliwo nakładamy preparat z fluorem — żel, piankę albo lakier — żeby je wzmocnić i utrudnić rozwój ubytków."
+      },
+      {
+        "title": "Instruktaż higieny",
+        "text": "Higienistka pokazuje technikę szczotkowania, nici i płukanek oraz podpowiada, które nawyki żywieniowe najbardziej sprzyjają Twoim zębom."
+      }
+    ],
+    "prevGainsTitle": "Co zyskujesz dzięki regularnej profilaktyce?",
+    "prevGains": [
+      "Dokładne usunięcie kamienia i osadów z trudno dostępnych powierzchni",
+      "Jaśniejszy, gładszy uśmiech — bez matowego filmu na szkliwie",
+      "Mniej bakterii sprzyjających zapaleniu dziąseł i nieświeżemu oddechowi",
+      "Lepsze warunki do leczenia zachowawczego, estetycznego i planów DSD",
+      "Jasny, indywidualny rytm dbania o jamę ustną między wizytami"
+    ],
+    "prevWhyEyebrow": "Dlaczego regularnie",
+    "prevWhyTitle": "Szczoteczka w domu nie zastąpi wizyty profilaktycznej",
+    "prevWhyText": "Codzienne mycie i nitkowanie są niezbędne, ale nie usuwają w pełni mineralizujących się złogów przy linii dziąseł i w przestrzeniach międzyzębowych. Systematyczna profilaktyka zamyka tę lukę: chroni tkanki, utrzymuje efekt estetyczny i porządkuje jamę ustną, zanim przejdziemy do bardziej złożonych etapów planu leczenia.",
     "teamEyebrow": "Zespół",
     "teamTitle": "Poznaj naszych lekarzy",
     "teamLead": "Doświadczeni dentyści specjalizujący się w zachowawczej, estetycznej, endodoncji, ortodoncji, chirurgii i implantologii.",

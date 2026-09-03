@@ -123,6 +123,8 @@
 
 /* Buttons */
 .btn {
+  position: relative;
+  isolation: isolate;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -130,13 +132,29 @@
   min-height: 2.85rem;
   padding: 0.7rem 1.35rem;
   border-radius: var(--radius-sm);
-  border: none;
+  border: 1px solid transparent;
   font-family: var(--font-body);
   font-weight: 600;
   font-size: 0.95rem;
   text-decoration: none;
   cursor: pointer;
-  transition: background var(--duration) var(--ease), color var(--duration) var(--ease), transform 0.2s var(--ease);
+  transition:
+    color var(--duration) var(--ease),
+    background-color var(--duration) var(--ease),
+    border-color var(--duration) var(--ease),
+    box-shadow var(--duration) var(--ease),
+    transform var(--duration) var(--ease);
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  pointer-events: none;
+  z-index: -1;
+  transition: opacity var(--duration) var(--ease);
 }
 
 .btn:hover {
@@ -145,20 +163,30 @@
 }
 
 .btn--primary {
-  background: linear-gradient(135deg, var(--color-accent) 0%, #6b1d7a 55%, var(--color-mint-deep) 160%);
+  background-color: var(--color-accent);
+  background-image: linear-gradient(135deg, var(--color-accent) 0%, #6b1d7a 55%, var(--color-mint-deep) 160%);
   color: var(--color-white);
   box-shadow: 0 10px 24px rgba(142, 35, 144, 0.28);
 }
 
-.btn--primary:hover {
+.btn--primary::before {
   background: linear-gradient(135deg, var(--color-accent-soft) 0%, var(--color-accent) 60%, var(--color-mint) 140%);
+}
+
+.btn--primary:hover {
   color: var(--color-white);
+  box-shadow: 0 14px 28px rgba(142, 35, 144, 0.36);
+}
+
+.btn--primary:hover::before,
+.btn--primary:focus-visible::before {
+  opacity: 1;
 }
 
 .btn--ghost {
-  background: transparent;
+  background-color: transparent;
   color: var(--color-accent-mid);
-  border: 1px solid rgba(86, 44, 101, 0.25);
+  border-color: rgba(86, 44, 101, 0.25);
 }
 
 .btn--ghost:hover {
@@ -167,23 +195,39 @@
 }
 
 .btn--light {
-  background: var(--color-white);
+  background-color: var(--color-white);
   color: var(--color-accent-mid);
 }
 
 .btn--light:hover {
-  background: var(--color-mint-soft);
+  background-color: var(--color-mint-soft);
   color: var(--color-accent);
 }
 
 .site-header .btn--primary {
-  background: var(--color-mint-deep);
+  background-image: none;
+  background-color: var(--color-mint-deep);
   box-shadow: none;
 }
 
-.site-header .btn--primary:hover {
+.site-header .btn--primary::before {
   background: var(--color-mint);
+}
+
+.site-header .btn--primary:hover {
   color: var(--color-ink);
+  box-shadow: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn,
+  .btn::before {
+    transition: none;
+  }
+
+  .btn:hover {
+    transform: none;
+  }
 }
 
 /* Team */

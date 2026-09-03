@@ -59,6 +59,10 @@ html {
   font-size: 0.8rem;
   letter-spacing: 0.06em;
   cursor: pointer;
+  transition:
+    color var(--duration) var(--ease),
+    border-color var(--duration) var(--ease),
+    background-color var(--duration) var(--ease);
 }
 
 .lang-switch:hover {
