@@ -40,6 +40,6 @@ Każdy raport: `.cursor/reports/temat_YYYYMMDD.md`.
 
 # Ostatnie zadania
 
-`.btn--primary` nie ma już 1 px obramowania (`border: 0`) — na hero dawało to czerwony otok.
-Cień primary jest neutralny (`rgba(20, 16, 24, …)`), nie fioletowo-magenta. Ghost/light bez zmian.
-Headerowy primary nadal bez cienia. Hover i `prefers-reduced-motion` zostają jak wcześniej.
+README na GitHubie ma teraz: projekt komercyjny (klient dentalpassion, produkcja), aktualny tech stack i drzewo katalogów.
+Linki do usuniętego `docs/tech.md` / `DEPLOY.md` wyleciały — publikacja i komendy są w samym README.
+Kod i FTP bez zmian w tej sesji.
