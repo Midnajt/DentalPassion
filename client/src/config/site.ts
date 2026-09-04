@@ -15,9 +15,9 @@ export const site = {
   hours: [
     { key: "monday", value: "10:00 – 20:00" },
     { key: "tuesday", value: "10:00 – 20:00" },
-    { key: "wednesday", value: "10:00 – 15:00" },
+    { key: "wednesday", value: "10:00 – 20:00" },
     { key: "thursday", value: "10:00 – 20:00" },
-    { key: "friday", value: "10:00 – 15:00" },
+    { key: "friday", value: "10:00 – 20:00" },
     { key: "saturday", value: "closed" },
     { key: "sunday", value: "closed" },
   ],

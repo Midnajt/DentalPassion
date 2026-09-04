@@ -1,6 +1,8 @@
 import { assets } from "@/config/assets";
 import type { Localized } from "@/lib/locale";
 
+export type TeamGroup = "dentist" | "hygiene";
+
 export type TeamMember = {
   id: string;
   name: string;
@@ -10,6 +12,7 @@ export type TeamMember = {
   bio: Localized;
   facebook: string;
   znanyLekarz: string;
+  group: TeamGroup;
 };
 
 export const team: TeamMember[] = [
@@ -23,11 +26,12 @@ export const team: TeamMember[] = [
     },
     photo: assets.portrait,
     bio: {
-      pl: "Założyciel dentalpassion. Zajmuje się kompleksowymi rekonstrukcjami zgryzu, leczeniem protetycznym — również na implantach — oraz diagnostyką i leczeniem zaburzeń stawów skroniowo-żuchwowych. W swojej pracy łączy prawidłową funkcję, naturalną estetykę i cyfrowe planowanie leczenia. Jest członkiem PASE oraz wykładowcą prowadzącym szkolenia dla lekarzy dentystów.",
-      en: "Founder of dentalpassion. He focuses on comprehensive bite reconstructions, prosthetic treatment — including implant-supported work — and diagnosis and treatment of TMJ disorders. His work combines proper function, natural aesthetics and digital treatment planning. He is a PASE member and a lecturer who trains fellow dentists.",
+      pl: "W gabinecie prowadzi pacjentów od pierwszej konsultacji po finalną odbudowę uśmiechu. Tłumaczy etapy i warianty leczenia spokojnie i konkretnie, a gdy plan tego wymaga — koordynuje pracę z pozostałymi lekarzami i higienizacją. Zależy mu, żeby decyzje były zrozumiałe, a kolejne wizyty przewidywalne.",
+      en: "In the practice he guides patients from the first consultation to the final smile restoration. He explains stages and options calmly and clearly, and when the plan requires it he coordinates with the other dentists and the hygiene team. His aim is that decisions stay understandable and later visits stay predictable.",
     },
     facebook: "https://www.facebook.com/mazik.marcin",
     znanyLekarz: "https://www.znanylekarz.pl/marcin-mazik/stomatolog/warszawa",
+    group: "dentist",
   },
   {
     id: "marcin-kucharski",
@@ -41,6 +45,7 @@ export const team: TeamMember[] = [
     },
     facebook: "#",
     znanyLekarz: "#",
+    group: "dentist",
   },
   {
     id: "wiktor-poczobutt",
@@ -54,6 +59,7 @@ export const team: TeamMember[] = [
     },
     facebook: "#",
     znanyLekarz: "https://www.znanylekarz.pl/wiktor-poczobutt-odlanicki/stomatolog-protetyk/warszawa",
+    group: "dentist",
   },
   {
     id: "katarzyna-cichon",
@@ -67,6 +73,7 @@ export const team: TeamMember[] = [
     },
     facebook: "#",
     znanyLekarz: "#",
+    group: "dentist",
   },
   {
     id: "agnieszka-fundakowska",
@@ -83,6 +90,7 @@ export const team: TeamMember[] = [
     },
     facebook: "#",
     znanyLekarz: "#",
+    group: "dentist",
   },
   {
     id: "karina-kuczynska",
@@ -96,6 +104,7 @@ export const team: TeamMember[] = [
     },
     facebook: "#",
     znanyLekarz: "https://www.znanylekarz.pl/karina-kuczynska-witan/stomatolog/warszawa",
+    group: "dentist",
   },
   {
     id: "stella-stepniewska",
@@ -109,6 +118,7 @@ export const team: TeamMember[] = [
     },
     facebook: "#",
     znanyLekarz: "#",
+    group: "dentist",
   },
   {
     id: "anna-karwacka-oneczka",
@@ -122,13 +132,27 @@ export const team: TeamMember[] = [
     },
     facebook: "https://www.facebook.com/anna.oneczka?locale=pl_PL",
     znanyLekarz: "https://www.znanylekarz.pl/anna-karwacka-2/higienistka-stomatologiczna/warszawa#about-section",
+    group: "hygiene",
   },
 ];
+
+const LEAD_ID = "marcin-mazik";
 
 function teamSortKey(name: string) {
   return name.replace(/^(lek\.?\s*dent\.?|mgr|dr|n\.?\s*med\.?)\s+/i, "").trim();
 }
 
-export const teamSorted = [...team].sort((a, b) =>
-  teamSortKey(a.name).localeCompare(teamSortKey(b.name), "pl"),
-);
+function byName(a: TeamMember, b: TeamMember) {
+  return teamSortKey(a.name).localeCompare(teamSortKey(b.name), "pl");
+}
+
+function listDentists(members: TeamMember[]) {
+  const dentists = members.filter((m) => m.group === "dentist");
+  const lead = dentists.filter((m) => m.id === LEAD_ID);
+  const rest = dentists.filter((m) => m.id !== LEAD_ID).sort(byName);
+  return [...lead, ...rest];
+}
+
+export const dentists = listDentists(team);
+export const hygieneTeam = team.filter((m) => m.group === "hygiene").sort(byName);
+export const teamListed = [...dentists, ...hygieneTeam];

@@ -146,7 +146,8 @@
   "teamPage": {
     "eyebrow": "Team",
     "title": "The dentalpassion doctors",
-    "lead": "Expertise in restorative and aesthetic treatment, endodontics, orthodontics, surgery and implantology."
+    "lead": "Expertise in restorative and aesthetic treatment, endodontics, orthodontics, surgery and implantology.",
+    "hygieneTitle": "Hygiene and prevention"
   },
   "blogPage": {
     "eyebrow": "Blog",

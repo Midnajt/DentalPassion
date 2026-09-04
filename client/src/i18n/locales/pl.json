@@ -146,7 +146,8 @@
   "teamPage": {
     "eyebrow": "Zespół",
     "title": "Lekarze dentalpassion",
-    "lead": "Kompetencje w zakresie leczenia zachowawczego, estetycznego, endodoncji, ortodoncji, chirurgii i implantologii."
+    "lead": "Kompetencje w zakresie leczenia zachowawczego, estetycznego, endodoncji, ortodoncji, chirurgii i implantologii.",
+    "hygieneTitle": "Higiena i profilaktyka"
   },
   "blogPage": {
     "eyebrow": "Blog",
