@@ -26,8 +26,8 @@ export const team: TeamMember[] = [
     },
     photo: assets.portrait,
     bio: {
-      pl: "W gabinecie prowadzi pacjentów od pierwszej konsultacji po finalną odbudowę uśmiechu. Tłumaczy etapy i warianty leczenia spokojnie i konkretnie, a gdy plan tego wymaga — koordynuje pracę z pozostałymi lekarzami i higienizacją. Zależy mu, żeby decyzje były zrozumiałe, a kolejne wizyty przewidywalne.",
-      en: "In the practice he guides patients from the first consultation to the final smile restoration. He explains stages and options calmly and clearly, and when the plan requires it he coordinates with the other dentists and the hygiene team. His aim is that decisions stay understandable and later visits stay predictable.",
+      pl: "Zajmuje się kompleksowymi rekonstrukcjami zgryzu, leczeniem protetycznym — również na implantach — oraz diagnostyką i leczeniem zaburzeń stawów skroniowo-żuchwowych. W pracy łączy prawidłową funkcję, naturalną estetykę i cyfrowe planowanie leczenia. Jest członkiem Polskiej Akademii Stomatologii Estetycznej (PASE) oraz wykładowcą — prowadzi szkolenia dla lekarzy dentystów w kraju i za granicą.",
+      en: "He focuses on comprehensive bite reconstructions, prosthetic treatment — including implant-supported work — and diagnosis and treatment of TMJ disorders. His work combines proper function, natural aesthetics and digital treatment planning. He is a member of the Polish Academy of Aesthetic Dentistry (PASE) and a lecturer who runs courses for dentists in Poland and abroad.",
     },
     facebook: "https://www.facebook.com/mazik.marcin",
     znanyLekarz: "https://www.znanylekarz.pl/marcin-mazik/stomatolog/warszawa",
@@ -136,7 +136,7 @@ export const team: TeamMember[] = [
   },
 ];
 
-const LEAD_ID = "marcin-mazik";
+export const LEAD_ID = "marcin-mazik";
 
 function teamSortKey(name: string) {
   return name.replace(/^(lek\.?\s*dent\.?|mgr|dr|n\.?\s*med\.?)\s+/i, "").trim();

@@ -263,6 +263,13 @@
   color: inherit;
 }
 
+.team-member--lead {
+  padding: 0.7rem 0.7rem 1rem;
+  border: 1px solid color-mix(in srgb, var(--color-lilac) 58%, transparent);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--color-lilac) 18%, var(--color-white));
+}
+
 .team-member__photo {
   aspect-ratio: 4 / 5;
   object-fit: cover;

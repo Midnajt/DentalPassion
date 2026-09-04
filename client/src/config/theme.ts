@@ -4,6 +4,7 @@ export const theme = {
     accentDark: "#2a1a30",
     accentMid: "#562c65",
     accentSoft: "#c770b7",
+    lilac: "#a88eb8",
     mint: "#7ec8b8",
     mintDeep: "#4a9e8f",
     mintSoft: "#c5ebe2",

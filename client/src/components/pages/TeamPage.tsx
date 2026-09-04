@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { assets } from "@/config/assets";
-import { teamListed } from "@/data/team";
+import { LEAD_ID, teamListed } from "@/data/team";
 import { pick } from "@/lib/locale";
 import { useHashView } from "@/lib/hash-view";
 import { Reveal } from "@/components/motion/Reveal";
@@ -30,10 +30,15 @@ export function TeamPage() {
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="container">
           <Reveal style={{ marginBottom: "3rem" }}>
-            <TeamGrid prefix="#zespol/" />
+            <TeamGrid prefix="#zespol/" showHygiene />
           </Reveal>
           {teamListed.map((m) => (
-            <Reveal as="article" className="team-detail" id={m.id} key={m.id}>
+            <Reveal
+              as="article"
+              className={`team-detail${m.id === LEAD_ID ? " team-detail--lead" : ""}`}
+              id={m.id}
+              key={m.id}
+            >
               <div className="team-detail__grid">
                 <img
                   src={m.photo}

@@ -40,6 +40,6 @@ Każdy raport: `.cursor/reports/temat_YYYYMMDD.md`.
 
 # Ostatnie zadania
 
-Środa i piątek w `site.ts` mają 10:00–20:00, tak jak pon–czw. Sobota i niedziela nadal zamknięte.
-Godziny idą na `#kontakt` z `site.hours`.
-Zespół: Marcin pierwszy, dentyści A–Z, na dole „Higiena i profilaktyka”.
+Home pod „Poznaj naszych lekarzy” pokazuje tylko dentystów. Higiena jest wyłącznie na `#zespol` (`showHygiene`).
+Bio Marcina znowu ma PASE i wykłady, bez „założyciela”. Token `--color-lilac` (#a88eb8, jak „passion” w logo).
+Karta i szczegół Marcina: `team-member--lead` / `team-detail--lead` — liliowe tło i obramowanie.

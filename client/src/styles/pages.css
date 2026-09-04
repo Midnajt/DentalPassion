@@ -978,6 +978,14 @@ body.has-lightbox {
   padding-top: 0;
 }
 
+.team-detail.team-detail--lead {
+  border: 1px solid color-mix(in srgb, var(--color-lilac) 58%, transparent);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--color-lilac) 14%, var(--color-white));
+  padding: var(--space-lg);
+  margin-bottom: var(--space-md);
+}
+
 .team-detail__grid {
   display: grid;
   grid-template-columns: 200px 1fr;
