@@ -16,5 +16,6 @@ Oryginały leżą w `client/assets/`. Kopie publiczne (te same URL-e co na produ
 | `images/favicon.png` / `favicon-32.png` | Ikony |
 | `events/first/*.jpg` | Wpis Seeking Occlusion |
 | `events/summer/reel-thumb.jpg` | Wpis wakacyjny / rolka |
+| `events/postural/1.png`–`3.png` | Wpis SOSPP / moduł II (plakat, wykład, grupa) |
 
 Import w kodzie: `?url` (logo bez konwersji). Zdjęcia treści można też importować `?as=picture` (vite-imagetools).

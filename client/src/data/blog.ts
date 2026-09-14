@@ -18,6 +18,67 @@ export type BlogPost = {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "wloska-szkola-stomatologii-posturalnej-2026",
+    title: {
+      pl: "Moduł II Włoskiej Szkoły Stomatologii Posturalnej",
+      en: "Module II of the Italian School of Postural Dentistry",
+    },
+    date: "2026-09-13",
+    dateLabel: { pl: "11–13 września 2026", en: "11–13 September 2026" },
+    excerpt: {
+      pl: "Lek. dent. Marcin Mazik wziął udział w module II Włoskiej Szkoły Stomatologii Posturalnej (SOSPP) — szkoleniu o związkach okluzji, stawu skroniowo-żuchwowego i postawy całego ciała.",
+      en: "Marcin Mazik, DDS, took part in Module II of the Italian School of Postural Dentistry (SOSPP) — training on the links between occlusion, the TMJ and whole-body posture.",
+    },
+    cover: assets.events.postural[2],
+    images: [
+      {
+        src: assets.events.postural[2],
+        alt: {
+          pl: "Uczestnicy modułu II SOSPP na tle ścianki Holimedica",
+          en: "Participants of SOSPP Module II in front of the Holimedica backdrop",
+        },
+      },
+      {
+        src: assets.events.postural[1],
+        alt: {
+          pl: "Wykład o płaszczyźnie okluzyjnej i klasach zgryzu podczas szkolenia posturalnego",
+          en: "Lecture on the occlusal plane and bite classes during the postural dentistry course",
+        },
+      },
+      {
+        src: assets.events.postural[0],
+        alt: {
+          pl: "Plakat modułu II Włoskiej Szkoły Stomatologii Posturalnej, Holimedica, 11–13 września 2026",
+          en: "Poster for Module II of the Italian School of Postural Dentistry, Holimedica, 11–13 September 2026",
+        },
+      },
+    ],
+    paragraphs: [
+      {
+        pl: "W dniach 11–13 września 2026 roku lek. dent. Marcin Mazik wziął udział w module II Włoskiej Szkoły Stomatologii Posturalnej, organizowanym przez Holimedica w ramach SOSPP — School of Systemic Postural Dentistry, Poland.",
+        en: "On 11–13 September 2026 Marcin Mazik, DDS, took part in Module II of the Italian School of Postural Dentistry, organised by Holimedica as part of SOSPP — School of Systemic Postural Dentistry, Poland.",
+      },
+      {
+        pl: "Stomatolog interesuje się postawą całego ciała, bo w organizmie wszystko jest ze sobą połączone. Zgryz, staw skroniowo-żuchwowy, napięcia mięśniowe, a nawet bóle głowy, karku czy kręgosłupa to często jedna układanka — a nie osobne problemy.",
+        en: "A dentist looks at whole-body posture because everything in the body is connected. The bite, the temporomandibular joint, muscle tension, and even headaches, neck or back pain are often one puzzle — not separate problems.",
+      },
+      {
+        pl: "W drugim module szkolenie pogłębiało zależności między okluzją a postawą, diagnostykę posturalną pacjenta oraz interdyscyplinarne podejście do leczenia. Tę wiedzę przenosimy do gabinetu dentalpassion: zdrowe zęby to nie tylko piękny uśmiech, ale też równowaga całego ciała.",
+        en: "The second module went deeper into the relationship between occlusion and posture, postural diagnosis of the patient, and an interdisciplinary approach to treatment. We bring that knowledge into the dentalpassion practice: healthy teeth are not only a beautiful smile, but also whole-body balance.",
+      },
+    ],
+    links: [
+      {
+        href: "https://www.facebook.com/permalink.php?story_fbid=pfbid037BwADG6zPhZQ31a4RBoP1Fhxuk5HzM5BSqJj6gnwqabEof7Xc8SZvr1TrCxijxmql&id=100038760174635",
+        label: { pl: "Relacja na Facebooku", en: "Facebook post" },
+      },
+      {
+        href: "https://holimedica.pl/produkt/wloska-szkola-2026/",
+        label: { pl: "Szkoła — holimedica.pl", en: "Course — holimedica.pl" },
+      },
+    ],
+  },
+  {
     slug: "seeking-occlusion-madrid",
     title: {
       pl: "Dentalpassion na Seeking Occlusion w Madrycie",

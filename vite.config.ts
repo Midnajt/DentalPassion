@@ -13,6 +13,7 @@ const HASH_PAGES = [
   "#zespol",
   "#cennik",
   "#blog",
+  "#blog/wloska-szkola-stomatologii-posturalnej-2026",
   "#blog/seeking-occlusion-madrid",
   "#blog/wakacje-w-dentalpassion",
   "#kontakt",

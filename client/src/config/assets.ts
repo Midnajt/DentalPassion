@@ -13,6 +13,9 @@ import event3 from "../../assets/events/first/3.jpg?url";
 import event4 from "../../assets/events/first/4.jpg?url";
 import event5 from "../../assets/events/first/5.jpg?url";
 import reelThumb from "../../assets/events/summer/reel-thumb.jpg?url";
+import postural1 from "../../assets/events/postural/1.png?url";
+import postural2 from "../../assets/events/postural/2.png?url";
+import postural3 from "../../assets/events/postural/3.png?url";
 
 export const assets = {
   logo: logoUrl,
@@ -26,6 +29,7 @@ export const assets = {
   placeholderF,
   events: {
     first: [event1, event2, event3, event4, event5] as const,
+    postural: [postural1, postural2, postural3] as const,
     reelThumb,
   },
 } as const;
