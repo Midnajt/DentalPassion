@@ -40,6 +40,6 @@ Każdy raport: `.cursor/reports/temat_YYYYMMDD.md`.
 
 # Ostatnie zadania
 
-Profil Wiktora Poczobutta-Odlanickiego ma zdjęcie (`wiktor-poczobutt.jpg`) i bio z notatki (OSIS-EDI, Gdańsk, NYU, WUM).
-Na karcie zespołu specyfikacja: chirurgia, implantologia, protetyka. Placeholder męski został zdjęty tylko u niego.
+Profil Wiktora ma zdjęcie i bio; drugi klik w tę samą kartę zespołu znowu przewija do artykułu (`scrollTick` + `HashLink`).
+Gdy hash się nie zmienia, przeglądarka nie emituje `hashchange` — to była przyczyna „martwego” ponownego kliknięcia.
 Publikacja: `npm run build` i wrzut zawartości `dist/` na FTP — bez zgody agenta nie wrzucamy.

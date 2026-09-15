@@ -47,7 +47,7 @@ function CurrentView() {
 }
 
 export default function App() {
-  const { view } = useHashView();
+  const { view, scrollTick } = useHashView();
   const { i18n } = useTranslation();
   const post = view.name === "blogPost" && view.slug ? getBlogPost(view.slug) : undefined;
   const pageTitle = post ? `${pick(post.title, i18n.language)} — dentalpassion` : undefined;
@@ -55,7 +55,7 @@ export default function App() {
   useEffect(() => {
     if (view.name === "team" && view.memberId) return;
     window.scrollTo(0, 0);
-  }, [view.name, view.slug, view.memberId]);
+  }, [view.name, view.slug, view.memberId, scrollTick]);
 
   useEffect(() => {
     trackHashPageView(hashPath(view));

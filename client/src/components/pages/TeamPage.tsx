@@ -9,14 +9,14 @@ import { TeamGrid } from "@/components/sections/TeamGrid";
 
 export function TeamPage() {
   const { t, i18n } = useTranslation();
-  const { view } = useHashView();
+  const { view, scrollTick } = useHashView();
   const lang = i18n.language;
 
   useEffect(() => {
     if (!view.memberId) return;
     const el = document.getElementById(view.memberId);
     el?.scrollIntoView({ behavior: "smooth", block: "start" });
-  }, [view.memberId]);
+  }, [view.memberId, scrollTick]);
 
   return (
     <main id="main">
