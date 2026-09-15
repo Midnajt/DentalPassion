@@ -3,6 +3,7 @@ import heroUrl from "../../assets/images/hero.jpg?url";
 import feathersUrl from "../../assets/images/feathers.png?url";
 import portraitUrl from "../../assets/images/marcin-portrait.jpg?url";
 import aniaUrl from "../../assets/images/ania.jpg?url";
+import wiktorUrl from "../../assets/images/wiktor-poczobutt.jpg?url";
 import fbUrl from "../../assets/images/fb.png?url";
 import znanyUrl from "../../assets/images/znanylekarz.png?url";
 import placeholderM from "../../assets/images/team-placeholder-m.svg?url";
@@ -23,6 +24,7 @@ export const assets = {
   feathers: feathersUrl,
   portrait: portraitUrl,
   ania: aniaUrl,
+  wiktor: wiktorUrl,
   facebookIcon: fbUrl,
   znanyLekarzIcon: znanyUrl,
   placeholderM,

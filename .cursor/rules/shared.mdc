@@ -40,6 +40,6 @@ Każdy raport: `.cursor/reports/temat_YYYYMMDD.md`.
 
 # Ostatnie zadania
 
-Na `#blog` jest wpis o module II Włoskiej Szkoły Stomatologii Posturalnej (SOSPP / Holimedica, 11–13 września 2026).
-Slug: `wloska-szkola-stomatologii-posturalnej-2026`; zdjęcia w `events/postural/`. Wpis jest pierwszy na liście i na home.
+Profil Wiktora Poczobutta-Odlanickiego ma zdjęcie (`wiktor-poczobutt.jpg`) i bio z notatki (OSIS-EDI, Gdańsk, NYU, WUM).
+Na karcie zespołu specyfikacja: chirurgia, implantologia, protetyka. Placeholder męski został zdjęty tylko u niego.
 Publikacja: `npm run build` i wrzut zawartości `dist/` na FTP — bez zgody agenta nie wrzucamy.

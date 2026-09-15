@@ -9,6 +9,7 @@ Oryginały leżą w `client/assets/`. Kopie publiczne (te same URL-e co na produ
 | `images/feathers.png` | Akcenty i eyebrow |
 | `images/marcin-portrait.jpg` | O nas, zakres, karta zespołu |
 | `images/ania.jpg` | Higienistka |
+| `images/wiktor-poczobutt.jpg` | Karta i profil Wiktora Poczobutta-Odlanickiego |
 | `images/team-placeholder-m.svg` / `team-placeholder-f.svg` | Placeholdery zespołu |
 | `images/fb.png` / `znanylekarz.png` | Ikony social |
 | `images/clinic.jpg` | Tło pasa CTA (`pages.css`) |
