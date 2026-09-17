@@ -40,6 +40,6 @@ Każdy raport: `.cursor/reports/temat_YYYYMMDD.md`.
 
 # Ostatnie zadania
 
-Wpis z rolką to teraz higienizacja (`#blog/profesjonalna-higienizacja`): karta, H1 i treść wg notatki (częstotliwość, estetyka vs zdrowie, implanty/aparat, etapy).
-Stary hash `#blog/wakacje-w-dentalpassion` zostaje aliasem tego samego artykułu.
+Facebook Anny Karwackiej w zespole prowadzi do `https://www.facebook.com/HigienistkaAnnaK/` (pole `facebook` w `team.ts`).
+Wpis z rolką to higienizacja (`#blog/profesjonalna-higienizacja`); stary hash wakacji jest aliasem.
 Publikacja: `npm run build` i wrzut zawartości `dist/` na FTP — bez zgody agenta nie wrzucamy.

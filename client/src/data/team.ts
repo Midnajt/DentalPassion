@@ -130,7 +130,7 @@ export const team: TeamMember[] = [
       pl: "Higienistka stomatologiczna, która dba o profilaktykę i komfort wizyt higienizacyjnych. Wspiera pacjentów w utrzymaniu zdrowych dziąseł oraz pięknego, zadbanego uśmiechu na co dzień.",
       en: "A dental hygienist who focuses on prevention and comfortable hygiene visits. She helps patients keep healthy gums and a well-cared-for smile every day.",
     },
-    facebook: "https://www.facebook.com/anna.oneczka?locale=pl_PL",
+    facebook: "https://www.facebook.com/HigienistkaAnnaK/",
     znanyLekarz: "https://www.znanylekarz.pl/anna-karwacka-2/higienistka-stomatologiczna/warszawa#about-section",
     group: "hygiene",
   },
