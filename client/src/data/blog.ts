@@ -124,13 +124,16 @@ export const blogPosts: BlogPost[] = [
     ],
   },
   {
-    slug: "wakacje-w-dentalpassion",
-    title: { pl: "Czas wakacji w Dentalpassion", en: "Holiday time at Dentalpassion" },
+    slug: "profesjonalna-higienizacja",
+    title: {
+      pl: "Na czym polega profesjonalna higienizacja?",
+      en: "What does professional dental hygiene involve?",
+    },
     date: "2025-08-01",
     dateLabel: { pl: "sierpień 2025", en: "August 2025" },
     excerpt: {
-      pl: "Wakacje w naszym gabinecie to nie tylko urlop — to także serwis sprzętu i drobne zmiany, dzięki którym wszystko działa jeszcze sprawniej.",
-      en: "Holidays at our practice are not only time off — they are also equipment servicing and small changes that make everything run even more smoothly.",
+      pl: "Zabieg zalecany zwykle co 6 miesięcy — a u części pacjentów częściej. To nie tylko estetyka: implanty, aparat i prace protetyczne nie wykluczają higienizacji.",
+      en: "Usually recommended every 6 months — more often for some patients. It is not just about looks: implants, braces and prosthetic work are not a reason to skip it.",
     },
     cover: assets.events.reelThumb,
     video: {
@@ -140,16 +143,20 @@ export const blogPosts: BlogPost[] = [
     },
     paragraphs: [
       {
-        pl: "Czas wakacji w Dentalpassion to nie tylko urlop i wypoczynek. To także moment, w którym dbamy o zaplecze gabinetu — tak, by po powrocie pacjentów wszystko działało jeszcze sprawniej i komfortowo.",
-        en: "Holiday time at Dentalpassion is not only rest. It is also when we take care of the practice infrastructure — so that when patients return, everything works even more smoothly and comfortably.",
+        pl: "Profesjonalna higienizacja to zabieg profilaktyczny, który usuwa kamień, osad i biofilm trudny do wyczyszczenia w domu. W dentalpassion zalecamy go zwykle co 6 miesięcy. Przy zapaleniu dziąseł, większej skłonności do kamienia albo gdy w jamie ustnej jest aparat, implanty lub prace protetyczne — wizyty bywają częstsze.",
+        en: "Professional hygiene treatment is a preventive visit that removes tartar, stain and biofilm that home brushing cannot fully reach. At dentalpassion we usually recommend it every 6 months. With gum inflammation, a tendency to build-up, or with braces, implants or prosthetic work, visits may be more frequent.",
       },
       {
-        pl: "Wykorzystujemy ten okres na serwisowanie sprzętu oraz wprowadzanie małych, ale zauważalnych zmian: w gabinecie, w recepcji i w poczekalni. Porządkujemy przestrzeń, dopracowujemy detale i przygotowujemy stanowiska pracy na kolejny intensywny sezon.",
-        en: "We use this period to service equipment and introduce small but noticeable changes in the treatment rooms, reception and waiting area. We tidy the space, refine details and prepare workstations for the next busy season.",
+        pl: "To nie jest wyłącznie zabieg „na ładniejszy uśmiech”. Regularne oczyszczanie chroni dziąsła, zmniejsza ryzyko próchnicy i stanów zapalnych oraz pomaga utrzymać świeży oddech. Jaśniejsze, gładsze zęby są skutkiem zdrowej jamy ustnej — nie jedynym celem.",
+        en: "It is not just a cosmetic polish. Regular professional cleaning protects the gums, lowers the risk of cavities and inflammation, and helps keep breath fresh. Whiter, smoother teeth are a result of a healthier mouth — not the only goal.",
       },
       {
-        pl: "Dzięki temu możemy skupić się na tym, co najważniejsze — spokojnym, precyzyjnym leczeniu w przyjaznej atmosferze. Pozdrawiamy serdecznie — zespół Dentalpassion.",
-        en: "This lets us focus on what matters most — calm, precise treatment in a friendly atmosphere. Warm regards — the Dentalpassion team.",
+        pl: "Implanty, aparat ortodontyczny i uzupełnienia protetyczne nie są przeciwwskazaniem. Wręcz przeciwnie: wokół implantów, zamków i koron osad zbiera się łatwiej, więc higienizacja jest szczególnie ważna. Dobieramy narzędzia i technikę tak, by oczyścić te miejsca bez uszkodzenia prac.",
+        en: "Implants, orthodontic appliances and prosthetic restorations are not a contraindication. On the contrary: plaque collects more easily around implants, brackets and crowns, so hygiene visits matter even more. We choose instruments and technique so those areas can be cleaned without damaging the work.",
+      },
+      {
+        pl: "Typowe etapy to ocena stanu jamy ustnej, usunięcie kamienia (skaling), piaskowanie osadów, polerowanie powierzchni oraz — gdy jest wskazanie — fluoryzacja i instruktaż higieny w domu. W rolce na Facebooku rozwijamy te zagadnienia: po co ten zabieg, czy to tylko estetyka i jak wygląda krok po kroku.",
+        en: "Typical stages include an oral-health check, tartar removal (scaling), air-polishing of stains, surface polishing and — when indicated — fluoride and home-care advice. The Facebook reel goes further into why the treatment is done, whether it is only about aesthetics, and what happens step by step.",
       },
     ],
     links: [
@@ -161,6 +168,11 @@ export const blogPosts: BlogPost[] = [
   },
 ];
 
+const blogSlugAliases: Record<string, string> = {
+  "wakacje-w-dentalpassion": "profesjonalna-higienizacja",
+};
+
 export function getBlogPost(slug: string) {
-  return blogPosts.find((post) => post.slug === slug);
+  const resolved = blogSlugAliases[slug] ?? slug;
+  return blogPosts.find((post) => post.slug === resolved);
 }

@@ -15,7 +15,7 @@ const HASH_PAGES = [
   "#blog",
   "#blog/wloska-szkola-stomatologii-posturalnej-2026",
   "#blog/seeking-occlusion-madrid",
-  "#blog/wakacje-w-dentalpassion",
+  "#blog/profesjonalna-higienizacja",
   "#kontakt",
   "#/rodo",
   "#/prawa-pacjenta",

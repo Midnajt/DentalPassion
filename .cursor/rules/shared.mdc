@@ -40,6 +40,6 @@ Każdy raport: `.cursor/reports/temat_YYYYMMDD.md`.
 
 # Ostatnie zadania
 
-Profil Wiktora ma zdjęcie i bio; drugi klik w tę samą kartę zespołu znowu przewija do artykułu (`scrollTick` + `HashLink`).
-Gdy hash się nie zmienia, przeglądarka nie emituje `hashchange` — to była przyczyna „martwego” ponownego kliknięcia.
+Wpis z rolką to teraz higienizacja (`#blog/profesjonalna-higienizacja`): karta, H1 i treść wg notatki (częstotliwość, estetyka vs zdrowie, implanty/aparat, etapy).
+Stary hash `#blog/wakacje-w-dentalpassion` zostaje aliasem tego samego artykułu.
 Publikacja: `npm run build` i wrzut zawartości `dist/` na FTP — bez zgody agenta nie wrzucamy.
