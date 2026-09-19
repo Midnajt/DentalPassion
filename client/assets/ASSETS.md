@@ -10,6 +10,7 @@ Oryginały leżą w `client/assets/`. Kopie publiczne (te same URL-e co na produ
 | `images/marcin-portrait.jpg` | O nas, zakres, karta zespołu |
 | `images/ania.jpg` | Karta i profil mgr Anny Karwackiej (higienistka) |
 | `images/wiktor-poczobutt.jpg` | Karta i profil Wiktora Poczobutta-Odlanickiego |
+| `images/stella-stepniewska.png` | Karta i profil Stelli Stępniewskiej |
 | `images/team-placeholder-m.svg` / `team-placeholder-f.svg` | Placeholdery zespołu |
 | `images/fb.png` / `znanylekarz.png` | Ikony social |
 | `images/clinic.jpg` | Tło pasa CTA (`pages.css`) |

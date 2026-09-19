@@ -40,6 +40,6 @@ Każdy raport: `.cursor/reports/temat_YYYYMMDD.md`.
 
 # Ostatnie zadania
 
-Facebook Anny Karwackiej w zespole prowadzi do `https://www.facebook.com/HigienistkaAnnaK/` (pole `facebook` w `team.ts`).
-Wpis z rolką to higienizacja (`#blog/profesjonalna-higienizacja`); stary hash wakacji jest aliasem.
+Profil Stelli Stępniewskiej ma zdjęcie i bio (UMŁ, WIML, zachowawcza, endo mikroskopowa, dzieci, estetyka/protetyka, języki PL/EN/ES).
+Facebook Anny: `HigienistkaAnnaK`. Wpis z rolką: `#blog/profesjonalna-higienizacja`.
 Publikacja: `npm run build` i wrzut zawartości `dist/` na FTP — bez zgody agenta nie wrzucamy.

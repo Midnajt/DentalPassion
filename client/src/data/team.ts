@@ -110,11 +110,14 @@ export const team: TeamMember[] = [
     id: "stella-stepniewska",
     name: "Stella Stępniewska",
     role: { pl: "Lekarz dentysta", en: "Dentist" },
-    spec: { pl: "", en: "" },
-    photo: assets.placeholderF,
+    spec: {
+      pl: "stomatologia zachowawcza, endodoncja mikroskopowa, stomatologia dziecięca",
+      en: "restorative dentistry, microscope endodontics, paediatric dentistry",
+    },
+    photo: assets.stella,
     bio: {
-      pl: "Lekarz dentysta w zespole dentalpassion. Dbamy wspólnie o indywidualne podejście do pacjenta, dokładną diagnostykę i leczenie dopasowane do potrzeb uśmiechu.",
-      en: "A dentist on the dentalpassion team. Together we focus on an individual approach, thorough diagnostics and treatment tailored to each smile.",
+      pl: "Absolwentka kierunku lekarsko-dentystycznego Uniwersytetu Medycznego w Łodzi. Staż podyplomowy odbyła w Wojskowym Instytucie Medycyny Lotniczej w Warszawie pod kierownictwem ppłk. lek. stom. Remigiusza Budziłło. W codziennej praktyce zajmuje się stomatologią zachowawczą, leczeniem kanałowym pod mikroskopem oraz stomatologią dziecięcą. Podobnie jak dr Marcin Mazik, zawodowo pasjonuje się stomatologią estetyczną i protetyką — każde leczenie planuje indywidualnie, do potrzeb, warunków zgryzowych i oczekiwań pacjenta. Stawia na zdrowie, satysfakcję pacjenta i precyzję, tak aby efekt był nie tylko estetyczny, ale też funkcjonalny i trwały. Duży nacisk kładzie na rozmowę i dokładne omówienie planu leczenia. Korzysta z nowoczesnych, minimalnie inwazyjnych technik i regularnie uczestniczy w konferencjach oraz szkoleniach. Ukończyła studia podyplomowe z medycyny estetycznej w Centrum Kształcenia Podyplomowego Warszawskiego Uniwersytetu Medycznego. Przyjmuje po polsku, angielsku i hiszpańsku.",
+      en: "A graduate of dentistry at the Medical University of Łódź. She completed her postgraduate internship at the Military Institute of Aviation Medicine in Warsaw under Lt. Col. Remigiusz Budziłło, DDS. In daily practice she provides restorative dentistry, microscope-assisted root-canal treatment and paediatric dentistry. Like Marcin Mazik, DDS, she is especially drawn to aesthetic dentistry and prosthodontics — each treatment is planned individually around the patient’s needs, bite and expectations. She focuses on health, patient comfort and precision, so the result is aesthetic, functional and durable. She places strong emphasis on conversation and a clear discussion of the treatment plan. She uses modern, minimally invasive techniques and regularly attends conferences and courses. She completed postgraduate studies in aesthetic medicine at the Postgraduate Education Centre of the Medical University of Warsaw. She treats patients in Polish, English and Spanish.",
     },
     facebook: "#",
     znanyLekarz: "#",
