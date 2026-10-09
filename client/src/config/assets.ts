@@ -5,6 +5,7 @@ import portraitUrl from "../../assets/images/marcin-portrait.jpg?url";
 import aniaUrl from "../../assets/images/ania.jpg?url";
 import wiktorUrl from "../../assets/images/wiktor-poczobutt.jpg?url";
 import stellaUrl from "../../assets/images/stella-stepniewska.png?url";
+import agnieszkaUrl from "../../assets/images/agnieszka_fundowska.png?url";
 import fbUrl from "../../assets/images/fb.png?url";
 import znanyUrl from "../../assets/images/znanylekarz.png?url";
 import placeholderM from "../../assets/images/team-placeholder-m.svg?url";
@@ -27,6 +28,7 @@ export const assets = {
   ania: aniaUrl,
   wiktor: wiktorUrl,
   stella: stellaUrl,
+  agnieszka: agnieszkaUrl,
   facebookIcon: fbUrl,
   znanyLekarzIcon: znanyUrl,
   placeholderM,

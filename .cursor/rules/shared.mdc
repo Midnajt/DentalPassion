@@ -40,6 +40,6 @@ Każdy raport: `.cursor/reports/temat_YYYYMMDD.md`.
 
 # Ostatnie zadania
 
+Karta i profil Agnieszki Fundakowskiej (`#zespol/agnieszka-fundakowska`) mają zdjęcie `images/agnieszka_fundowska.jpg` zamiast placeholdera.
 Profil Stelli Stępniewskiej ma zdjęcie i bio (UMŁ, WIML, zachowawcza, endo mikroskopowa, dzieci, estetyka/protetyka, języki PL/EN/ES).
-Facebook Anny: `HigienistkaAnnaK`. Wpis z rolką: `#blog/profesjonalna-higienizacja`.
 Publikacja: `npm run build` i wrzut zawartości `dist/` na FTP — bez zgody agenta nie wrzucamy.

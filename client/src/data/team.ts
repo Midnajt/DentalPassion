@@ -83,7 +83,7 @@ export const team: TeamMember[] = [
       pl: "stomatologia zachowawcza, stomatologia dziecięca",
       en: "restorative dentistry, paediatric dentistry",
     },
-    photo: assets.placeholderF,
+    photo: assets.agnieszka,
     bio: {
       pl: "Zajmuje się stomatologią zachowawczą oraz opieką nad najmłodszymi pacjentami. Stawia na przyjazną atmosferę wizyty i dokładne, estetyczne odbudowy zębów.",
       en: "She provides restorative dentistry and care for the youngest patients, with a friendly visit atmosphere and precise, aesthetic restorations.",
