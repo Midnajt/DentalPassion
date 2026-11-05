@@ -40,6 +40,6 @@ Każdy raport: `.cursor/reports/temat_YYYYMMDD.md`.
 
 # Ostatnie zadania
 
-Podłączono Google Ads (`AW-18539018005`) obok GA4 (`G-55QG7SQY7K`) na wspólnym `gtag.js` z rozdzielonym Consent Mode v2 (oddzielny wybór zgód analitycznych i reklamowych w banerze oraz wycofywanie przez „Ustawienia cookies” w stopce).
-W `client/src/lib/google-ads.ts` zdarzenia `phone_click` i `email_click` są wysyłane bez PII (`link_url`, `contact_target`), a konwersje Google Ads tylko po zgodzie reklamowej i podaniu etykiety.
-Publikacja: `npm run build` i wrzut zawartości `dist/` na FTP — bez zgody użytkownika nie wrzucamy.
+Przeredagowano raport miesięczny dla klienta za październik 2026 (`MonthlyReports/DentalPassion raport październik 2 z 12 - 2026.docx`), uzupełniając brakujące opisy wykresów GA4 i Google Ads oraz wnioski biznesowe.
+Wygenerowano dwustronicowy, obrandowany plik PDF (`MonthlyReports/DentalPassion raport październik 2 z 12 - 2026.pdf`) z kartami KPI, logo gabinetu i wszystkimi 7 zrzutami ekranu.
+Wcześniej podłączono Google Ads (`AW-18539018005`) obok GA4 (`G-55QG7SQY7K`) z rozdzielonym Consent Mode v2 oraz śledzeniem kliknięć `tel:` i `mailto:` bez PII.
