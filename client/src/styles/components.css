@@ -551,6 +551,12 @@
   color: var(--color-mint-soft);
 }
 
+.consent-banner__options {
+  display: grid;
+  gap: 0.55rem;
+  margin-top: 0.25rem;
+}
+
 .consent-banner__check {
   display: flex;
   gap: 0.7rem;
@@ -571,8 +577,35 @@
 
 .consent-banner__actions {
   display: flex;
+  flex-wrap: wrap;
   gap: var(--space-sm);
   flex-shrink: 0;
+}
+
+.consent-banner__btn-secondary {
+  color: rgba(255, 255, 255, 0.9);
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+.consent-banner__btn-secondary:hover {
+  color: var(--color-white);
+  border-color: var(--color-mint);
+  background: rgba(126, 200, 184, 0.14);
+}
+
+.footer-link-btn {
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: rgba(255, 255, 255, 0.82);
+  cursor: pointer;
+  text-align: left;
+  transition: color var(--duration) var(--ease);
+}
+
+.footer-link-btn:hover {
+  color: var(--color-mint-soft);
 }
 
 .consent-banner__actions .btn:disabled {

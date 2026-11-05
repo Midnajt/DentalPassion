@@ -21,7 +21,7 @@ Brak backendu i bazy: kontakt wyłącznie przez `tel:` i `mailto:` (`client/src/
 | i18n | i18next / react-i18next — PL (domyślny), EN; wybór w `localStorage` |
 | Ruch | Framer Motion (reveal), CSS transitions na przyciskach |
 | Nawigacja | hash (`#cennik`, `#/rodo`, `#blog/slug`) — bez React Router |
-| Analityka | GA4, Consent Mode v2 |
+| Analityka i reklamy | GA4 (`G-55QG7SQY7K`), Google Ads (`AW-18539018005`), Consent Mode v2 |
 | Hosting | pliki statyczne na FTP (Apache / cyberFolks, `public_html`) |
 | Narzędzia | npm + `package-lock.json`, ESLint, vite-imagetools |
 | Env | wyłącznie `import.meta.env.VITE_*` (patrz `.env.example`) |

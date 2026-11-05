@@ -19,6 +19,7 @@
     "rodo": "GDPR",
     "rights": "Patient rights",
     "privacy": "Privacy policy",
+    "cookies": "Cookie settings",
     "facebook": "Facebook",
     "copy": "dentalpassion Marcin Mazik",
     "city": "Warsaw · dentistry",
@@ -27,9 +28,12 @@
   },
   "consent": {
     "title": "Consent to cookies and data processing",
-    "body": "We use cookies and process data in line with our GDPR notice and privacy policy. We use Google Analytics for visit statistics — its cookies are stored only after your consent. To continue, confirm consent below.",
-    "check": "I consent to the use of cookies and the processing of personal data for the purposes described in the GDPR notice and privacy policy.",
-    "accept": "I accept"
+    "body": "We use cookies and process data in line with our GDPR notice and privacy policy. You can independently grant consent to analytics cookies (Google Analytics) and advertising cookies (Google Ads). You can change or withdraw your consent at any time via “Cookie settings” in the page footer.",
+    "analyticsCheck": "Analytics (Google Analytics) — anonymous statistics on visits and how the site is used.",
+    "marketingCheck": "Advertising (Google Ads) — campaign effectiveness and conversion measurement.",
+    "rejectOptional": "Essential only",
+    "saveSelected": "Save selection",
+    "acceptAll": "Accept all"
   },
   "meta": {
     "homeTitle": "dentalpassion Marcin Mazik — dentistry Warsaw",

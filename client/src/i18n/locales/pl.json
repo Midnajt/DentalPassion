@@ -19,6 +19,7 @@
     "rodo": "RODO",
     "rights": "Prawa pacjenta",
     "privacy": "Polityka prywatności",
+    "cookies": "Ustawienia cookies",
     "facebook": "Facebook",
     "copy": "dentalpassion Marcin Mazik",
     "city": "Warszawa · stomatologia",
@@ -27,9 +28,12 @@
   },
   "consent": {
     "title": "Zgoda na pliki cookies i przetwarzanie danych",
-    "body": "Korzystamy z plików cookies oraz przetwarzamy dane zgodnie z informacją RODO i polityką prywatności. Do statystyk odwiedzin używamy Google Analytics — jego pliki cookies zapisujemy dopiero po Twojej zgodzie. Aby kontynuować, potwierdź zgodę poniżej.",
-    "check": "Wyrażam zgodę na wykorzystywanie plików cookies oraz przetwarzanie danych osobowych w celach opisanych w dokumentach RODO i polityki prywatności.",
-    "accept": "Akceptuję"
+    "body": "Korzystamy z plików cookies oraz przetwarzamy dane zgodnie z informacją RODO i polityką prywatności. Możesz niezależnie wyrazić zgodę na analityczne cookies (Google Analytics) oraz reklamowe cookies (Google Ads). Zgodę możesz w każdej chwili zmienić lub wycofać w stopce strony („Ustawienia cookies”).",
+    "analyticsCheck": "Analityczne (Google Analytics) — anonimowe statystyki odwiedzin i sposobu korzystania ze strony.",
+    "marketingCheck": "Reklamowe (Google Ads) — pomiar skuteczności i konwersji kampanii reklamowych.",
+    "rejectOptional": "Tylko niezbędne",
+    "saveSelected": "Zapisz wybór",
+    "acceptAll": "Akceptuj wszystkie"
   },
   "meta": {
     "homeTitle": "dentalpassion Marcin Mazik — stomatologia Warszawa",

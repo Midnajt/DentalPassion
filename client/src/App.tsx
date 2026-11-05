@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { ConsentBanner } from "@/components/layout/ConsentBanner";
 import { DocumentMeta } from "@/components/layout/DocumentMeta";
@@ -16,6 +16,7 @@ import { TeamPage } from "@/components/pages/TeamPage";
 import { getBlogPost } from "@/data/blog";
 import { pick } from "@/lib/locale";
 import { hashPath, useHashView } from "@/lib/hash-view";
+import { bindContactClickTracking } from "@/lib/google-ads";
 import { trackHashPageView } from "@/lib/google-analytics";
 
 function CurrentView() {
@@ -57,9 +58,20 @@ export default function App() {
     window.scrollTo(0, 0);
   }, [view.name, view.slug, view.memberId, scrollTick]);
 
+  const isInitialLoad = useRef(true);
+
   useEffect(() => {
-    trackHashPageView(hashPath(view));
+    const path = hashPath(view);
+    if (isInitialLoad.current) {
+      isInitialLoad.current = false;
+      return;
+    }
+    trackHashPageView(path);
   }, [view]);
+
+  useEffect(() => {
+    return bindContactClickTracking();
+  }, []);
 
   return (
     <>

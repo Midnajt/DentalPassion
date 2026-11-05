@@ -3,6 +3,9 @@
 interface ImportMetaEnv {
   readonly VITE_BASE: string;
   readonly VITE_GA_MEASUREMENT_ID: string;
+  readonly VITE_GOOGLE_ADS_ID: string;
+  readonly VITE_GOOGLE_ADS_PHONE_CONVERSION_LABEL: string;
+  readonly VITE_GOOGLE_ADS_EMAIL_CONVERSION_LABEL: string;
   readonly VITE_SITE_URL: string;
 }
 

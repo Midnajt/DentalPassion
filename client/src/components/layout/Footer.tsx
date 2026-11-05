@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { assets } from "@/config/assets";
 import { site } from "@/config/site";
+import { openConsentBanner } from "@/lib/google-analytics";
 import { HashLink } from "./HashLink";
 
 export function Footer() {
@@ -48,6 +49,11 @@ export function Footer() {
             </li>
             <li>
               <HashLink to="#/polityka">{t("footer.privacy")}</HashLink>
+            </li>
+            <li>
+              <button type="button" className="footer-link-btn" onClick={openConsentBanner}>
+                {t("footer.cookies")}
+              </button>
             </li>
             <li>
               <a href={site.facebook} rel="noopener noreferrer" target="_blank">

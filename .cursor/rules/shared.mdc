@@ -40,6 +40,6 @@ Każdy raport: `.cursor/reports/temat_YYYYMMDD.md`.
 
 # Ostatnie zadania
 
-Karta i profil Agnieszki Fundakowskiej (`#zespol/agnieszka-fundakowska`) mają zdjęcie `images/agnieszka_fundowska.jpg` zamiast placeholdera.
-Profil Stelli Stępniewskiej ma zdjęcie i bio (UMŁ, WIML, zachowawcza, endo mikroskopowa, dzieci, estetyka/protetyka, języki PL/EN/ES).
-Publikacja: `npm run build` i wrzut zawartości `dist/` na FTP — bez zgody agenta nie wrzucamy.
+Podłączono Google Ads (`AW-18539018005`) obok GA4 (`G-55QG7SQY7K`) na wspólnym `gtag.js` z rozdzielonym Consent Mode v2 (oddzielny wybór zgód analitycznych i reklamowych w banerze oraz wycofywanie przez „Ustawienia cookies” w stopce).
+W `client/src/lib/google-ads.ts` zdarzenia `phone_click` i `email_click` są wysyłane bez PII (`link_url`, `contact_target`), a konwersje Google Ads tylko po zgodzie reklamowej i podaniu etykiety.
+Publikacja: `npm run build` i wrzut zawartości `dist/` na FTP — bez zgody użytkownika nie wrzucamy.

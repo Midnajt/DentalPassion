@@ -9,16 +9,18 @@ type RevealProps = {
 
 export function Reveal({ children, className, as: Tag = "div", ...rest }: RevealProps) {
   const ref = useRef<HTMLElement | null>(null);
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return (
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+      !("IntersectionObserver" in window)
+    );
+  });
 
   useEffect(() => {
+    if (visible) return;
     const el = ref.current;
     if (!el) return;
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce || !("IntersectionObserver" in window)) {
-      setVisible(true);
-      return;
-    }
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -32,7 +34,7 @@ export function Reveal({ children, className, as: Tag = "div", ...rest }: Reveal
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, []);
+  }, [visible]);
 
   return (
     <Tag ref={ref} className={cn("reveal", visible && "is-visible", className)} {...rest}>

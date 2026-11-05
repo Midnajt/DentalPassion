@@ -28,9 +28,13 @@ export function Navbar({ hero }: { hero?: boolean }) {
   }, []);
 
   useEffect(() => {
-    setOpen(false);
-    document.body.style.overflow = "";
-  }, [view]);
+    const onHashChange = () => {
+      setOpen(false);
+      document.body.style.overflow = "";
+    };
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, []);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";

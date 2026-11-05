@@ -15,4 +15,4 @@ alwaysApply: false
 - SEO: tytuł, description i OG aktualizuj w `index.html` / efekcie widoku. `og:image` to absolutny URL (`/assets/images/og-image.png`).
 - Kontakt tylko `tel:` i `mailto:` z `site.ts`. Brak formularza POST.
 - Teksty dwujęzyczne: locale, nie twarde stringi w JSX.
-- GA4: Consent Mode v2, klucz `dentalpassion-consent-v2`, `page_view` po świeżej zgodzie i przy zmianie hash.
+- GA4 (`G-55QG7SQY7K`) i Google Ads (`AW-18539018005`): Consent Mode v2, klucz `dentalpassion-consent-v2`, `page_view` po świeżej zgodzie i przy zmianie hash, kliknięcia `tel:` / `mailto:` (`phone_click`, `email_click`) i konwersje w `google-ads.ts`.
